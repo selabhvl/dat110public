@@ -18,3 +18,5 @@ Your task is to make sure that you have a **working installation** of the softwa
 Perform a simple test to check that each of the tools are working properly. In case of problems, contact one of the teaching assistants of the course.
 
 - [ ] Watch the video [Warriers of the Net](https://www.youtube.com/watch?v=PBWhzz_Gn10) (15 minutes) which provides a popular science introduction to Internetworking which is one of the main topics of the course.
+
+- [ ] Make sure that you have access to the two textbooks that are to be used in the course.
