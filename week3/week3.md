@@ -2,7 +2,7 @@
 
 ### Lab Week 3 (13/01 - 17/01) - Software tools installation
 
-#### Task 1
+#### Task 3.1
 
 The first task in the lab-exercises in the first week is to make sure that you have a **working installation** of the software tools that is to be used in the course. This amounts to:
 
@@ -15,14 +15,14 @@ The first task in the lab-exercises in the first week is to make sure that you h
 
 Perform a simple test to check that each of the tools are working properly. In case of problems, contact one of the teaching assistants of the course.
 
-#### Task 2
+#### Task 3.2
 
 Watch the video [Warriers of the Net](https://www.youtube.com/watch?v=PBWhzz_Gn10) (15 minutes) which provides a popular science introduction to Internetworking which is one of the main topics of the course.
 
-#### Task 3
+#### Task 3.3
 
 Make sure that you have access to the two textbooks that are to be used in the course.
 
-#### Task 4
+#### Task 3.4
 
 Complete the end of week3 quiz (see Canvas)
