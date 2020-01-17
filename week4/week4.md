@@ -28,6 +28,11 @@ The main purpose of this exercise is to briefly recap inter-thread communication
 
 We consider a small (emulated) IoT system consisting of a temperature sensor device and a display device. The sensor device and the display device runs as individual threads where the sensor-thread with periodic intervals reads the current temperature and the display-threads periodically display the current temperature.
 
+An illustration of the system is shown below
+
+![](iotthreads/iotsystem.jpg)
+
+
 ##### 4.4.1
 
 Pull the code base for the system from the github repository: https://github.com/selabhvl/dat110public-2020
