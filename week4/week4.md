@@ -2,7 +2,7 @@
 
 ### Lab Week 4: 20/01 - 24/01
 
-**REMEMBER** to complete the end of week 4 quiz.
+**REMEMBER** to complete the end of week 4 quiz (and also end of week 3 quiz if you have not already done so).
 
 Not that some of the exercises below are marked as **optional**. These represents more challenging exercises. The first project in week 5 will be about socket and network programming in Java. So even if Exercise 4.6 is optional, it is highly recommended to be well-prepared for undertaking the project.
 
