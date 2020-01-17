@@ -2,7 +2,6 @@ package no.hvl.dat110.tcpexample.server;
 
 import java.io.IOException;
 import java.net.ServerSocket;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 import no.hvl.dat110.tcpexample.system.Configuration;
 
