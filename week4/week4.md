@@ -111,4 +111,4 @@ where communication between the temperature device and the display device was pe
 
 Revise the implementation such the temperature device and the display device runs as separate processes and uses sockets for communication between the two entities. The temperature device should act as as client reporting temperature, and the display should act as a server receiving request to display the current temperature.
 
-Implement both a TCP and a UDP variant. Use the example code from exercise 4.4 above for inspiration on how to implement the IoT system as a networked application using sockets.
+Implement both a TCP and a UDP variant. Use the example code from exercise 4.5 above for inspiration on how to implement the IoT system as a networked application using sockets.
