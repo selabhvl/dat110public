@@ -73,9 +73,17 @@ The implementation uses the Java Socket API as documented here:
 
 https://docs.oracle.com/javase/10/docs/api/java/net/package-summary.html
 
+The drawing made at the lectures introducing the example has been repeated below.
+
+![](assets/markdown-img-paste-20200122144706694.png)
+
+![](assets/markdown-img-paste-20200122144242467.png)
+
 ##### 4.5.1
 
 Open the two projects in Eclipse and run both the UDP and the TCP client-server example, make the two examples run.
+
+Study the implementation to try to understand how programming with sockets works.
 
 ##### 4.5.2 (optional, you may also choose to just run the applications via the IDE)
 
