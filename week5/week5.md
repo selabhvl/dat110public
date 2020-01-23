@@ -4,7 +4,7 @@
 
 **REMEMBER** to complete the end of week 4 quiz if you have not already done so. There is no quiz in week 5.
 
-Not that some of the exercises below are marked as **optional**. These represents more challenging exercises.
+Note that some of the exercises below are marked as **optional**. These represent more challenging exercises.
 
 #### Exercise 5.1 - Domain Name System
 
