@@ -12,7 +12,9 @@ Problems P7 and P8 in Chap. 2 of the networking book.
 
 #### Exercise 5.2 - Project work
 
-Complete task 1 and start on task 2 on project 1 (will be made available Monday 27/1)
+Complete task 1 and start on task 2 on project 1:
+
+https://github.com/selabhvl/dat110-project1-startcode/blob/master/README.md
 
 #### Exercise 5.3 - Secure HTTP
 
