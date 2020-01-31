@@ -16,7 +16,7 @@ https://github.com/selabhvl/dat110-project1-startcode/blob/master/README.md
 A complete (and simple) example of using Java Remote Method Invocation (RMI) as discussed in the lecture can be found in this link.
 See the ReadMe file on how to run this example code.
 
-https://github.com/selabhvl/dat110public/tree/master/week6/JavaRMI-DSLab1.
+https://github.com/selabhvl/dat110public-2020/blob/master/week6/JavaRMI-DSLab1.
 
 Import the code into your IDE and go through the implementation, run the example to understand how it works.
 
