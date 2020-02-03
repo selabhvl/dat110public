@@ -2,7 +2,7 @@
 
 ### Lab Week 6: 3/2 - 7/2
 
-#### Exercise 6.1 - Project 1
+#### Exercise 6.1 - Completing Project 1
 
 Complete task 2 and task 3 on project 1:
 
