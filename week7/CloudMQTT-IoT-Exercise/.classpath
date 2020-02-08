@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/Users/tdoy/eclipse-workspace/CloudMQTT-IoT-Exercise/lib/org.eclipse.paho.client.mqttv3-1.2.0.jar" sourcepath="/Users/tdoy/eclipse-workspace/CloudMQTT-IoT-Exercise/lib/org.eclipse.paho.client.mqttv3-1.2.0-sources.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
