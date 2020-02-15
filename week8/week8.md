@@ -6,11 +6,11 @@ The implementation contains a chord ring that is not dynamically linked together
 
 #### Design
 The idea is that we can replicate a resource (e.g. a file) and distribute the replicas to running processes (peers) that are arranged in a ring topology. This design provides fault-tolerance and high availability for the resource.
-However, to achieve this efficiently in a dynamic system, requires an efficient naming system. The DHT system provides the mechanism to pair a resource to the address where it can be stored and located.
+However, to achieve these qualities require an efficient naming system. The DHT system provides the mechanism to pair a resource to the address where it can be stored and located.
 Given a resource (e.g. a file), we can lookup the DHT system for the server(s) storing this file. The DHT system uses the same address space for naming a resource and its access point (peers).
 
 
-To get started you need to download and import the ChordDHT project into your eclipse IDE. You can find the project here:
+To get started you need to download and import the ChordDHT project into your eclipse IDE. You can find the project here: https://github.com/selabhvl/dat110public-2020/tree/master/week8/ChordDHTPeer-Lab-Exercise
 The project is divided into four packages:
 
 - no.hvl.dat110.rpc.interfaces: contains an interface (NodeInterface) with methods that peers can invoke remotely
@@ -30,7 +30,7 @@ Note that the peers (process1, process2, process3, process4, process5) have been
 
 #### Task 2 - Creating Replicas of file using the address space (2^128)
 
-- This task requires that you replicate files using index from 0 to 3 (numReplicas = 4). That is, the index must be added to the filename to generate replicas. (e.g. for a file with name, "test", replicas will be:
+This task requires that you replicate files using index from 0 to 3 (numReplicas = 4). That is, the index must be added to the filename to generate replicas. (e.g. for a file with name, "test", replicas will be:
 test0, test1, test2, test3. Each replica will now be named using the hash function you have implemented in Task 1. Your task here is to implement this functionality in the createReplicaFiles() method.
 
 #### Task 3 - Distributing file replicas to peers
