@@ -11,7 +11,7 @@ import java.net.UnknownHostException;
 
 public class Hash { 
 	
-	private static BigInteger hashint; 
+	private static BigInteger hashint = BigInteger.ZERO; 
 	
 	public static BigInteger hashOf(String entity) {		
 		
