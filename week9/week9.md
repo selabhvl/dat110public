@@ -13,4 +13,4 @@ https://github.com/selabhvl/dat110-project2-startcode/blob/master/README.md
 Revisit the exercises for weeks 7 and 8 that you did not Complete
 
 - https://github.com/selabhvl/dat110public-2020/blob/master/week7/week7.md
-- https://github.com/selabhvl/dat110public-2020/blob/master/week7/week7.md
+- https://github.com/selabhvl/dat110public-2020/blob/master/week8/week8.md
