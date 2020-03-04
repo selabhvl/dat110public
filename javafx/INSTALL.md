@@ -14,16 +14,16 @@ The instructions below are based on: https://openjfx.io/openjfx-docs/#install-ja
 
    - Select *Classpath*, *Add Library*, *User Library*, *User Libraries*, and the *New*... Give the library the name *JavaFX* and select *Add External Jars*. If there is already a JavaFX user library, then delete it first.
 
-   - Navigate to `c:\work\javafx-sdk-11.0.2` (the place where you unpacked the JavaFX library) and then to the `lib` folder. Select all the jar-files to include them in the user library. Click *OK*, *Apply* and *Close*, and then *Finish*. Now the JavaFX libraries is on the build path of the project.
+   - Navigate to `c:\work\javafx-sdk-11.0.2` (the place where you unpacked the JavaFX library) and then to the `lib` folder. Select all the jar-files to include them in the user library. Click *OK*, *Apply* and *Close*, and then *Finish*. Now the JavaFX libraries are on the build path of the project.
 
-   - Click *Apply and Close*. The compiler errors should now go away.
+   - Click *Apply and Close*. The compilation errors should now go away.
 
-4. Now that the project compiles, we need to setup a Launch Configuration to allow us to start the JavaFX program with the correct options.
+4. Now that the project compiles, we need to setup a *Run Configuration* to allow us to start the JavaFX program with the correct options.
 
-   - Select the class that contains the main method (ChApp.java for project 2) and then Run As ... and then Run configuration
+   - Select the class that contains the main method (ChApp.java for project 2), then *Run As ...* and then *Run Configuration...*
 
    - Create a new launch configuration (top most icon with +). The name should be filled automatically with the classname.
 
-   - Go to arguments. Here you need to add the following to the VM arguments: `--module-path "C:\work\javafx\javafx-sdk-11.0.2\lib" --add-modules javafx.controls,javafx.fxml` (remeber to adapt the path to match your installation)
+   - Go to arguments. Here you need to add the following to the VM arguments: `--module-path "C:\work\javafx\javafx-sdk-11.0.2\lib" --add-modules javafx.controls,javafx.fxml` (remember to adapt the path to match your installation)
 
-   - Make sure that `Use the -XstartOnFirstThread argument when launching with SWT` is **not** checked.
+   - Make sure that `Use the -XstartOnFirstThread argument when launching with SWT` (if present) is **not** checked.
