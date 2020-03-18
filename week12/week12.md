@@ -46,7 +46,7 @@ Run the project using the LamportClockTest junit test and confirm that the the t
 #### Exercise 2 - Vector Clock (Chapter 6. pg 316-321)
 
 We have discussed that Vector clock can be used to capture potential causal relationships between messages during exchanges. This exercise is meant to further illustrate this concept by providing an implementation of Vector clock. We are using the example on page 320 of the Distributed System book as shown in the figure below.
-![](bulletin.jpg)
+![](imgs/bulletin.jpg)
 
 A middleware should not deliver a message to an application if messages that precede this message have not been delivered. A way to enforce this rule is to use Vector clock at the middleware layer. 
 To demonstrate this concept, you are provided with framework where you can implement the correct functioning of the Vector clock. The processes communicate using the Java RMI. Current implementation uses three separate clients each with a main thread on a single computer to simulate inter-process communication in a distributed system. You can use multiple computers by changing the registry configuration and specifying the IP addresses of the communicating hosts in the Util/ProcessContainer classes
