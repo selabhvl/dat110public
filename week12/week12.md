@@ -93,6 +93,16 @@ Run the project using the VectorClockTest junit test only and confirm that the t
 
 #### Exercise 3 - Mutual Exclusion - Distributed Algorithm (Chapter 6. pg 323-325)
 
-- Optional challenge without any code skeleton.
+- Optional challenge without any code skeleton for the algorithm.
+
+- Duplicate the LamportClock-exercise project
+
+- Use the same Java RMI framework for the LamportClock exercise and implement a mutual exclusion distributed algorithm such that before each process can commits (apply their operations) they must obtain permissions from the remaining replicas.
+That implies that when the client calls "public void applyOperation()" method, the permission process begins. A process can only if it obtains permissions from the remaining replicas. 
+It is also possible that when a process that just finished committing to the datastore can tell other processes in its queue to go ahead and commit to the datastore.
+
+- If your implementation is correct, the balance will be the same across all replicas at the end of the operations.
+
+- Use the same unit test class (LamportClockTest) to test your implementations.
 
 
