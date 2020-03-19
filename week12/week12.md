@@ -99,7 +99,7 @@ Run the project using the VectorClockTest junit test only and confirm that the t
 
 - Use the same Java RMI framework for the LamportClock exercise and implement a mutual exclusion distributed algorithm such that before each process can commit (apply their operations) they must obtain permissions from the remaining replicas.
 That implies that when the client calls "public void applyOperation()" method, the permission process begins. A process can only commit if it obtains permissions from the remaining replicas. 
-It is also possible that when a process that just finished committing to the datastore can tell other processes in its queue to go ahead and commit to the datastore.
+It is also possible that when a process finishes committing to the datastore it can tell other processes in its queue to go ahead and commit to the datastore.
 
 - If your implementation is correct, the balance will be the same across all replicas at the end of the operations.
 
