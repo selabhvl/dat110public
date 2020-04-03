@@ -21,6 +21,8 @@ Start a terminal (mac) or a command prompt (windows) on your PC. Use the `ifconf
 - What DNS server(s) have been configured?
 - What default gateways have been configured?
 
+In case the `config` command does not provide information about DNS server(s) you can use the `nslookup` command-line tool.
+
 ### Exercise 14.3: Connectivity and routes
 
 Start a terminal (mac) or a command prompt (windows) on your PC.
