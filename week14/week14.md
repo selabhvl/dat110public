@@ -61,7 +61,7 @@ Assume that the original datagram identification is 888.
 1. How many IP datagrams will the original IP datagram be divided (fragmented) into?
 2. What is the amount of data, identification, offset, and flag in the resulting IP datagrams?
 
-Se also slides 11-12 from the lecture on Network Layer I.
+Se also slides 10-12 from the lecture on Network Layer I.
 
 ### Exercise 14.7:IP addresses and routing - Exam exercise from 2019
 
