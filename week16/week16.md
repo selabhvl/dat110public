@@ -4,21 +4,95 @@
 
 ### Exercise 16.1: Network Layer - Data Plane
 
-Chapter 4 in the networking book:
+Chapter 4 in the networking book
 
 - Review questions: R9, R17, R20, R21, R22, R24
 - Problems P1, P5, P6, P7, P8, P11, P12, P14, P15, P16
 
 ### Exercise 16.2: Network Layer - Control Plane
 
-Chapter 5 in the networking book:
+Chapter 5 in the networking book
 
 - Review question R5
 - Problems P3 and P8
 
 ### Exercise 16.3: Stopable-thread abstraction
 
-TO BE ADDED
+The RDT framework for reliable data transfer studied earlier, and the network routing framework (NFR) to be explored in the coming weeks relies on the stopable-thread abstraction for implementation of protocol entities and network interfaces.
+
+The aim of this exercise it to become familiar with the stopable-threads abstraction which builds on top of Java threads. The implementation of the Stopable-class is shown below and can also be found in the repository at https://github.com/lmkr/stopablethread.git
+
+```java
+public abstract class Stopable extends Thread {
+
+	private boolean stop = false;
+	protected String name;
+
+	public Stopable(String name) {
+		this.name = name;
+	}
+
+	public synchronized void doStop() {
+		stop = true;
+	}
+
+	private synchronized boolean doCont() {
+		return !stop;
+
+	}
+
+	public void starting() {
+
+	}
+
+	public void stopping() {
+
+	}
+
+	public abstract void doProcess();
+
+	public void run() {
+
+		starting();
+
+		while (doCont()) {
+
+			doProcess();
+
+		}
+
+		stopping();
+
+	}
+}
+```
+
+A stopable thread will start by executing the `starting`-method which can be used for initialisation purposes. Then the `doProcess`-method will be continiously executed until either the stopable thread itself or another thread invokes the `doStop`-method. Before the stop-able thread terminates it will execute the `stopping`-method which can be used for any clean-up that needs to be performed.
+
+The programming contract is that the code in the `doProcess`-method canno contain method calls that will block forever and/or not make progress as that may prevent the `doCont()`-method to be executed for checking whether the stopable-thread is still to continnue.
+
+Start by cloning the https://github.com/lmkr/stopablethread.git repository and import the `stopablethread` project into your IDE.
+
+The `example`-package in the repository contains the start of an implementation of the IoT-system from earlier consisting of a temperature sensor and a display communicating with shared memory.
+
+You are to complete the implementation of the system by having the main-thread create a Stopable threads for the sensor and the display. The main-thread should use `Thread.sleep` to let the two stopable threads run for a while and then stop the two threads. The main-threads should use `join` to wait for the termination of the two stopable threads before it stops itself.
+
+Furthermore, you are to complete the implementation of the sensor stopable-thread and the display stopable-thread such that the resulting system would produce output similar to what is specified below. The sensor should wait 1 second between sensor-readings and the display-should also wait 1 second between updating the dsplay with the current temperature.
+
+```
+IoT system starting ...
+Sensor device starting ...
+Display device starting ...
+DISPLAY: 0
+READING: -12
+DISPLAY: -12
+[READING/DISPLAY removed from here to shorten output]
+READING: 6
+DISPLAY: 6
+Sensor device stopping ...
+Display device stopping ...
+IoT system shutting down ...
+```
 
 ### Exercise 16.4: Network Layer Framework
 
