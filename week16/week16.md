@@ -94,9 +94,9 @@ Display device stopping ...
 IoT system shutting down ...
 ```
 
-### Exercise 16.4: Network Layer Framework
+### Exercise 16.4: Network Routing Framework
 
-TO BE ADDED
+Exercises 1-3 related to the NRF framework: https://github.com/lmkr/dat110-nrf/blob/master/README.md
 
 ### Exercise 16.5: Link-layer - Exam Exercise 2019
 
