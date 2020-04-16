@@ -17,9 +17,9 @@ Start Wireshark and the capturing of packets from your Ethernet interface.
 
 Yse `arp` to delete the content of the ARP cache and try issue, e.g., a ping www.example.com command. Which ARP query and replies does the sending of the ping datagram trigger?
 
-### Exercise 17.3: Stopabl
+### Exercise 17.3: Project Work
 
-Part A of project 4: **LINK TO BE ADDED**
+Part A of project 4: https://github.com/selabhvl/dat110public-2020/blob/master/project4/partA.md
 
 ### Exercise 17.4: Link-state implementation
 
