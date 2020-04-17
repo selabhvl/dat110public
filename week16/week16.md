@@ -6,15 +6,24 @@
 
 Chapter 4 in the networking book
 
-- Review questions: R9, R17, R20, R21, R22, R24
-- Problems P1, P5, P6, P7, P8, P11, P12, P14, P15, P16
+##### Review questions
+
+R9 (forwarding), R17 (encapsulation), R20 (fragmentation), R21 (network interfaces), R22 (IP addresses) , R24 (forwarding)
+
+##### Problems
+
+- P1 (forwarding tables), P5 (forwarding tables), P6 (longest prefix matching), P7 (forwarding tables)
+- P8 (network addresses), P11 (network prefixes), P12 (subnets)
+- P14 (fragmentation), P15 (fragmentation)
+- P16 (network address translation)
 
 ### Exercise 16.2: Network Layer - Control Plane
 
 Chapter 5 in the networking book
 
-- Review question R5
-- Problems P3 and P8
+- Review question R5 (counting to infinity problem)
+- Problem P3 (run Dikjstra's algorithm on an example network)
+- Problem P8 (run Belmann-Ford Distance Vector Algorithm on an example)
 
 ### Exercise 16.3: Stopable-thread abstraction
 
@@ -78,7 +87,7 @@ A subclass of the Stopable-thread class can then overwrite the `starting`- and `
 
 The programming contract is that the code in the `doProcess`-method cannot contain method calls that will block forever and/or not make progress as that may prevent the `doCont()`-method to be executed for checking whether the stopable-thread is still to continnue.
 
-#### IoT temperature sensor and display system 
+#### IoT temperature sensor and display system
 
 Start by cloning the https://github.com/lmkr/stopablethread.git repository and import the `stopablethread` project into your IDE.
 
