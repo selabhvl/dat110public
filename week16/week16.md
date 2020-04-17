@@ -18,9 +18,13 @@ Chapter 5 in the networking book
 
 ### Exercise 16.3: Stopable-thread abstraction
 
-The RDT framework for reliable data transfer studied earlier, and the network routing framework (NFR) to be explored in the coming weeks relies on the stopable-thread abstraction for implementation of protocol entities and network interfaces.
+The RDT framework for reliable data transfer studied earlier, and the network routing framework (NFR) to be explored in the coming weeks rely on the stopable-thread abstraction for implementation of protocol entities and network interfaces.
 
-The aim of this exercise it to become familiar with the stopable-threads abstraction which builds on top of Java threads. The implementation of the Stopable-class is shown below and can also be found in the repository at https://github.com/lmkr/stopablethread.git
+The aim of this exercise it to become familiar with the stopable-threads abstraction which builds on top of Java threads.
+
+#### Stopable-threads
+
+The implementation of the `Stopable`-class is shown below and can also be found in the repository at https://github.com/lmkr/stopablethread.git
 
 ```java
 public abstract class Stopable extends Thread {
@@ -41,15 +45,15 @@ public abstract class Stopable extends Thread {
 
 	}
 
-	public void starting() {
+	protected void starting() {
 
 	}
 
-	public void stopping() {
+	protected void stopping() {
 
 	}
 
-	public abstract void doProcess();
+	protected abstract void doProcess();
 
 	public void run() {
 
@@ -65,19 +69,24 @@ public abstract class Stopable extends Thread {
 
 	}
 }
+
 ```
 
-A stopable thread will start by executing the `starting`-method which can be used for initialisation purposes. Then the `doProcess`-method will be continiously executed until either the stopable thread itself or another thread invokes the `doStop`-method. Before the stop-able thread terminates it will execute the `stopping`-method which can be used for any clean-up that needs to be performed.
+A stopable thread will start by executing the `starting`-method which can be used for initialisation purposes. Then the `doProcess`-method will be continuously executed until either the stopable thread itself or another thread invokes the `doStop`-method. Before the stopable thread terminates, it will execute the `stopping`-method which can be used for any clean-up that needs to be performed.
 
-The programming contract is that the code in the `doProcess`-method canno contain method calls that will block forever and/or not make progress as that may prevent the `doCont()`-method to be executed for checking whether the stopable-thread is still to continnue.
+A subclass of the Stopable-thread class can then overwrite the `starting`- and `stopping`-methods and implement the `doProcess`-method to obtain the desired functionality.
+
+The programming contract is that the code in the `doProcess`-method cannot contain method calls that will block forever and/or not make progress as that may prevent the `doCont()`-method to be executed for checking whether the stopable-thread is still to continnue.
+
+#### IoT temperature sensor and display system 
 
 Start by cloning the https://github.com/lmkr/stopablethread.git repository and import the `stopablethread` project into your IDE.
 
 The `example`-package in the repository contains the start of an implementation of the IoT-system from earlier consisting of a temperature sensor and a display communicating with shared memory.
 
-You are to complete the implementation of the system by having the main-thread create a Stopable threads for the sensor and the display. The main-thread should use `Thread.sleep` to let the two stopable threads run for a while and then stop the two threads. The main-threads should use `join` to wait for the termination of the two stopable threads before it stops itself.
+You are to complete the implementation of the system by having the main-thread create a stopable threads for the sensor and the display. The main-thread should use `Thread.sleep` to let the two stopable threads run for a while and then stop the two threads. The main-thread should use `join`-method to wait for the termination of the two stopable threads before it stops itself.
 
-Furthermore, you are to complete the implementation of the sensor stopable-thread and the display stopable-thread such that the resulting system would produce output similar to what is specified below. The sensor should wait 1 second between sensor-readings and the display-should also wait 1 second between updating the dsplay with the current temperature.
+Furthermore, you are to complete the implementation of the sensor stopable-thread and the display stopable-thread such that the resulting system would produce output similar to what is specified below. The sensor should wait 1 second between sensor-readings and the display should also wait 1 second between updating the display with the current temperature.
 
 ```
 IoT system starting ...
