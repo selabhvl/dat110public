@@ -151,7 +151,7 @@ The Maven-setup of the cloud-service makes sure to download this library.
 
 The examples on Spark/Java and also GSON from the lectures on IoT is available from here:
 
-**TODO:** add the links
+**TODO:** LINK KOMMER ONSDAG
 
 ### Step 3: Testing the cloud service
 
@@ -175,7 +175,7 @@ Both of the methods should establish a connection to the cloud-service and issue
 
 The code from the IoT lectures illustrating construction of HTTP requests can be found via:
 
-**TODO:**
+**TODO:** LINK KOMMER ONSDAG
 
 ### Step 5: System testing
 
