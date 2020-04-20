@@ -2,15 +2,15 @@
 
 The final mandatory project in the course is divided into three parts
 
-- **Part A:** Hardware/software co-design of an access control device (week 17)
+- **Part A:** Hardware/software co-design of an access control device using TinkerCAD (week 17)
 - **Part B:** Connecting the IoT access control device to a cloud application (week 17/18)
 - **Part C:** Writing a 6-page report on Parts A and B (week 18)
 
-## Project 4 - Part A
+## Project 4 - Part A: Hardware/software co-design of an access control device 
 
 This part is to be solved using the TinkerCAD: https://www.tinkercad.com/ simulator as introduced in the lectures and implemented on an Arduino board.
 
-Start by creating an account if you do not already have one.
+Start by creating an account if you do not already have one. Create an ordinary user account using any of your email addresses.
 
 If you have an Arduino board yourself at home, then you may choose to build the actual IoT access control device. Even so, it may be a good idea to prototype the device in TinkerCAD as a first step.
 
