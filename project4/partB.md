@@ -171,7 +171,7 @@ The next step is now to implement the network communication in the access contro
 
 The implementation of the network communication is to be provided in the `RestClient.java` by completing the implementation of the following methods:
 
-- ```java public AccessCode doGetAccessCode()``` which is to issue a HTTP GET request on the cloud service in order to obtain the current access code. This method will be called from the loop-function in the `AccessController.java` class immediately before checking whether a provided access code is valid, i.e., in state `CHECKING`.
+- ```public AccessCode doGetAccessCode()``` which is to issue a HTTP GET request on the cloud service in order to obtain the current access code. This method will be called from the loop-function in the `AccessController.java` class immediately before checking whether a provided access code is valid, i.e., in state `CHECKING`.
 
 - ```public void doPostAccessLogEntry (String message)``` which is to issue a HTTP POST request on the service in order to add a log access entry for the message. This method will be called from the loop-function in the `AccessController.java` class if access is denied in the `CHECKING` state and when the system becomes `UNLOCKED` and `LOCKED`.  
 
