@@ -42,7 +42,9 @@ The project implements a virtual access control device with similar to what was 
 
 Running the main-method in the `Main.java` should result in the following window where you can interact with the PIR-sensor (by clicking it) and also push the buttons labelled `1` and `2`. The green, yellow, and red LEDs are represented by the accordingly coloured boxes.
 
-The difference compared to Part A is that the device now has an extra button labelled `N` (Network) and a blue LED. The `N` button can be pressed in order to put the device into *network mode* in which case the blue LED will be turned on. When the blue led is on and the device is in network mode, then it will send HTTP operations to the cloud service as described below.
+The difference compared to Part A is that the device now has an extra button labelled `N` (Network) and a blue LED. The `N` button can be pressed in order to put the device into *network mode* in which case the blue LED will be turned on.
+
+When the blue led is on and the device is in network mode, then the device will retrieve the current access code from the cloud service and it will report entries to the access log of the cloud service.
 
 ![](assets/ui.png)
 
