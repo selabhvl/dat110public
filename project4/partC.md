@@ -1,4 +1,4 @@
-### Project 4 - Part C: Project report
+## Project 4 - Part C: Project report
 
 You are required to write a 6-page (excluding cover page) project report documenting your design, implementation, and test of the IoT-cloud access control system.
 

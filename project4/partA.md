@@ -1,5 +1,3 @@
-
-
 ## Project 4 - Part A: Hardware/software co-design of an access control device
 
 This part is to be solved using the TinkerCAD: https://www.tinkercad.com/ simulator as introduced in the lectures and implemented on an Arduino board.

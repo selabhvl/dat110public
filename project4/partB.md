@@ -1,4 +1,4 @@
-### Project 4 - Part B: Connecting the access control device to a REST-based cloud service
+## Project 4 - Part B: Connecting the access control device to a REST-based cloud service
 
 In this part you will be connecting your access control device from Part A to the cloud using a REST service API.
 
@@ -44,7 +44,7 @@ Running the main-method in the `Main.java` should result in the following window
 
 The difference compared to Part A is that the device now has an extra button labelled `N` (Network) and a blue LED. The `N` button can be pressed in order to put the device into *network mode* in which case the blue LED will be turned on. When the blue led is on and the device is in network mode, then it will send HTTP operations to the cloud service as described below.
 
-![](img/ui.png)
+![](assets/ui.png)
 
 The implementation of the logic for controlling the sensors and actuators can be found in the `AccessController.java` class. It follows the same reactive programming model as on the Arduino-device. This means that the `setup`-method is executed once at startup, and the `loop`-method is continuously executed. The base class `MicroController.java` also provides similar library functions as on the Arduino.
 
@@ -151,7 +151,9 @@ The Maven-setup of the cloud-service makes sure to download this library.
 
 The examples on Spark/Java and also GSON from the lectures on IoT is available from here:
 
-**TODO:** LINK KOMMER ONSDAG
+- https://github.com/selabhvl/dat110public-2020/blob/master/week17/IoTCounter/counters/counters/src/main/java/no/hvl/dat110/cloudservice/App.java
+
+- https://github.com/selabhvl/dat110public-2020/blob/master/week17/IoTCounter/counters/counters/src/main/java/no/hvl/dat110/cloudservice/Counters.java
 
 ### Step 3: Testing the cloud service
 
@@ -175,7 +177,7 @@ Both of the methods should establish a connection to the cloud-service and issue
 
 The code from the IoT lectures illustrating construction of HTTP requests can be found via:
 
-**TODO:** LINK KOMMER ONSDAG
+https://github.com/selabhvl/dat110public-2020/tree/master/week17/IoTCounter/counters/counters/src/main/java/no/hvl/dat110
 
 ### Step 5: System testing
 
