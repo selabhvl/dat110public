@@ -40,7 +40,17 @@ The project implements a virtual access control device with similar to what was 
 
 - `no.hvl.dat110.aciotdevice.client` will contain the implementation of the network part of the virtual device acting as a client (consumer) of the REST-based cloud service. You are to implement this part in Step 4 below.
 
-Running the main-method in the `Main.java` should result in the following window where you can interact with the PIR-sensor (by clicking it) and also push the buttons labelled `1` and `2`. The green, yellow, and red LEDs are represented by the accordingly coloured boxes.
+If you are using version 1.8 or earlier of JDK then you can start the application by simply running the main-method that can be found in the `Main`-class.
+
+It you have JDK 1.9 or higher installed, then you need to configure JavaFX for the project since the application relies on JavaFX.
+
+The steps are described here:
+
+https://github.com/selabhvl/dat110public-2020/blob/master/javafx/INSTALL.md
+
+If you already downloaded the JavaFX library as part of project 2 (on the chat-application), then it suffices to do step 3 and step 4.
+
+Running the launch configuration created when setting up JavaFX should result in the following window where you can interact with the PIR-sensor (by clicking it) and also push the buttons labelled `1` and `2`. The green, yellow, and red LEDs are represented by the accordingly coloured boxes.
 
 The difference compared to Part A is that the device now has an extra button labelled `N` (Network) and a blue LED. The `N` button can be pressed in order to put the device into *network mode* in which case the blue LED will be turned on.
 
