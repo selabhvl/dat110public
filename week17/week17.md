@@ -15,7 +15,9 @@ Use the `arp` command line tool to show the content of the ARP table / cache on 
 
 Start Wireshark and the capturing of packets from your Ethernet interface.
 
-Yse `arp` to delete the content of the ARP cache and try issue, e.g., a ping www.example.com command. Which ARP query and replies does the sending of the ping datagram trigger?
+Use `arp` to delete the content of the ARP cache and to try issue, e.g., a `ping www.example.com` command.
+
+Which ARP query and replies does the sending of the ping datagram trigger?
 
 ### Exercise 17.3: Project Work
 
