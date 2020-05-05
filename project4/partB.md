@@ -191,6 +191,12 @@ The code from the IoT lectures illustrating construction of HTTP requests can be
 
 https://github.com/selabhvl/dat110public-2020/tree/master/week17/IoTCounter/counters/counters/src/main/java/no/hvl/dat110
 
+If you choose to use the okhttp library for your implementation, then you will have to download the the library from:
+
+https://mvnrepository.com/artifact/com.squareup.okhttp/okhttp
+
+and add it to the build path of the Eclipse-project.
+
 ### Step 5: System testing
 
 Test that the implementation works properly by attempting to access the device and see that the log in the cloud service is properly updated. Try also to provide an incorrect access code. Try to also change the access code by sending a request from the Postman tool and see that the access control device correctly obtains/uses the new access code.
