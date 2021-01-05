@@ -10,7 +10,7 @@ Make sure that you have access to the two textbooks that are to be used in the c
 
 #### Exercise 1 - Quiz
 
-Complete the end of week3 quiz (see Canvas)
+Complete the end of week2 quiz (see Canvas)
 
 #### Exercise 2 - Watch a movie
 
