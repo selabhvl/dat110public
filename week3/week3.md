@@ -1,10 +1,10 @@
 ## DAT110: Distributed Systems and Network Technology
 
-### Lab Week 4: 20/01 - 24/01
+### Lab Week 4: 18/01 - 22/01
 
-**REMEMBER** to complete the end of week 4 quiz (and also end of week 3 quiz if you have not already done so).
+**REMEMBER** to complete the end of week quiz for this week (and also end of week quiz for the previous week (if you have not already done so).
 
-Not that some of the exercises below are marked as **optional**. These represents more challenging exercises. The first project in week 5 will be about socket and network programming in Java. So even if Exercise 4.6 is optional, it is highly recommended to be well-prepared for undertaking the project.
+Note that some of the exercises below are marked as **optional**. These represents more challenging exercises. The first mandatory project will be about socket and network programming in Java. So even if Exercise 4.6 is optional, it is highly recommended to try to solve it in order to be well-prepared for undertaking the first project.
 
 #### Exercise 4.1 - Layering and encapsulation
 
@@ -26,7 +26,7 @@ Distributed and networked applications involve implementing exchange of message 
 
 The main purpose of this exercise is to briefly recap inter-thread communication and synchronisation in Java before starting on network programming. The exercise uses the API for concurrent programming in Java https://docs.oracle.com/javase/tutorial/essential/concurrency/
 
-We consider a small (emulated) IoT system consisting of a temperature sensor device and a display device. The sensor device and the display device runs as individual threads where the sensor-thread with periodic intervals reads the current temperature and the display-threads periodically display the current temperature.
+We consider a small (emulated) IoT system consisting of a temperature device (sensor) and a display device. The sensor device and the display device runs as individual threads where the sensor-thread with periodic intervals reads the current temperature and the display-threads periodically display the current temperature.
 
 An illustration of the system is shown below
 
@@ -35,19 +35,19 @@ An illustration of the system is shown below
 
 ##### 4.4.1
 
-Pull the code base for the system from the github repository: https://github.com/selabhvl/dat110public-2020
+Pull the code base for the system from the github repository: https://github.com/selabhvl/dat110public-2021
 
 ##### 4.4.2
 
-The implementation of the system is in the Eclipse-project at: https://github.com/selabhvl/dat110public-2020/tree/master/week4/iotthreads
+The implementation of the system is in the Eclipse-project at: https://github.com/selabhvl/dat110public-2020/tree/master/week3/iotthreads
 
 Study the implementation of the five classes in the project
 
-- [`TemperatureDevice`](https://github.com/selabhvl/dat110public-2020/blob/master/week4/iotthreads/src/no/hvl/dat110/threading/TemperatureDevice.java) implementing the device that reports the temperature.
-- [`TemperaturSensor`](https://github.com/selabhvl/dat110public-2020/blob/master/week4/iotthreads/src/no/hvl/dat110/threading/TemperatureSensor.java) that simulates the sensing of the temperature.
-- [`TemperatureMeasurement`](https://github.com/selabhvl/dat110public-2020/blob/master/week4/iotthreads/src/no/hvl/dat110/threading/TemperatureMeasurement.java) that represents a measured temperature.
-- [`DisplayDevice`](https://github.com/selabhvl/dat110public-2020/blob/master/week4/iotthreads/src/no/hvl/dat110/threading/DisplayDevice.java) implementing the device used to display the measured temperature.
-- [`IoTSystem`](https://github.com/selabhvl/dat110public-2020/blob/master/week4/iotthreads/src/no/hvl/dat110/threading/IoTSystem.java) which configures the system and starts the threads for the temperature and display devices.
+- [`TemperatureDevice`](https://github.com/selabhvl/dat110public-2021/blob/master/week3/iotthreads/src/no/hvl/dat110/threading/TemperatureDevice.java) implementing the device that reports the temperature.
+- [`TemperaturSensor`](https://github.com/selabhvl/dat110public-2021/blob/master/week3/iotthreads/src/no/hvl/dat110/threading/TemperatureSensor.java) that simulates the sensing of the temperature.
+- [`TemperatureMeasurement`](https://github.com/selabhvl/dat110public-2021/blob/master/week3/iotthreads/src/no/hvl/dat110/threading/TemperatureMeasurement.java) that represents a measured temperature.
+- [`DisplayDevice`](https://github.com/selabhvl/dat110public-2021/blob/master/week3/iotthreads/src/no/hvl/dat110/threading/DisplayDevice.java) implementing the device used to display the measured temperature.
+- [`IoTSystem`](https://github.com/selabhvl/dat110public-2021/blob/master/week3/iotthreads/src/no/hvl/dat110/threading/IoTSystem.java) which configures the system and starts the threads for the temperature and display devices.
 
 You can run the application by running the main-method in the `IoTSystem` class.
 
@@ -63,17 +63,17 @@ Modify the IoT system from such that multiple temperature devices (threads) can 
 
 ##### 4.4.4 (optional)
 
-Modify the IoT system from item 4.5.2 such that instead of using a [`sleep()`](https://docs.oracle.com/javase/tutorial/essential/concurrency/sleep.html) in the display-thread, then [`wait and notify`](https://docs.oracle.com/javase/tutorial/essential/concurrency/guardmeth.html) are used such that the sensor-threads wakeup the display-thread when a new temperature has been reported.
+Modify the IoT system from item 4.4.2 such that instead of using a [`sleep()`](https://docs.oracle.com/javase/tutorial/essential/concurrency/sleep.html) in the display-thread, then [`wait and notify`](https://docs.oracle.com/javase/tutorial/essential/concurrency/guardmeth.html) are used such that the sensor-thread wakeup the display-thread when a new temperature has been reported.
 
 #### Exercise 4.5 - UDP and TCP socket and network programming
 
-Consider the client-server echo network application covered in the lectures this week. The source Java code for the TCP and the UDP implementation is available from https://github.com/selabhvl/dat110public-2020/tree/master/week4/tcpexample and https://github.com/selabhvl/dat110public-2020/tree/master/week4/udpexample
+Consider the client-server echo network application covered in the lectures this week. The source Java code for the TCP and the UDP implementation is available from https://github.com/selabhvl/dat110public-2021/tree/master/week3/tcpexample and https://github.com/selabhvl/dat110public-2021/tree/master/week3/udpexample
 
 The implementation uses the Java Socket API as documented here:
 
 https://docs.oracle.com/javase/10/docs/api/java/net/package-summary.html
 
-The drawing made at the lectures introducing the example has been repeated below.
+A drawing giving an overview of the example is provided below.
 
 ![](assets/markdown-img-paste-20200122144706694.png)
 
@@ -83,7 +83,7 @@ The drawing made at the lectures introducing the example has been repeated below
 
 Open the two projects in Eclipse and run both the UDP and the TCP client-server example, make the two examples run.
 
-Study the implementation to try to understand how programming with sockets works.
+Study the implementation to to understand how network programming with sockets works.
 
 ##### 4.5.2 (optional, you may also choose to just run the applications via the IDE)
 
@@ -93,7 +93,7 @@ Use Eclipse (your IDE) to build an executable jar-file for the UDP client and se
 java -jar X.jar <command-line arguments>
 `
 
-##### 4.5.3
+##### 4.5.3 (easiest to do if you are both on the same network)
 
 Team up with one of the other students and try to run the client-side on one machine and the server side on another machine. You need to find the IP address of the machine where you intend to run the server. Also, depending on which TCP/UDP port you choose to use, you may need to configure the firewall on the machine in order to allow the TCP/UDP to pass in and out of your machine.
 
@@ -113,10 +113,10 @@ Would it be easy to modify the current TCP implementation with a keep-alive feat
 
 Consider the IoT system example from exercise 4.4:
 
-https://github.com/selabhvl/dat110public/tree/master/week4/iotthreads/src/no/hvl/dat110/threading
+https://github.com/selabhvl/dat110public-2021/tree/master/week3/iotthreads/src/no/hvl/dat110/threading
 
 where communication between the temperature device and the display device was performed using a shared memory object, and where the temperature device and display device were running as two threads on the same JVM.
 
 Revise the implementation such the temperature device and the display device runs as separate processes and uses sockets for communication between the two entities. The temperature device should act as as client reporting temperature, and the display should act as a server receiving request to display the current temperature.
 
-Implement both a TCP and a UDP variant. Use the example code from exercise 4.5 above for inspiration on how to implement the IoT system as a networked application using sockets.
+Implement both a TCP and a UDP variant. Use the example code from exercise 4.5 above as inspiration for how to implement the IoT system as a networked application using sockets.
