@@ -13,7 +13,7 @@ public class UDPSender {
 
 	public static void main(String[] args) {
 
-		byte[] data = { 0, 0, 0, 1 };
+		byte[] data = { 1, 2, 3, 4 };
 		DatagramSocket socket = null;
 
 		System.out.println("UDPSender starting");
