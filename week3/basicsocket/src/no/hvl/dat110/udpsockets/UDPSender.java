@@ -17,7 +17,7 @@ public class UDPSender {
 		DatagramSocket socket = null;
 
 		System.out.println("UDPSender starting");
-		
+
 		try {
 
 			// create socket
