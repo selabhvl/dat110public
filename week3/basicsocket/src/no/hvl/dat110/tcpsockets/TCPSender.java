@@ -12,7 +12,7 @@ public class TCPSender {
 	public static void main(String[] args) {
 
 		Socket clientSocket = null;
-		DataOutputStream outToServer;
+		DataOutputStream outToReceiver;
 
 		byte[] data = { 1, 2, 3, 4 };
 
@@ -20,11 +20,12 @@ public class TCPSender {
 
 			clientSocket = new Socket(HOST, PORT);
 
-			outToServer = new DataOutputStream(clientSocket.getOutputStream());
+			outToReceiver = new DataOutputStream(clientSocket.getOutputStream());
 
-			outToServer.write(data);
+			outToReceiver.write(data);
 
-			outToServer.close();
+			outToReceiver.close();
+			
 			clientSocket.close();
 
 		} catch (IOException ex) {

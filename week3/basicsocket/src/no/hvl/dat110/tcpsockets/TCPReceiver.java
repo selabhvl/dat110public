@@ -21,17 +21,17 @@ public class TCPReceiver {
 
 			Socket connectionSocket = welcomeSocket.accept();
 
-			DataInputStream inFromClient = new DataInputStream(connectionSocket.getInputStream());
+			DataInputStream inFromSender = new DataInputStream(connectionSocket.getInputStream());
 			
 			System.out.println("TCP Receiver reading");
-			inFromClient.read(data);
+			inFromSender.read(data);
 
 			for (byte b : data) {
 				System.out.print((byte) b);
 			}
 			System.out.println();
 
-			inFromClient.close();
+			inFromSender.close();
 
 			connectionSocket.close();
 
