@@ -1,7 +1,9 @@
-package no.hvl.dat110.udpexample;
+package no.hvl.dat110.udpexample.server;
 
 import java.io.*;
 import java.net.*;
+
+import no.hvl.dat110.udpexample.system.Configuration;
 
 public class UDPEchoServer {
 

@@ -1,4 +1,4 @@
-package no.hvl.dat110.udpexample;
+package no.hvl.dat110.udpexample.system;
 
 public class Configuration {
 

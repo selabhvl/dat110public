@@ -1,10 +1,12 @@
-package no.hvl.dat110.udpexample;
+package no.hvl.dat110.udpexample.client;
 
 import java.net.SocketException;
 import java.net.UnknownHostException;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
+import no.hvl.dat110.udpexample.system.Configuration;
 
 public class EchoClient {
 

@@ -1,7 +1,9 @@
-package no.hvl.dat110.udpexample;
+package no.hvl.dat110.udpexample.server;
 
 import java.net.SocketException;
 import java.net.UnknownHostException;
+
+import no.hvl.dat110.udpexample.system.Configuration;
 
 public class EchoServer {
 

@@ -1,4 +1,4 @@
-package no.hvl.dat110.udpexample;
+package no.hvl.dat110.udpexample.client;
 
 import java.io.*;
 import java.net.*;
