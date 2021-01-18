@@ -26,6 +26,7 @@ public class TCPReceiver {
 			System.out.println("TCP Receiver reading");
 			inFromSender.read(data);
 
+			System.out.print("TCP Receiver received: ");
 			for (byte b : data) {
 				System.out.print((byte) b);
 			}

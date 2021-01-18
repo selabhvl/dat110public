@@ -24,6 +24,7 @@ public class UDPReceiver {
 			System.out.println("UDPReceiver waiting");
 			socket.receive(datagram);
 
+			System.out.print("UDPReceiver received: ");
 			for (byte b : data) {
 				System.out.print(b);
 			}
