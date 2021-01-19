@@ -23,18 +23,19 @@ public class UDPEchoServer {
 		try {
 
 			serverSocket.receive(request);
-			String text = new String(request.getData());
 			
-			System.out.println("SERVER RECEIVED: " + text);
+			String intext = new String(request.getData());
+			
+			System.out.println("SERVER RECEIVED: " + intext);
 
-			String outtext = text.toUpperCase();
+			String outtext = intext.toUpperCase();
 			
-			byte[] sendmessage = outtext.getBytes();
+			byte[] msg = outtext.getBytes();
 		
 			InetAddress ipaddress = request.getAddress();
 			int port = request.getPort();
 
-			DatagramPacket response = new DatagramPacket(sendmessage, sendmessage.length, ipaddress, port);
+			DatagramPacket response = new DatagramPacket(msg, msg.length, ipaddress, port);
 
 			System.out.println("SERVER SENDING:  " + outtext);
 
