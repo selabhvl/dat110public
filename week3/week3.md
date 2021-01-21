@@ -16,6 +16,10 @@ Assume that we have some data in a datagram that is to be sent from H1 via R1 an
 
 Problem P3 in Chap. 2 of the networking book with the modification that you should draw a [time sequence diagram]( https://en.wikipedia.org/wiki/Sequence_diagram) showing the interaction between the different protocol entities. Time sequence diagrams are widely used in computer science to illustrate the exchange of messages in protocols.
 
+**NOTE** There is a difference between the "global edition" and the "US edition" of the networking book. For those not having the global edition you can find the problems and the figures being referred to here:
+
+https://hvl.instructure.com/courses/15566/files/folder/labs
+
 #### Exercise 3 - DNS and HTTP Wireshark
 
 Perform the Wireshark exercises on HTTP and DNS described at http://www-net.cs.umass.edu/wireshark-labs/Wireshark_HTTP_v7.0.pdf and http://www-net.cs.umass.edu/wireshark-labs/Wireshark_DNS_v7.0.pdf

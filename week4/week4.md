@@ -8,6 +8,10 @@ Note that some of the exercises below are marked as **optional**. These represen
 
 Problems P7 and P8 in Chap. 2 of the networking book.
 
+**NOTE** There is a difference between the "global edition" and the "US edition" of the networking book. For those not having the global edition you can find the problems and the figures being referred to here:
+
+https://hvl.instructure.com/courses/15566/files/folder/labs
+
 #### Exercise 2 - Project work
 
 Complete task 1 and start on task 2 on project 1:
