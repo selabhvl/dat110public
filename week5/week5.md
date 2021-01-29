@@ -114,8 +114,8 @@ broker: tcp://broker.hivemq.com:1883
 No username or password is needed for this test broker.
 Test that you can connect to the HiveMQ MQTT and publish/subscribe to the ‘Temp’ topic by running the main method in the MQTTSubTest and MQTTPubTest classes.
 
-##### Exercise 5.7 - IoT System with Message Broker
-You will be implementing the virtual IoT devices as clients using the Eclipse Paho MQTT https://www.eclipse.org/paho/ for publishing and subscribing. That is: the TemperatureDevice publishes the temperature reading to the HiveMQ MQTT broker on the topic "Temp" while the DisplayDevice subscribes to the topic "Temp" on the HiveMQ MQTT from where it receives the temperature reading.
+##### Exercise 5.6.3 - IoT System with Message Broker
+You will be implementing the virtual IoT devices as clients using the Eclipse Paho MQTT https://www.eclipse.org/paho/ client for publishing and subscribing. That is: the TemperatureDevice publishes the temperature reading to the HiveMQ MQTT broker on the topic "Temp" while the DisplayDevice subscribes to the topic "Temp" on the HiveMQ MQTT from where it receives the temperature reading.
 
 To get you started, you are provided with an initial implementation of the system which is available from here:
 
@@ -130,7 +130,7 @@ Run the IoTSystem class located in the package "no.hvl.dat110.simulation" to tes
 
 A short tutorial on Paho-MQTT client that explains how MQTT works and the meanings of the configuration parameters can be found here: https://github.com/selabhvl/dat110public-2021/blob/master/week5/mqtt-paho-client-tutorial.pdf
 
-##### Exercise 5.8 (Optional) - Use Mosquitto broker instead of the free eclipse broker
+##### Exercise 5.6.4 (Optional) - Use Mosquitto broker instead of the free eclipse broker
 
 Instead of using the free eclipse MQTT broker, you should now download and configure Mosquitto message broker on your machine.
 Download from: http://mosquitto.org/download/
