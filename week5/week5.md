@@ -46,7 +46,7 @@ https://github.com/selabhvl/dat110public-2021/tree/master/week5/JavaRMI-DSLab1
 
 #### Exercise 5.4 - Asynchronous RPC client (Threads with a callback)
 
-In this exercise, you will construct an 'asynchronous' version of the client-server RPC IoT system in Exercise 1 by using a callback mechanism. 
+In this exercise, you will construct an 'asynchronous' version of the client-server RPC IoT system in Exercise 5.3 by using a callback mechanism. 
 The idea is that the RPC server should notify/forward the temperature value to the Display device as soon as it receives the reading from the Temperature device.
 
 You will need to implement a callback function for the Display device which must be registered on the Temperature RPC server.
@@ -63,7 +63,7 @@ This example code demonstrates asynchronous model from the client side. That is,
 Modify the example code to construct an asynchronous RPC server such that the RPC server can accept multiple RPC clients connections without blocking.
 
 
-#### Exercise 5.5 - Multicast RPC (Threads with a callback)
+#### Exercise 5.6 - Multicast RPC (Threads with a callback)
 
 In this exercise, you will attempt to crack passwords with reasonable levels of complexity. The main goal is that we can use distributed processes to perform tasks in parallel (single computer with multicores or distributed systems).
 For this purpose, we will use the Multicast RPC approach. We will divide the cracking job into the number of available distributed nodes that we have (in this case 2 nodes because
@@ -93,7 +93,7 @@ You are provided with a nearly completed implementation of the system which is a
 - To run the code, first start WorkerNode1 and WorkerNode2, then run the coordinator class "PassCrackCoordinatorClient". If your implementation is correct, jobs should be distributed and the call to crackPassword in the workers should start the cracking task.
 Note, it may take a while before you see any result.
 
-#### Exercise 5.6 - Message-Oriented Middleware (MoM) using MQTT protocol
+#### Exercise 5.7 - Message-Oriented Middleware (MoM) using MQTT protocol
 
 These exercises are based on Message-Oriented Middleware. In this exercise, you will use a MoM model to solve the IoT system challenge. You will be using a free MQTT middleware (broker) and a publish-subscribe architecture.
 The MQTT uses the publish-subscribe model where publishers(servers/clients) publish on a topic and subscribers(clients) subscribe to the topic to receive messages based on this topic.
@@ -102,11 +102,11 @@ In this exercise, you will implement the IoT system using a message-oriented mid
 
 To get started, you should perform tasks 5.6.1 and 5.6.2.
 
-##### Task 5.6.1 - Setup the HiveMQ MQTT broker
+##### Task 5.7.1 - Setup the HiveMQ MQTT broker
 We will use the free HiveMQ and public MQTT broker for subscribing to and publishing messages to topics. You can read more here: https://www.hivemq.com/public-mqtt-broker/
 The broker url is: tcp://broker.hivemq.com:1883
 
-##### Task 5.6.2 - Test Connection to the eclipse MQTT broker
+##### Task 5.7.2 - Test Connection to the eclipse MQTT broker
 
 To test whether you can connect to the MQTT broker, you need to provide the following information in the Config class (located in no.hvl.dat110.mqtt.brokerclient.test) which are then used by the publisher and subscriber classes.
 
@@ -114,7 +114,7 @@ broker: tcp://broker.hivemq.com:1883
 No username or password is needed for this test broker.
 Test that you can connect to the HiveMQ MQTT and publish/subscribe to the ‘Temp’ topic by running the main method in the MQTTSubTest and MQTTPubTest classes.
 
-##### Exercise 5.6.3 - IoT System with Message Broker
+##### Exercise 5.7.3 - IoT System with Message Broker
 You will be implementing the virtual IoT devices as clients using the Eclipse Paho MQTT https://www.eclipse.org/paho/ client for publishing and subscribing. That is: the TemperatureDevice publishes the temperature reading to the HiveMQ MQTT broker on the topic "Temp" while the DisplayDevice subscribes to the topic "Temp" on the HiveMQ MQTT from where it receives the temperature reading.
 
 To get you started, you are provided with an initial implementation of the system which is available from here:
@@ -130,7 +130,7 @@ Run the IoTSystem class located in the package "no.hvl.dat110.simulation" to tes
 
 A short tutorial on Paho-MQTT client that explains how MQTT works and the meanings of the configuration parameters can be found here: https://github.com/selabhvl/dat110public-2021/blob/master/week5/mqtt-paho-client-tutorial.pdf
 
-##### Exercise 5.6.4 (Optional) - Use Mosquitto broker instead of the free eclipse broker
+##### Exercise 5.7.4 (Optional) - Use Mosquitto broker instead of the free eclipse broker
 
 Instead of using the free eclipse MQTT broker, you should now download and configure Mosquitto message broker on your machine.
 Download from: http://mosquitto.org/download/
