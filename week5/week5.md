@@ -130,9 +130,9 @@ Run the IoTSystem class located in the package "no.hvl.dat110.simulation" to tes
 
 A short tutorial on Paho-MQTT client that explains how MQTT works and the meanings of the configuration parameters can be found here: https://github.com/selabhvl/dat110public-2021/blob/master/week5/mqtt-paho-client-tutorial.pdf
 
-##### Exercise 5.7.4 (Optional) - Use Mosquitto broker instead of the free eclipse broker
+##### Exercise 5.7.4 (Optional) - Use Mosquitto broker instead of the free HiveMQ MQTT broker
 
-Instead of using the free eclipse MQTT broker, you should now download and configure Mosquitto message broker on your machine.
+Instead of using the free HiveMQ MQTT broker, you should now download and configure Mosquitto message broker on your machine.
 Download from: http://mosquitto.org/download/
 Follow the instructions for installation. 
 
