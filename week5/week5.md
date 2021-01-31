@@ -106,7 +106,7 @@ To get started, you should perform tasks 5.6.1 and 5.6.2.
 We will use the free HiveMQ and public MQTT broker for subscribing to and publishing messages to topics. You can read more here: https://www.hivemq.com/public-mqtt-broker/
 The broker url is: tcp://broker.hivemq.com:1883
 
-##### Task 5.7.2 - Test Connection to the eclipse MQTT broker
+##### Task 5.7.2 - Test Connection to the HiveMQ MQTT broker
 
 To test whether you can connect to the MQTT broker, you need to provide the following information in the Config class (located in no.hvl.dat110.mqtt.brokerclient.test) which are then used by the publisher and subscriber classes.
 
