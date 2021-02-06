@@ -1,4 +1,4 @@
-### Lab Week 8: 17/02 - 21/02
+### Lab Week 6: 8/02 - 12/02
 
 This exercise focuses on the Chord implementation of Distributed Hash Table (DHT). The aim is to use this exercise to further understand the concepts of name space, addressing, identifier, entities and scalable lookups in peer-to-peer distributed systems
 The current lab exercises provide implementations for testing the concept of naming, addressing, address space and size, and replication.
@@ -10,7 +10,7 @@ However, to achieve these qualities require an efficient naming system. The DHT 
 Given a resource (e.g. a file), we can lookup the DHT system for the server(s) storing this file. The DHT system uses the same address space for naming a resource and its access point (peers).
 
 
-To get started you need to download and import the ChordDHT project into your eclipse IDE. You can find the project here: https://github.com/selabhvl/dat110public-2020/tree/master/week8/ChordDHTPeer-Lab-Exercise
+To get started you need to download and import the ChordDHT project into your eclipse IDE. You can find the project here: https://github.com/selabhvl/dat110public-2021/tree/master/week6/ChordDHTPeer-Lab-Exercise
 The project is divided into four packages:
 
 - no.hvl.dat110.rpc.interfaces: contains an interface (NodeInterface) with methods that peers can invoke remotely
@@ -40,7 +40,7 @@ Our replica is thus distributed using the simple rule: pred < replica <= peer. I
 Your tasks are to first implement the logic to check this rule: pred < replica <= peer in the computeLogic() method in the Util class. Given an identifier, id: check whether pred < id <= node. Next, you should implement the distributeReplicastoPeers() in the FileManager class.
 
 #### Task 4 - Finding the peers/servers responsible for a file
-To look up a file in a chord system, we need to perform the same process in Task 3, where we replicate the file and find the peers holding each replica according to the rule. The system then returns the peers to the client.
+To look up a file in a chord system, we need to perform the same process in Task 3, where we replicate the file and find the peers holding each replica according to the rule. The distributed system then returns the peers to the client.
 
 The major task here is to implement the requestActiveNodesForFile() method in the FileManager. Given a filename, find all the peers that hold a copy of this file
 
