@@ -22,8 +22,14 @@ The instructions below are based on: https://openjfx.io/openjfx-docs/#install-ja
 
    - Select the class that contains the main method (ChApp.java for project 2), then *Run As ...* and then *Run Configuration...*
 
+   - Select Java Application in the left window.
+
    - Create a new launch configuration (top most icon with +). The name should be filled automatically with the classname.
 
    - Go to arguments. Here you need to add the following to the VM arguments: `--module-path "C:\work\javafx\javafx-sdk-11.0.2\lib" --add-modules javafx.controls,javafx.fxml` (remember to adapt the path to match your installation)
 
    - Make sure that `Use the -XstartOnFirstThread argument when launching with SWT` (if present) is **not** checked.
+
+   - Press *Apply* and *Close*
+
+   - You can now lunch the run configuration in order to run the program using *Run* and *Run Configuration...* and the select the run configuration and press *Run*. Afterwards you can re-run using the Run icon at the top of Eclipse.
