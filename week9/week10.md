@@ -12,7 +12,7 @@ https://github.com/selabhvl/dat110-project2-startcode/blob/master/README.md
 
 Consider the UDP example that was discussed in the lectures:
 
-https://github.com/selabhvl/dat110public-2020/tree/master/week10/udpmultiplexing
+https://github.com/selabhvl/dat110public-2021/tree/master/week10/udpmultiplexing
 
 Run the client and the server and use Wireshark to observe the UDP segments that are transmitted. You may use a filter to observe only UDP segments.
 
@@ -22,7 +22,7 @@ How are ports being used in the UDP segment to support multi-plexing and a reque
 
 Consider the TCP example that was discussed in the lecture:
 
-https://github.com/selabhvl/dat110public-2020/tree/master/week4/tcpexample/src/no/hvl/dat110/tcpexample
+https://github.com/selabhvl/dat110public-2021/tree/master/week3/tcpexample/src/no/hvl/dat110/tcpexample
 
 Run the client and the server and use Wireshark to observe the what TCP segments are transmitted. You may use a filter to observe only TCP segments.
 
