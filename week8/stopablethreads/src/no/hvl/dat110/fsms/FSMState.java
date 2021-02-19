@@ -1,5 +1,5 @@
 package no.hvl.dat110.fsms;
 
-public enum States {
+public enum FSMState {
 	CLOSED, OPEN;
 }

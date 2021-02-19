@@ -2,36 +2,37 @@ package no.hvl.dat110.fsms;
 
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
+import no.hvl.dat110.fsms.FSMState;
 
 import no.hvl.dat110.stopablethreads.Stopable;
 
 public class Receiver extends Stopable {
 
-	private States state;
-	private LinkedBlockingQueue<Events> eventqueue;
+	private FSMState state;
+	private LinkedBlockingQueue<ReceiverEvent> eventqueue;
 	
 	public Receiver() {
 		super("Receiver");
-		state = States.CLOSED;
-		eventqueue = new LinkedBlockingQueue<Events>();
+		state = FSMState.CLOSED;
+		eventqueue = new LinkedBlockingQueue<ReceiverEvent>();
 	}
 	
 	// events on this protocol entity
 	public void recv_open() {
-		eventqueue.add(Events.RECV_OPEN);
+		eventqueue.add(ReceiverEvent.RECV_OPEN);
 	}
 	
 	public void recv_data() {
-		eventqueue.add(Events.RECV_DATA);
+		eventqueue.add(ReceiverEvent.RECV_DATA);
 	}
 	
 	public void recv_close() {
-		eventqueue.add(Events.RECV_CLOSE);
+		eventqueue.add(ReceiverEvent.RECV_CLOSE);
 	}
 	
-	private Events getNextEvent() {
+	private ReceiverEvent getNextEvent() {
 
-		Events event = null;
+		ReceiverEvent event = null;
 
 		try {
 
@@ -64,7 +65,7 @@ public class Receiver extends Stopable {
 	
 	public void doClosed() {
 	
-		Events event = getNextEvent();
+		ReceiverEvent event = getNextEvent();
 
 		if (event != null) {
 
@@ -72,7 +73,7 @@ public class Receiver extends Stopable {
 			
 			switch (event) {
 			case RECV_OPEN:
-				state = States.OPEN;
+				state = FSMState.OPEN;
 				System.out.println("Receiver -> OPEN");
 				break;
 			default:
@@ -83,7 +84,7 @@ public class Receiver extends Stopable {
 	
 	public void doOpen() {
 		
-		Events event = getNextEvent();
+		ReceiverEvent event = getNextEvent();
 
 		if (event != null) {
 
@@ -94,7 +95,7 @@ public class Receiver extends Stopable {
 				dlv_data();
 				break;
 			case RECV_CLOSE:
-				state = States.CLOSED;
+				state = FSMState.CLOSED;
 				System.out.println("Receiver -> CLOSED");
 				break;
 			default:
@@ -107,7 +108,7 @@ public class Receiver extends Stopable {
 	private int i = 1;
 	
 	public void dlv_data () {
-		System.out.println("Receiver(DLV_DATA)[" + i + "]");
+		System.out.println("Receiver[" + state + "](DLV_DATA)[" + i + "]");
 		i++;
 	}
 }

@@ -7,34 +7,34 @@ import no.hvl.dat110.stopablethreads.*;
 
 public class Transmitter extends Stopable {
 
-	private States state;
-	private LinkedBlockingQueue<Events> eventqueue;
+	private FSMState state;
+	private LinkedBlockingQueue<TransmitterEvent> eventqueue;
 
 	private Receiver receiver;
 
 	public Transmitter(Receiver receiver) {
 		super("Transmitter");
-		this.state = States.CLOSED;
+		this.state = FSMState.CLOSED;
 		this.receiver = receiver;
-		eventqueue = new LinkedBlockingQueue<Events>();
+		eventqueue = new LinkedBlockingQueue<TransmitterEvent>();
 	}
 
 	// events to this protocol entity
 	public void do_open() {
-		eventqueue.add(Events.DO_OPEN);
+		eventqueue.add(TransmitterEvent.DO_OPEN);
 	}
 
 	public void do_send() {
-		eventqueue.add(Events.DO_SEND);
+		eventqueue.add(TransmitterEvent.DO_SEND);
 	}
 
 	public void do_close() {
-		eventqueue.add(Events.DO_CLOSE);
+		eventqueue.add(TransmitterEvent.DO_CLOSE);
 	}
 
-	private Events getNextEvent() {
+	private TransmitterEvent getNextEvent() {
 
-		Events event = null;
+		TransmitterEvent event = null;
 
 		try {
 
@@ -67,7 +67,7 @@ public class Transmitter extends Stopable {
 
 	public void doClosed() {
 
-		Events event = getNextEvent();
+		TransmitterEvent event = getNextEvent();
 
 		if (event != null) {
 
@@ -75,7 +75,7 @@ public class Transmitter extends Stopable {
 			switch (event) {
 			case DO_OPEN:
 				send_open();
-				state = States.OPEN;
+				state = FSMState.OPEN;
 				System.out.println("Transmitter -> OPEN");
 				break;
 			default:
@@ -86,7 +86,7 @@ public class Transmitter extends Stopable {
 
 	public void doOpen() {
 
-		Events event = getNextEvent();
+		TransmitterEvent event = getNextEvent();
 
 		if (event != null) {
 
@@ -98,7 +98,7 @@ public class Transmitter extends Stopable {
 				break;
 			case DO_CLOSE:
 				send_close();
-				state = States.CLOSED;
+				state = FSMState.CLOSED;
 				System.out.println("Transmitter -> CLOSED");
 				break;
 			default:
