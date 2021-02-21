@@ -9,7 +9,7 @@ public class Main {
 		Receiver r = new Receiver();
 		Transmitter t = new Transmitter(r);
 		
-		System.out.println("main thread - start");
+		System.out.println("Main thread - start");
 		r.start();
 		t.start();
 		
@@ -17,7 +17,7 @@ public class Main {
 			
 			t.do_open();
 			
-			for (int i = 0; i<10; i++) {
+			for (int i = 0; i<5; i++) {
 				t.do_send();
 				Thread.sleep(SLEEPTIME); 
 			}
@@ -26,15 +26,15 @@ public class Main {
 			
 			t.do_send(); // what will happen?
 			
-			System.out.println("main thread - doStop");
+			System.out.println("Main thread - doStop");
 			t.doStop();
 			r.doStop();
 			
-			System.out.println("main thread - join");
+			System.out.println("Main thread - join");
 			t.join();	
 			r.join();	
 			
-			System.out.println("main thread - done");
+			System.out.println("Main thread - done");
 			
 		} catch (InterruptedException ex) {
 

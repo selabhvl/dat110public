@@ -19,7 +19,7 @@ public class Transmitter extends Stopable {
 		eventqueue = new LinkedBlockingQueue<TransmitterEvent>();
 	}
 
-	// events to this protocol entity
+	// events to be processed by this protocol entity
 	public void do_open() {
 		eventqueue.add(TransmitterEvent.DO_OPEN);
 	}
@@ -32,6 +32,7 @@ public class Transmitter extends Stopable {
 		eventqueue.add(TransmitterEvent.DO_CLOSE);
 	}
 
+	// fetch event from the event queue (if any)
 	private TransmitterEvent getNextEvent() {
 
 		TransmitterEvent event = null;
@@ -48,6 +49,7 @@ public class Transmitter extends Stopable {
 		return event;
 	}
 
+	// main processing loop
 	public void doProcess() {
 
 		switch (state) {
@@ -65,6 +67,7 @@ public class Transmitter extends Stopable {
 		}
 	}
 
+	// processing in the Closed state
 	public void doClosed() {
 
 		TransmitterEvent event = getNextEvent();
@@ -78,12 +81,14 @@ public class Transmitter extends Stopable {
 				state = FSMState.OPEN;
 				System.out.println("Transmitter -> OPEN");
 				break;
+				
 			default:
 				break;
 			}
 		}
 	}
 
+	// processing in the Open state
 	public void doOpen() {
 
 		TransmitterEvent event = getNextEvent();
@@ -96,18 +101,20 @@ public class Transmitter extends Stopable {
 			case DO_SEND:
 				send_data();
 				break;
+				
 			case DO_CLOSE:
 				send_close();
 				state = FSMState.CLOSED;
 				System.out.println("Transmitter -> CLOSED");
 				break;
+				
 			default:
 				break;
 			}
 		}
 	}
 
-	// actions to this protocol entity
+	// actions to that this protocol entity may perform
 	public void send_open() {
 		receiver.recv_open();
 	}

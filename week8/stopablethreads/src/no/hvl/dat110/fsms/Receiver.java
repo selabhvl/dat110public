@@ -17,7 +17,7 @@ public class Receiver extends Stopable {
 		eventqueue = new LinkedBlockingQueue<ReceiverEvent>();
 	}
 	
-	// events on this protocol entity
+	// events to be processed by this protocol entity
 	public void recv_open() {
 		eventqueue.add(ReceiverEvent.RECV_OPEN);
 	}
@@ -30,6 +30,7 @@ public class Receiver extends Stopable {
 		eventqueue.add(ReceiverEvent.RECV_CLOSE);
 	}
 	
+	// fetch event from the event queue (if any)
 	private ReceiverEvent getNextEvent() {
 
 		ReceiverEvent event = null;
@@ -46,6 +47,7 @@ public class Receiver extends Stopable {
 		return event;
 	}
 	
+	// main processing loop
 	public void doProcess () {
 		
 		switch (state) {
@@ -63,6 +65,7 @@ public class Receiver extends Stopable {
 		}
 	}
 	
+	// processing in the closed state
 	public void doClosed() {
 	
 		ReceiverEvent event = getNextEvent();
@@ -76,12 +79,14 @@ public class Receiver extends Stopable {
 				state = FSMState.OPEN;
 				System.out.println("Receiver -> OPEN");
 				break;
+				
 			default:
 				break;
 			}
 		}
 	}
 	
+	// processing in the open state
 	public void doOpen() {
 		
 		ReceiverEvent event = getNextEvent();
@@ -94,6 +99,7 @@ public class Receiver extends Stopable {
 			case RECV_DATA:
 				dlv_data();
 				break;
+				
 			case RECV_CLOSE:
 				state = FSMState.CLOSED;
 				System.out.println("Receiver -> CLOSED");
@@ -104,7 +110,7 @@ public class Receiver extends Stopable {
 		}
 	}
 	
-	// actions
+	// actions that can be performed by this protocol entity
 	private int i = 1;
 	
 	public void dlv_data () {
