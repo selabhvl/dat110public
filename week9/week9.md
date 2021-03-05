@@ -12,7 +12,7 @@ https://github.com/selabhvl/dat110-project2-startcode/blob/master/README.md
 
 Consider the UDP example that was discussed in the lectures:
 
-https://github.com/selabhvl/dat110public-2021/tree/master/week9/udpmultiplexing
+https://github.com/selabhvl/dat110public-2021/tree/master/week8/udpmultiplexing
 
 Run the client and the server and use Wireshark to observe the UDP segments that are transmitted. You may use a filter to observe only UDP segments.
 
