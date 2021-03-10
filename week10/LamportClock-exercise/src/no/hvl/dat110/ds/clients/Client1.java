@@ -23,6 +23,7 @@ public class Client1 extends Thread {
 			
 			p1.requestWithdrawal(200);
 
+//			p1.applyOperation();
 			
 		 }catch (RemoteException  e) { 
 			 e.printStackTrace(); 

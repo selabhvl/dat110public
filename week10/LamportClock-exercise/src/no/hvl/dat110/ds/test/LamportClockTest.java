@@ -27,7 +27,7 @@ class LamportClockTest {
 	}
 
 	@Test
-	void test() throws InterruptedException {
+	void test() throws InterruptedException, RemoteException {
 		Client1 c1 = new Client1();
 		Client2 c2 = new Client2();
 		Client3 c3 = new Client3();
@@ -44,6 +44,10 @@ class LamportClockTest {
 		ProcessInterface p2 = Util.getProcessStub("process2", Config.PORT2);
 		ProcessInterface p3 = Util.getProcessStub("process3", Config.PORT3);
 		
+		p1.applyOperation();			// order the transactions and apply the changes according to the order
+		p2.applyOperation();			// order the transactions and apply the changes according to the order
+		p3.applyOperation();			// order the transactions and apply the changes according to the order
+
 		double p1finalbal = 0;
 		double p2finalbal = 1;
 		double p3finalbal = 2;

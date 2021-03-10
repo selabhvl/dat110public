@@ -24,6 +24,7 @@ public class Client3 extends Thread {
 			
 			p3.requestDeposit(100);
 
+//			p3.applyOperation();
 			
 		 }catch (RemoteException e) { 
 			 e.printStackTrace(); 

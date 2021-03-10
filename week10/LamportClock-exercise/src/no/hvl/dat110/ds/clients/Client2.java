@@ -20,8 +20,10 @@ public class Client2 extends Thread {
 			p2.requestInterest(0.01);
 			
 			p2.requestWithdrawal(200);
+			
 			p2.requestDeposit(100);
 
+//			p2.applyOperation();
 			
 		 }catch (RemoteException e) { 
 			 e.printStackTrace(); 
