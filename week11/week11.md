@@ -56,8 +56,6 @@ Note that we have not implemented any ordering in this scheme, rather we are con
 
 ##### Task 2.1: Implement these missing methods in the "Process" class
 
-- private void sortQueue()
-
 - public void requestDeposit(double amount)
 
 - public void requestWithdrawal(double amount)
