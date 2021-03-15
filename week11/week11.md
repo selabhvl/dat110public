@@ -1,4 +1,4 @@
-### Lab Week 11: 16/03 - 20/03
+### Lab Week 11: 15/03 - 19/03
 
 #### Consistency and Mutual Exclusion
 
@@ -75,3 +75,12 @@ Note that we have not implemented any ordering in this scheme, rather we are con
 
 #####  Testing
 - Run the TokenRingMutexTest unit test. 
+
+#### Exercise 3 - A distributed sequencer (Additional challenge)
+A single sequencer can be a bottleneck. What if we organize N replicated sequencers in the form of a ring and then use the token ring algorithm to decide when a replica sequencer can forward received updates to the clients.
+This exercise involves combining exercise 1 and exercise 2. You can use 3 replicated sequencer processes and 3 clients' processes. A client (Client1, 2, and 3) can contact any sequencer randomly.
+A token will be circulated among the sequencers and the sequencer that has the token will check if it has reached the ordering limit, at which point, it will trigger propagating the updates in its queue to the clients' processes.
+- Modify the unit test in exercise such that all the 3 sequencers are started.
+- Make a new method getSequencerReplicas() for the 3 sequencers similar to getProcessReplicas().
+- Modify sendMessageToSequencer(Message message) in the Process class such that a random sequencer is selected from getSequencerReplicas()
+- Run the unit test and if everything works fine, the balance for each process should be the same.
