@@ -1,6 +1,7 @@
 ### Lab Week 12: 22/03 - 26/03
 
-#### Project 3: 
+#### Project 3: DHT Cooperative Mirroring with Consistency Protocols & Mutual Exclusion Algorithm
+https://github.com/selabhvl/dat110-project3-startcode/blob/master/README.md
 
 
 #### N-Fault Tolerant Sequencer (Chapter 8.2)
