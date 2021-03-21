@@ -4,7 +4,7 @@
 https://github.com/selabhvl/dat110-project3-startcode/blob/master/README.md
 
 
-#### N-Fault Tolerant Sequencer (Chapter 8.2)
+#### Exercise 1: N-Fault Tolerant Sequencer in a single host (Chapter 8.2)
 
 Assumption: The host is alive but the sequencer process has crashed.
 The goal here is to make the single Sequencer N-fault tolerant in a single host. We will provide N number of SequencerManagers that are running on different ports.
@@ -69,3 +69,19 @@ The project is organized as follows:
 - Run the FaultToleranceTest
 
 If your logic in doCheck() is correct, everything should work seamlessly.
+
+#### Exercise 2 - A distributed sequencer using token-ring (Additional challenge)
+A single sequencer in a single host can be a bottleneck. What if we organize N replicated sequencers in form of a ring and then use the token ring algorithm to decide when a replica sequencer can forward received updates to the clients?
+This exercise involves combining exercise 1 and exercise 2. You can use 3 replicated sequencer processes and 3 clients' processes. A client (Client1, 2, and 3) can contact any sequencer randomly.
+A token will be circulated among the sequencers and the sequencer that has the token will check if it has reached the ordering limit, at which point, it will trigger propagating the updates in its queue to the clients' processes. Alternatively, we can propagate to the sequencers and let each one contact its clients' processes.
+- Modify the unit test in exercise 1 such that all the 3 sequencers are started.
+- Make a new method getSequencerReplicas() for the 3 sequencers similar to getProcessReplicas() in the Util class.
+- Modify sendMessageToSequencer(Message message) in the Process class such that a random sequencer is selected from getSequencerReplicas()
+- Run the unit test and if everything works fine, the balance for each process should be the same.
+
+#### Exercise 3 - A distributed sequencer using Lamport clock total-ordering (Additional challenge)
+Instead of using a token-ring algorithm, we can allow the 3 sequencers to use lamport clock to totally order the received updates.
+Implement the sequencers such that they can exchange updates received from client processes among them. They should use the lamport clock to provide a total order.
+A sequencer can only propagate updates to its clients if it has reached its bounding limit. 
+
+- If your implementation is correct, the balance will be the same across all replicas at the end of the operations.
