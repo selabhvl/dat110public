@@ -1,14 +1,12 @@
 ## DAT110: Distributed Systems and Network Technology
 
-### Lab Week 14: 30/3 - 3/4
+### Lab Week 14: 6/4 - 9/4
 
-### Exercise 14.1: Project work
+### Exercise 1: Project work
 
-Complete the remaining tasks on project 3:
+Complete the remaining tasks on project 3.
 
-https://github.com/selabhvl/dat110-project3-startcode/blob/master/README.md
-
-### Exercise 14.2: Network interfaces and IP address configuration
+### Exercise 2: Network interfaces and IP address configuration
 
 Make sure that your PC is connected to your local area network either via cable or via WiFi.
 
@@ -23,7 +21,7 @@ Start a terminal (mac) or a command prompt (windows) on your PC. Use the `ifconf
 
 In case the `config` command does not provide information about DNS server(s) you can use the `nslookup` command-line tool.
 
-### Exercise 14.3: Connectivity and routes
+### Exercise 3: Connectivity and routes
 
 Start a terminal (mac) or a command prompt (windows) on your PC.
 
@@ -35,7 +33,7 @@ Use the `traceroute` (mac) / `tracert` (windows) tool to obtain information abou
 
 2. Can you locate the IP address of your default gateway as identified in Exercise 14.2 on the route?
 
-### Exercise 14.4: Dynamic Host Configuration Protocol
+### Exercise 4: Dynamic Host Configuration Protocol
 
 Start the WireShark application and set it up such that it captures packets on the network interface with which you are connected to the Internet (wireless or cabled interface).
 
@@ -48,13 +46,13 @@ Now do the following:
 3. Try to switch on the network interface again. What DHCP packets are captured by WireShark?
 4. Use `ifconfig/ipconfig` again to check that your network interface has now been configured.
 
-### Exercise 14.5: Networking status
+### Exercise 5: Networking status
 
 Experiment with the `netstat` command-line tool on your PC.
 
 What kind of information does the tool provide?
 
-### Exercise 14.6: Fragmentation and Maximum Transfer Unit
+### Exercise 6: Fragmentation and Maximum Transfer Unit
 
 Consider an IPv4 datagram with a total size of 3000 bytes (including a 20 byte header) that needs to be transmitted across a communication link where the maximum transfer unit (MTU) is 1620 bytes.
 
@@ -63,9 +61,9 @@ Assume that the original datagram identification is 888.
 1. How many IP datagrams will the original IP datagram be divided (fragmented) into?
 2. What is the amount of data, identification, offset, and flag in the resulting IP datagrams?
 
-Se also slides 10-12 from the lecture on Network Layer I.
+See also slides from the lecture on Network Layer I.
 
-### Exercise 14.7:IP addresses and routing - Exam exercise from 2019
+### Exercise 7: IP addresses and routing - Exam exercise from 2019
 
 #### a)
 
