@@ -81,6 +81,6 @@ Consider a router with the following forwarding table.
 
 At which interface (1-4) will the router forward datagrams with the following destination IP addresses? (justify the answers)
 
-1.	224.193.42.10
-2.	224.193.57.14
+1.	200.193.42.10
+2.	200.193.57.14
 3.	10.53.40.7
