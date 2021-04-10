@@ -1,10 +1,10 @@
 ## DAT110: Distributed Systems and Network Technology
 
-### Lab Week 16: 13/4 - 17/4
+### Lab Week 16: 12/4 - 16/4
 
-### Exercise 16.1: Network Layer - Data Plane
+### Exercise 1: Network Layer - Data Plane
 
-Chapter 4 in the networking book
+From Chapter 4 in the networking book
 
 ##### Review questions
 
@@ -17,15 +17,33 @@ R9 (forwarding), R17 (encapsulation), R20 (fragmentation), R21 (network interfac
 - P14 (fragmentation), P15 (fragmentation)
 - P16 (network address translation)
 
-### Exercise 16.2: Network Layer - Control Plane
+### Exercise 2: Network Layer - Control Plane
 
-Chapter 5 in the networking book
+From Chapter 5 in the networking book
 
 - Review question R5 (counting to infinity problem)
 - Problem P3 (run Dikjstra's algorithm on an example network)
 - Problem P8 (run Belmann-Ford Distance Vector Algorithm on an example)
 
-### Exercise 16.3: Stopable-thread abstraction
+### Exercise 3: Link-layer - Exam Exercise 2019
+
+##### a)
+
+Explain what information is stored in an ARP table
+
+##### b)
+
+Consider a local area network consisting of three hosts with IP and MAC addresses as specified in the figure below and a switch with interfaces numbered 1-3 as specified in the figure. Assume that the ARP tables on all hosts are empty and that the switch-table on the switch is empty.
+
+![](assets/markdown-img-paste-20200409164038903.png)
+
+What is the content of the ARP table on the host with IP address 112.223.334.1 after an IP datagram from 112.223.334.1 to 112.223.334.3 has been sent? **Justify your answer**
+
+##### c)
+
+What will the content of the switch-table be after an IP datagram from 112.223.334.1 to 112.223.334.3 has been sent? **Justify your answer**
+
+### Exercise 4: Stopable-thread abstraction revisited
 
 The RDT framework for reliable data transfer studied earlier, and the network routing framework (NFR) to be explored in the coming weeks rely on the stopable-thread abstraction for implementation of protocol entities and network interfaces.
 
@@ -112,24 +130,6 @@ Display device stopping ...
 IoT system shutting down ...
 ```
 
-### Exercise 16.4: Network Routing Framework
+### Exercise 5: Network Routing Framework
 
 Exercises 1-3 related to the NRF framework: https://github.com/lmkr/dat110-nrf/blob/master/README.md
-
-### Exercise 16.5: Link-layer - Exam Exercise 2019
-
-##### a)
-
-Explain what information is stored in an ARP table
-
-##### b)
-
-Consider a local area network consisting of three hosts with IP and MAC addresses as specified in the figure below and a switch with interfaces numbered 1-3 as specified in the figure. Assume that the ARP tables on all hosts are empty and that the switch-table on the switch is empty.
-
-![](assets/markdown-img-paste-20200409164038903.png)
-
-What is the content of the ARP table on the host with IP address 112.223.334.1 after an IP datagram from 112.223.334.1 to 112.223.334.3 has been sent? **Justify your answer**
-
-##### c)
-
-What will the content of the switch-table be after an IP datagram from 112.223.334.1 to 112.223.334.3 has been sent? **Justify your answer**
