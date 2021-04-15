@@ -4,7 +4,7 @@ In this part you will be connecting your access control device from Part A to th
 
 In part A you implemented the control part of the access control device using the TinkerCAD: https://www.tinkercad.com/ simulator. As TinkerCAD does not provide support for connecting the circuit design to the Internet, and as we do not have sufficient physical Arduino devices with network cards available for use, you will be provided with a virtual access control device implemented using Java.
 
-You are then required to implement the network part of the virtual access control device which will use the HTTP protocol to connect to a REST-based cloud service implementing using the [Spark/Java micro-service framework](http://sparkjava.com). At the end of part B you should have a complete IoT-cloud system solution in which the IoT access control device is connected to a cloud service making it possible to track when the system has been locked/unlocked and also change the current access code.
+You are then required to implement the network part of the virtual access control device which will use the HTTP protocol to connect to a REST-based cloud service implementing using the [Spark/Java micro-service framework](http://sparkjava.com). At the end of part B, you should have a complete IoT-cloud system solution in which the IoT access control device is connected to a cloud service making it possible to track when the system has been locked/unlocked and also change the current access code.
 
 The principles that you will apply to develop your IoT-cloud solution is similar to what was demonstrated in the lectures on IoT by means of the red-green counters examples.
 
@@ -48,7 +48,7 @@ The steps are described here:
 
 https://github.com/selabhvl/dat110public-2020/blob/master/javafx/INSTALL.md
 
-If you already downloaded the JavaFX library as part of project 2 (on the chat-application), then it suffices to do step 3 and step 4.
+If you already downloaded the JavaFX library as part of project 2 (on the chat-application), then it suffices to do steps 3 and 4 in the above guide.
 
 Running the launch configuration created when setting up JavaFX should result in the following window where you can interact with the PIR-sensor (by clicking it) and also push the buttons labelled `1` and `2`. The green, yellow, and red LEDs are represented by the accordingly coloured boxes.
 
@@ -62,7 +62,7 @@ The implementation of the logic for controlling the sensors and actuators can be
 
 The `AccessController.java` class implements one possible solution for Part A. If you want, you can replace/integrate the implementation with your own implementation from Part A. Few changes to the C/C++ code should be required in order to make it run under Java.
 
-It should only be necessary to make changes to the the classes in the `client`-package in order to complete Step 4 below.   
+It should only be necessary to make changes to the classes in the `client`-package in order to complete Step 4 below.   
 
 ### Step 2: Cloud service and REST API
 
@@ -72,7 +72,7 @@ The Eclipse-project that is to be used as a starting point is available via:
 
 https://github.com/selabhvl/dat110-project4-startcode-cloudservice.git
 
-provides the basic setup required to implement the service. It is organised as a [Maven-project](https://maven.apache.org) in order to automatically download the externally libraries required. The external dependencies are declared in the `pom.xml` file.
+and provides the basic setup required to implement the service. It is organised as a [Maven-project](https://maven.apache.org) in order to automatically download the externally libraries required. The external dependencies are declared in the `pom.xml` file.
 
 The Java source code is available in the `src/main/java` folder.
 
@@ -159,19 +159,19 @@ For the JSON-representation, we will use the GSON-library:
 
 https://github.com/google/gson
 
-The Maven-setup of the cloud-service makes sure to download this library.
+The Maven-setup of the cloud-service makes sure to automaitcally download this library.
 
 The examples on Spark/Java and also GSON from the lectures on IoT is available from here:
 
-- https://github.com/selabhvl/dat110public-2020/blob/master/week17/IoTCounter/counters/counters/src/main/java/no/hvl/dat110/cloudservice/App.java
+- https://github.com/selabhvl/dat110public-2021/blob/master/week16/IoTCounter/counters/counters/src/main/java/no/hvl/dat110/cloudservice/App.java
 
-- https://github.com/selabhvl/dat110public-2020/blob/master/week17/IoTCounter/counters/counters/src/main/java/no/hvl/dat110/cloudservice/Counters.java
+- https://github.com/selabhvl/dat110public-2021/blob/master/week16/IoTCounter/counters/counters/src/main/java/no/hvl/dat110/cloudservice/Counters.java
 
 ### Step 3: Testing the cloud service
 
 The operations of the cloud service relying on HTTP GET can easily be tested from a browser.
 
-To conduct a more complete test of the service implemented in step 2 you are to download and install the [Postman-tool](https://www.getpostman.com/tools). The tool makes it possible to construct HTTP requests and run these against a service as was also demonstrated at the lectures on IoT.
+To conduct a more complete test of the service implemented in step 2 you are to download and install the [Postman-tool](https://www.getpostman.com/tools). The tool makes it possible to construct HTTP requests and run these against a service as was also demonstrated in the lectures on IoT.
 
 You should create requests in the Postman-tool and test all the operations/services that were implemented in step 2.  
 
@@ -185,11 +185,11 @@ The implementation of the network communication is to be provided in the `RestCl
 
 - ```public void doPostAccessLogEntry (String message)``` which is to issue a HTTP POST request on the service in order to add a log access entry for the message. This method will be called from the loop-function in the `AccessController.java` class if access is denied in the `CHECKING` state and when the system becomes `UNLOCKED` and `LOCKED`.  
 
-Both of the methods should establish a connection to the cloud-service and issue the appropriate HTTP GET and HTTP POST requests, i.e.., following the format for HTTP request messages which can be found on pages 133 and 135 in the networking book.
+Both of the methods should establish a connection to the cloud-service and issue the appropriate HTTP GET and HTTP POST requests, i.e., following the format for HTTP request messages which can be found on pages 133 and 135 in the networking book.
 
 The code from the IoT lectures illustrating construction of HTTP requests can be found via:
 
-https://github.com/selabhvl/dat110public-2020/tree/master/week17/IoTCounter/counters/counters/src/main/java/no/hvl/dat110
+https://github.com/selabhvl/dat110public-2020/tree/master/week16/IoTCounter/counters/counters/src/main/java/no/hvl/dat110
 
 If you choose to use the okhttp library for your implementation, then you will have to download the the library from:
 
