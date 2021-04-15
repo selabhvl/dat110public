@@ -46,7 +46,7 @@ It you have JDK 1.9 or higher installed, then you need to configure JavaFX for t
 
 The steps are described here:
 
-https://github.com/selabhvl/dat110public-2020/blob/master/javafx/INSTALL.md
+https://github.com/selabhvl/dat110public-2021/blob/master/javafx/INSTALL.md
 
 If you already downloaded the JavaFX library as part of project 2 (on the chat-application), then it suffices to do steps 3 and 4 in the above guide.
 
@@ -159,7 +159,7 @@ For the JSON-representation, we will use the GSON-library:
 
 https://github.com/google/gson
 
-The Maven-setup of the cloud-service makes sure to automaitcally download this library.
+The Maven-setup of the cloud-service makes sure to automatically download this library.
 
 The examples on Spark/Java and also GSON from the lectures on IoT is available from here:
 
