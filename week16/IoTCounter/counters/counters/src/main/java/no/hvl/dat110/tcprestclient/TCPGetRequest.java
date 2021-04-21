@@ -21,7 +21,7 @@ public class TCPGetRequest {
 			String httpgetrequest = "GET " + uri + " HTTP/1.1\r\n" + "Accept: application/json\r\n"
 					+ "Host: localhost\r\n" + "Connection: close\r\n" + "\r\n";
 
-			// sent the HTTP request
+			// send the HTTP request
 			OutputStream output = s.getOutputStream();
 
 			PrintWriter pw = new PrintWriter(output, false);
