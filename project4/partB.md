@@ -191,11 +191,12 @@ The code from the IoT lectures illustrating construction of HTTP requests can be
 
 https://github.com/selabhvl/dat110public-2020/tree/master/week16/IoTCounter/counters/counters/src/main/java/no/hvl/dat110
 
-If you choose to use the okhttp library for your implementation, then you will have to download the the library from:
+If you choose to use the okhttp library for your implementation, then you will have to download the library in the form of a jar-file. Jar files for the following libraries are needed:
 
-https://mvnrepository.com/artifact/com.squareup.okhttp/okhttp
+- https://mvnrepository.com/artifact/com.squareup.okio/okio/1.9.0
+- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp/3.4.2
 
-and add it to the build path of the Eclipse-project.
+and must be added to the build path of the Eclipse-project. Never versions of the libraries may also work.
 
 ### Step 5: System testing
 
