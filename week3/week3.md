@@ -39,19 +39,19 @@ An illustration of the system is shown below
 
 ##### 4.1
 
-Pull the code base for the system from the github repository: https://github.com/selabhvl/dat110public-2021
+Pull the code base for the system from the github repository: https://github.com/selabhvl/dat110public
 
 ##### 4.2
 
-The implementation of the system is in the Eclipse-project at: https://github.com/selabhvl/dat110public-2020/tree/master/week3/iotthreads
+The implementation of the system is in the Eclipse-project at: https://github.com/selabhvl/dat110public/tree/master/week3/iotthreads
 
 Study the implementation of the five classes in the project
 
-- [`TemperatureDevice`](https://github.com/selabhvl/dat110public-2021/blob/master/week3/iotthreads/src/no/hvl/dat110/threading/TemperatureDevice.java) implementing the device that reports the temperature.
-- [`TemperaturSensor`](https://github.com/selabhvl/dat110public-2021/blob/master/week3/iotthreads/src/no/hvl/dat110/threading/TemperatureSensor.java) that simulates the sensing of the temperature.
-- [`TemperatureMeasurement`](https://github.com/selabhvl/dat110public-2021/blob/master/week3/iotthreads/src/no/hvl/dat110/threading/TemperatureMeasurement.java) that represents a measured temperature.
-- [`DisplayDevice`](https://github.com/selabhvl/dat110public-2021/blob/master/week3/iotthreads/src/no/hvl/dat110/threading/DisplayDevice.java) implementing the device used to display the measured temperature.
-- [`IoTSystem`](https://github.com/selabhvl/dat110public-2021/blob/master/week3/iotthreads/src/no/hvl/dat110/threading/IoTSystem.java) which configures the system and starts the threads for the temperature and display devices.
+- [`TemperatureDevice`](https://github.com/selabhvl/dat110public/blob/master/week3/iotthreads/src/no/hvl/dat110/threading/TemperatureDevice.java) implementing the device that reports the temperature.
+- [`TemperaturSensor`](https://github.com/selabhvl/dat110public/blob/master/week3/iotthreads/src/no/hvl/dat110/threading/TemperatureSensor.java) that simulates the sensing of the temperature.
+- [`TemperatureMeasurement`](https://github.com/selabhvl/dat110public/blob/master/week3/iotthreads/src/no/hvl/dat110/threading/TemperatureMeasurement.java) that represents a measured temperature.
+- [`DisplayDevice`](https://github.com/selabhvl/dat110public/blob/master/week3/iotthreads/src/no/hvl/dat110/threading/DisplayDevice.java) implementing the device used to display the measured temperature.
+- [`IoTSystem`](https://github.com/selabhvl/dat110public/blob/master/week3/iotthreads/src/no/hvl/dat110/threading/IoTSystem.java) which configures the system and starts the threads for the temperature and display devices.
 
 You can run the application by running the main-method in the `IoTSystem` class.
 
@@ -71,7 +71,7 @@ Modify the IoT system from item 4.4.2 such that instead of using a [`sleep()`](h
 
 #### Exercise 5 - UDP and TCP socket and network programming
 
-Consider the client-server echo network application covered in the lectures this week. The source Java code for the TCP and the UDP implementation is available from https://github.com/selabhvl/dat110public-2021/tree/master/week3/tcpexample and https://github.com/selabhvl/dat110public-2021/tree/master/week3/udpexample
+Consider the client-server echo network application covered in the lectures this week. The source Java code for the TCP and the UDP implementation is available from https://github.com/selabhvl/dat110public/tree/master/week3/tcpexample and https://github.com/selabhvl/dat110public/tree/master/week3/udpexample
 
 The implementation uses the Java Socket API as documented here:
 
@@ -117,7 +117,7 @@ Would it be easy to modify the current TCP implementation with a keep-alive feat
 
 Consider the IoT system example from exercise 4.4:
 
-https://github.com/selabhvl/dat110public-2021/tree/master/week3/iotthreads/src/no/hvl/dat110/threading
+https://github.com/selabhvl/dat110public/tree/master/week3/iotthreads/src/no/hvl/dat110/threading
 
 where communication between the temperature device and the display device was performed using a shared memory object, and where the temperature device and display device were running as two threads on the same JVM.
 

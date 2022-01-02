@@ -26,11 +26,11 @@ Make sure that you have an installation of
 
 Perform a simple test to check that the tools are working properly. This can be done by cloning the git repository of the course:
 
-https://github.com/selabhvl/dat110public-2021
+https://github.com/selabhvl/dat110public
 
 and run the HTTP client example at:
 
-https://github.com/selabhvl/dat110public-2021/tree/master/week2/apphttpclient
+https://github.com/selabhvl/dat110public/tree/master/week2/apphttpclient
 
 that was briefly demonstrated in the lectures.
 

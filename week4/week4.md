@@ -22,19 +22,19 @@ https://github.com/selabhvl/dat110-project1-startcode/blob/master/README.md
 
 Consider the implementation of the simple HTTP client that uses HTTPS for communication:
 
-https://github.com/selabhvl/dat110public-2021/tree/master/week3/httpsappclient
+https://github.com/selabhvl/dat110public/tree/master/week3/httpsappclient
 
 Use the client to access a webpage via https and use Wireshark to inspect the messages exchanges. Can you get information about what the content of the retreived web page is? Why/Why not?
 
 Compare the messages exchanges with the messages exchanged when using the non-secure variant of the HTTP client:
 
-https://github.com/selabhvl/dat110public-2021/tree/master/week2
+https://github.com/selabhvl/dat110public/tree/master/week2
 
 #### Exercise 4 - Echo Client in a different programming language (optional)
 
 Choose a programming language different from Java. Implement the echo client from:
 
-https://github.com/selabhvl/dat110public-2021/tree/master/week4/udpexample
+https://github.com/selabhvl/dat110public/tree/master/week4/udpexample
 
 in that language. Make the implementation interact with the server-side implemented in Java.
 
@@ -44,7 +44,7 @@ One option would be to run the Python echo client from the networking book (see 
 
 Consider the implementation of the simple HTTP client that uses HTTPS for communication:
 
-https://github.com/selabhvl/dat110public-2021/tree/master/week3/httpsappclient
+https://github.com/selabhvl/dat110public/tree/master/week3/httpsappclient
 
 Revise and augment the implementation such that the client is able to interact with the dweet.io REST web service API:
 
@@ -56,7 +56,7 @@ As an example, the client should be able to perform GET and POST operations agai
 
 Consider the echo client-server implementation based on TCP sockets:
 
-https://github.com/selabhvl/dat110public-2021/tree/master/week3/tcpexample
+https://github.com/selabhvl/dat110public/tree/master/week3/tcpexample
 
 The implementation of the server-side is single threaded which has the effect that the server is only able to service one client at a time. For the echo service this is not a real problem as the handling of a request to convert a text string takes hardly any time. If the task to performed by the server-side takes longer time, then the clients may experience delays, i.e., a poor quality of service. Servers are therefore often multi-threaded so that they can server several clients at a time.
 

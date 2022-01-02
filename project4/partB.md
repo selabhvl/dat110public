@@ -46,7 +46,7 @@ It you have JDK 1.9 or higher installed, then you need to configure JavaFX for t
 
 The steps are described here:
 
-https://github.com/selabhvl/dat110public-2021/blob/master/javafx/INSTALL.md
+https://github.com/selabhvl/dat110public/blob/master/javafx/INSTALL.md
 
 If you already downloaded the JavaFX library as part of project 2 (on the chat-application), then it suffices to do steps 3 and 4 in the above guide.
 
@@ -163,9 +163,9 @@ The Maven-setup of the cloud-service makes sure to automatically download this l
 
 The examples on Spark/Java and also GSON from the lectures on IoT is available from here:
 
-- https://github.com/selabhvl/dat110public-2021/blob/master/week16/IoTCounter/counters/counters/src/main/java/no/hvl/dat110/cloudservice/App.java
+- https://github.com/selabhvl/dat110public/blob/master/week16/IoTCounter/counters/counters/src/main/java/no/hvl/dat110/cloudservice/App.java
 
-- https://github.com/selabhvl/dat110public-2021/blob/master/week16/IoTCounter/counters/counters/src/main/java/no/hvl/dat110/cloudservice/Counters.java
+- https://github.com/selabhvl/dat110public/blob/master/week16/IoTCounter/counters/counters/src/main/java/no/hvl/dat110/cloudservice/Counters.java
 
 ### Step 3: Testing the cloud service
 
@@ -189,7 +189,7 @@ Both of the methods should establish a connection to the cloud-service and issue
 
 The code from the IoT lectures illustrating construction of HTTP requests can be found via:
 
-https://github.com/selabhvl/dat110public-2020/tree/master/week16/IoTCounter/counters/counters/src/main/java/no/hvl/dat110
+https://github.com/selabhvl/dat110public/tree/master/week16/IoTCounter/counters/counters/src/main/java/no/hvl/dat110
 
 If you choose to use the okhttp library for your implementation, then you will have to download the library in the form of a jar-file. Jar files for the following libraries are needed:
 

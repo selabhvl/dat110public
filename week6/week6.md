@@ -10,7 +10,7 @@ However, to achieve these qualities require an efficient naming system. The DHT 
 Given a resource (e.g. a file), we can lookup the DHT system for the server(s) storing this file. The DHT system uses the same address space for naming a resource and its access point (peers).
 
 
-To get started you need to download and import the ChordDHT project into your eclipse IDE. You can find the project here: https://github.com/selabhvl/dat110public-2021/tree/master/week6/ChordDHTPeer-Lab-Exercise
+To get started you need to download and import the ChordDHT project into your eclipse IDE. You can find the project here: https://github.com/selabhvl/dat110public/tree/master/week6/ChordDHTPeer-Lab-Exercise
 The project is divided into four packages:
 
 - no.hvl.dat110.rpc.interfaces: contains an interface (NodeInterface) with methods that peers can invoke remotely
@@ -22,7 +22,7 @@ The project is divided into four packages:
 - no.hvl.dat110.util: contains the Hash class for defining address space by using MD5 hash function and computing the identifier for an entity; the Util class provides method for getting a process stub, creating the replica of a file, and
 checking if a key lies within a node/peer and its predecessor. (pred < key <= node).
 
-#### Task 1 - Address space and size 
+#### Task 1 - Address space and size
 
 In this task, you will implement the methods hashOf() and addressSize() in the Hash class. You must use the MD5 hash algorithm because the test cases in the DHTNodeTest class are generated using MD5 hash.
 MD5 compresses strings to 128bits, thus the address size will be 2^128 = 340282366920938463463374607431768211456.
@@ -45,7 +45,7 @@ To look up a file in a chord system, we need to perform the same process in Task
 The major task here is to implement the requestActiveNodesForFile() method in the FileManager. Given a filename, find all the peers that hold a copy of this file
 
 #### Task 5 - findSuccessor of a key (optional challenge)
-The findSuccessor(id) method is a core method in the DHT system for recursively or iteratively resolving a key from the current node/peer. 
+The findSuccessor(id) method is a core method in the DHT system for recursively or iteratively resolving a key from the current node/peer.
 You may need to read pg. 247-249 of the DS book and the original paper on chord system.
 To correctly implement this function, you need to maintain a finger table for each node and also implement findHighestPredecessor method that uses the finger table to find the closest predecessor peer to a key.
 As an additional challenge, implement the findSuccessor method.

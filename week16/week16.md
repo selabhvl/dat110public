@@ -21,7 +21,7 @@ Which ARP query and replies does the sending of the ping datagram trigger?
 
 ### Exercise 3: Project Work
 
-Part A of project 4: https://github.com/selabhvl/dat110public-2021/blob/master/project4/partA.md
+Part A of project 4: https://github.com/selabhvl/dat110public/blob/master/project4/partA.md
 
 ### Exercise 4: Link-state implementation
 

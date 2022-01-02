@@ -6,13 +6,13 @@ This exercise is based on Section 6.2 of the distributed system book. The goal i
 
 The implementation is based on a totally-ordered multicasting where every process has the same copy of the queue first before performing their operations. This is the most basic implementation but can be optimized. A totally-ordered multicasting is crucial for replicated services to keep replicas consistent by ensuring that each replica execute the same operations in the same order.
 
-To get started, download the project and import it to your Eclipse IDE. Project can be downloaded here: https://github.com/selabhvl/dat110public-2021/tree/master/week10/LamportClock-exercise
+To get started, download the project and import it to your Eclipse IDE. Project can be downloaded here: https://github.com/selabhvl/dat110public/tree/master/week10/LamportClock-exercise
 
 The processes communicate using the Java RMI. Current implementation uses three separate clients each with a main thread on a single computer to simulate inter-process communication in a distributed system. You can use multiple computers by changing the registry configuration and specifying the IP addresses of the communicating hosts in the Util/ProcessContainer classes
 
 The project is organized as follows:
 
-- no.hvl.dat110.ds.clients: contains three client processes (client1, client2, & client3). Each client initiates some operations such as requestDeposit, requestInterest, or requestWithdrawal to the replica process. 
+- no.hvl.dat110.ds.clients: contains three client processes (client1, client2, & client3). Each client initiates some operations such as requestDeposit, requestInterest, or requestWithdrawal to the replica process.
 
 - no.hvl.dat110.ds.middleware: contains the 'process' class that implements the Lamport clock and its application using three operations (deposit, interest, and withdrawal). ProcessContainer class is the 'server' for the 'process' class. This is where the registry is started and where the binding of the process implementation to the registry is done. Message class is used to construct the message to be passed between the processes.
 
@@ -48,12 +48,12 @@ Run the project using the LamportClockTest junit test and confirm that the the t
 We have discussed that Vector clock can be used to capture potential causal relationships between messages during exchanges. This exercise is meant to further illustrate this concept by providing an implementation of Vector clock. We are using the example on page 320 of the Distributed System book as shown in the figure below.
 ![](imgs/bulletin.png)
 
-A middleware should not deliver a message to an application if messages that precede this message have not been delivered. A way to enforce this rule is to use Vector clock at the middleware layer. 
+A middleware should not deliver a message to an application if messages that precede this message have not been delivered. A way to enforce this rule is to use Vector clock at the middleware layer.
 To demonstrate this concept, you are provided with framework where you can implement the correct functioning of the Vector clock. The processes communicate using the Java RMI. Current implementation uses three separate clients each with a main thread on a single computer to simulate inter-process communication in a distributed system. You can use multiple computers by changing the registry configuration and specifying the IP addresses of the communicating hosts in the Util/ProcessContainer classes
 A client can build a message by using the buildMessage() method and multicast the message using multicastMessage() method to other replicas.
 When processes exchange messages concurrently, the vector clock must also be consistent. We simulate communication delay by making the processes to wait (sleep) between sending messages. Another variant is to specify the dependency between two processes using WaitForEvent class.
- 
-To get started, download the project and import it to your Eclipse IDE. Project can be downloaded here: https://github.com/selabhvl/dat110public-2021/tree/master/week10/VectorClock-bulletin-exercise
+
+To get started, download the project and import it to your Eclipse IDE. Project can be downloaded here: https://github.com/selabhvl/dat110public/tree/master/week10/VectorClock-bulletin-exercise
 
 The project is organized as follows:
 
@@ -65,7 +65,7 @@ The project is organized as follows:
 
 - no.hvl.dat110.ds.util: contains the Util class with various methods for obtaining registry or performing conversion and printing the clock states for each process.
 
-- no.hvl.dat110.ds.tests: contains JUnit tests (VectorClockTest, VectorClockTest2, VectorClockTest3) classes that are used to test the result whether the vector clock is consistent in the face of concurrency or delay across the processes after the operations. 
+- no.hvl.dat110.ds.tests: contains JUnit tests (VectorClockTest, VectorClockTest2, VectorClockTest3) classes that are used to test the result whether the vector clock is consistent in the face of concurrency or delay across the processes after the operations.
 
 ##### Task-1: Run the project
 Study the code and understand the connections between the classes. The configuration follows the same style we have used for previous Java RMI labs.
@@ -98,11 +98,9 @@ Run the project using the VectorClockTest junit test classes only and confirm th
 - Duplicate the LamportClock-exercise project
 
 - Use the same Java RMI framework for the LamportClock exercise and implement a mutual exclusion distributed algorithm such that before each process can commit (apply their operations) they must obtain permissions from the remaining replicas.
-That implies that when the client calls "public void applyOperation()" method, the permission process begins. A process can only commit if it obtains permissions from the remaining replicas. 
+That implies that when the client calls "public void applyOperation()" method, the permission process begins. A process can only commit if it obtains permissions from the remaining replicas.
 It is also possible that when a process finishes committing to the datastore it can tell other processes in its queue to go ahead and commit to the datastore.
 
 - If your implementation is correct, the balance will be the same across all replicas at the end of the operations.
 
 - Use the same unit test class (LamportClockTest) to test your implementations.
-
-
