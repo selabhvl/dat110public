@@ -48,7 +48,7 @@ A detailed description can be found here: http://www-net.cs.umass.edu/wireshark-
 
 The Postman tool is a tool that can be used for API development environment for networked applications.
 
-Download and install the [Postman](https://www.getpostman.com/tools) tool.
+Download and install the [Postman](https://www.postman.com/downloads/) tool.
 
 Test that the tool is working. This can be done by creating a HTTP GET request message targeting http://www.example.com and observing the HTTP response message that is returned.
 
