@@ -2,9 +2,7 @@
 
 ### Lab Week 3: 17/01 - 21/01
 
-**REMEMBER** to complete the end of week quiz for this week (and also end of week quiz for the previous week (if you have not already done so).
-
-Note that some of the exercises below are marked as **optional**. These represents more challenging exercises. The first mandatory project will be about socket and network programming in Java. So even if Exercise 4.6 is optional, it is highly recommended to try to solve it in order to be well-prepared for undertaking the first project.
+Note that some of the exercises below are marked as **optional**. These represents more challenging exercises. The first mandatory project will be about socket and network programming in Java. So even if Exercise 6 is optional, it is highly recommended to try to solve it in order to be well-prepared for undertaking the first project.
 
 #### Exercise 1 - Layering and encapsulation
 
