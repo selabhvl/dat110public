@@ -16,9 +16,7 @@ Assume that we have some data in a datagram that is to be sent from H1 via R1 an
 
 Problem P3 in Chap. 2 of the networking book with the modification that you should draw a [time sequence diagram]( https://en.wikipedia.org/wiki/Sequence_diagram) showing the interaction between the different protocol entities. Time sequence diagrams are widely used in computer science to illustrate the exchange of messages in protocols.
 
-**NOTE** There is a difference between the "global edition" and the "US edition" of the networking book. For those not having the global edition you can find the problems and the figures being referred to here:
-
-https://hvl.instructure.com/courses/15566/files/folder/labs
+**NOTE** There is a difference between the "global edition" and the "US edition" of the networking book. For those not having the global edition you can find the problems and the associated figures in teh lab folder on Canvas.
 
 #### Exercise 3 - DNS and HTTP Wireshark
 
@@ -123,4 +121,4 @@ where communication between the temperature device and the display device was pe
 
 Revise the implementation such the temperature device and the display device runs as separate processes and uses sockets for communication between the two entities. The temperature device should act as as client reporting temperature, and the display should act as a server receiving request to display the current temperature.
 
-Implement both a TCP and a UDP variant. Use the example code from exercise 4.5 above as inspiration for how to implement the IoT system as a networked application using sockets.
+Implement both a TCP and a UDP variant. Use the example code from exercise 5 above as inspiration for how to implement the IoT system as a networked application using sockets.
