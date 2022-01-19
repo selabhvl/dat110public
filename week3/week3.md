@@ -1,6 +1,6 @@
 ## DAT110: Distributed Systems and Network Technology
 
-### Lab Week 3: 18/01 - 22/01
+### Lab Week 3: 17/01 - 21/01
 
 **REMEMBER** to complete the end of week quiz for this week (and also end of week quiz for the previous week (if you have not already done so).
 
