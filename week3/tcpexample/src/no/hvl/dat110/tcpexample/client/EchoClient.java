@@ -13,9 +13,9 @@ public class EchoClient {
 		int serverport = Configuration.SERVERPORT;
 		int N = Configuration.N;
 		
+		// EchoClient <server> <port>
 		if (args.length > 0) {
 			
-			// TODO: more checking on command line arguments preferred
 			server = args[0];
 			serverport = Integer.parseInt(args[1]);
 			N = Integer.parseInt(args[2]);
