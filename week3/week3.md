@@ -2,9 +2,7 @@
 
 ### Lab Week 3: 17/01 - 21/01
 
-**REMEMBER** to complete the end of week quiz for this week (and also end of week quiz for the previous week (if you have not already done so).
-
-Note that some of the exercises below are marked as **optional**. These represents more challenging exercises. The first mandatory project will be about socket and network programming in Java. So even if Exercise 4.6 is optional, it is highly recommended to try to solve it in order to be well-prepared for undertaking the first project.
+Note that some of the exercises below are marked as **optional**. These represents more challenging exercises. The first mandatory project will be about socket and network programming in Java. So even if Exercise 6 is optional, it is highly recommended to try to solve it in order to be well-prepared for undertaking the first project.
 
 #### Exercise 1 - Layering and encapsulation
 
@@ -16,7 +14,7 @@ Assume that we have some data in a datagram that is to be sent from H1 via R1 an
 
 Problem P3 in Chap. 2 of the networking book with the modification that you should draw a [time sequence diagram]( https://en.wikipedia.org/wiki/Sequence_diagram) showing the interaction between the different protocol entities. Time sequence diagrams are widely used in computer science to illustrate the exchange of messages in protocols.
 
-**NOTE** There is a difference between the "global edition" and the "US edition" of the networking book. For those not having the global edition you can find the problems and the associated figures in teh lab folder on Canvas.
+**NOTE** There is a difference between the "global edition" and the "US edition" of the networking book. For those not having the global edition you can find the problems and the associated figures in the lab folder on Canvas.
 
 #### Exercise 3 - DNS and HTTP Wireshark
 
@@ -65,7 +63,7 @@ Modify the IoT system from such that multiple temperature devices (threads) can 
 
 ##### 4.5 (optional)
 
-Modify the IoT system from item 4.4.2 such that instead of using a [`sleep()`](https://docs.oracle.com/javase/tutorial/essential/concurrency/sleep.html) in the display-thread, then [`wait and notify`](https://docs.oracle.com/javase/tutorial/essential/concurrency/guardmeth.html) are used such that the sensor-thread wakeup the display-thread when a new temperature has been reported.
+Modify the IoT system from 4.4 such that instead of using a [`sleep()`](https://docs.oracle.com/javase/tutorial/essential/concurrency/sleep.html) in the display-thread, then [`wait and notify`](https://docs.oracle.com/javase/tutorial/essential/concurrency/guardmeth.html) are used such that the sensor-thread wakeup the display-thread when a new temperature has been reported.
 
 #### Exercise 5 - UDP and TCP socket and network programming
 
@@ -113,7 +111,7 @@ Would it be easy to modify the current TCP implementation with a keep-alive feat
 
 #### Exercise 6 - Socket and network programming (optional, but recommended)
 
-Consider the IoT system example from exercise 4.4:
+Consider the IoT system example from exercise 4:
 
 https://github.com/selabhvl/dat110public/tree/master/week3/iotthreads/src/no/hvl/dat110/threading
 
