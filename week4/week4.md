@@ -1,6 +1,6 @@
 ## DAT110: Distributed Systems and Network Technology
 
-### Lab Week 4: 25/01 - 29/01
+### Lab Week 4: 24/01 - 28/01
 
 Note that some of the exercises below are marked as **optional**. These represent more challenging exercises.
 
@@ -8,9 +8,7 @@ Note that some of the exercises below are marked as **optional**. These represen
 
 Problems P7 and P8 in Chap. 2 of the networking book.
 
-**NOTE** There is a difference between the "global edition" and the "US edition" of the networking book. For those not having the global edition you can find the problems and the figures being referred to here:
-
-https://hvl.instructure.com/courses/15566/files/folder/labs
+**NOTE** There is a difference between the "global edition" and the "US edition" of the networking book. For those not having the global edition you can find the problems and the figures being referred to here in the labs folder on Canvas.
 
 #### Exercise 2 - Project work
 
@@ -28,13 +26,12 @@ Use the client to access a webpage via https and use Wireshark to inspect the me
 
 Compare the messages exchanges with the messages exchanged when using the non-secure variant of the HTTP client:
 
-https://github.com/selabhvl/dat110public/tree/master/week2
-
+https://github.com/selabhvl/dat110public/tree/master/week2/apphttpclient
 #### Exercise 4 - Echo Client in a different programming language (optional)
 
 Choose a programming language different from Java. Implement the echo client from:
 
-https://github.com/selabhvl/dat110public/tree/master/week4/udpexample
+https://github.com/selabhvl/dat110public/tree/master/week3/udpexample
 
 in that language. Make the implementation interact with the server-side implemented in Java.
 
