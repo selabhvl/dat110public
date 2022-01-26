@@ -1,6 +1,6 @@
 ## DAT110: Distributed Systems and Network Technology
 
-### Lab Week 5: 1/2 - 5/2
+### Lab Week 5: 31/1 - 4/2
 
 #### Exercise 5.1 - Completing Project 1
 
@@ -10,8 +10,7 @@ https://github.com/selabhvl/dat110-project1-startcode/blob/master/README.md
 
 #### Exercise 5.2 (Warm up) - Language-based RPC (JavaRMI): Synchronous RPC ####
 
-A complete (and simple) example of using Java Remote Method Invocation (RMI) as discussed in the lecture can be found in this link.
-See the ReadMe file on how to run this example code.
+A complete (and simple) example of using Java Remote Method Invocation (RMI) as discussed in the lecture can be found in this link. See the ReadMe file on how to run this example code.
 
 https://github.com/selabhvl/dat110public/blob/master/week5/JavaRMI-DSLab1.
 
@@ -19,13 +18,9 @@ Import the code into your IDE and go through the implementation, run the example
 
 ##### Task
 
-If you run the example code, you will observe that the server (ComputeServer) is still listening on the specified port 9000
-after the client task is finished.
-You will need to manually terminate the server to close this port.
+If you run the example code, you will observe that the server (ComputeServer) is still listening on the specified port 9000 after the client task is finished. You will need to manually terminate the server to close this port.
 
-As a simple task, implement an additional method on the server that can be remotely invoked by client to terminate the server once the
-client is done with the addNumber operation.
-
+As a simple task, implement an additional method on the server that can be remotely invoked by client to terminate the server once the client is done with the addNumber operation.
 
 #### Exercise 5.3 - Synchronous RPC II
 
@@ -46,8 +41,7 @@ https://github.com/selabhvl/dat110public/tree/master/week5/JavaRMI-DSLab1
 
 #### Exercise 5.4 - Asynchronous RPC client (Threads with a callback)
 
-In this exercise, you will construct an 'asynchronous' version of the client-server RPC IoT system in Exercise 5.3 by using a callback mechanism.
-The idea is that the RPC server should notify/forward the temperature value to the Display device as soon as it receives the reading from the Temperature device.
+In this exercise, you will construct an 'asynchronous' version of the client-server RPC IoT system in Exercise 5.3 by using a callback mechanism. The idea is that the RPC server should notify/forward the temperature value to the Display device as soon as it receives the reading from the Temperature device.
 
 You will need to implement a callback function for the Display device which must be registered on the Temperature RPC server.
 
@@ -62,12 +56,11 @@ This example code demonstrates asynchronous model from the client side. That is,
 
 Modify the example code to construct an asynchronous RPC server such that the RPC server can accept multiple RPC clients connections without blocking.
 
-
 #### Exercise 5.6 - Multicast RPC (Threads with a callback)
 
 In this exercise, you will attempt to crack passwords with reasonable levels of complexity. The main goal is that we can use distributed processes to perform tasks in parallel (single computer with multicores or distributed systems).
-For this purpose, we will use the Multicast RPC approach. We will divide the cracking job into the number of available distributed nodes that we have (in this case 2 nodes because
-my CPU has 2 cores). Note that if your laptop has only one core, this will not be a parallel computation as the CPU with 1 core can only be busy with one job at a time.
+
+For this purpose, we will use the Multicast RPC approach. We will divide the cracking job into the number of available distributed nodes that we have (in this case 2 nodes because my CPU has 2 cores). Note that if your laptop has only one core, this will not be a parallel computation as the CPU with 1 core can only be busy with one job at a time.
 You will then need to use multiple computers to achieve this task.
 
 ##### Design
