@@ -79,7 +79,7 @@ public class Transmitter extends Stopable {
 			case DO_OPEN:
 				send_open();
 				state = FSMState.OPEN;
-				System.out.println("Transmitter -> OPEN");
+				System.out.println("Transmitter: CLOSED -> OPEN");
 				break;
 				
 			default:
@@ -105,7 +105,7 @@ public class Transmitter extends Stopable {
 			case DO_CLOSE:
 				send_close();
 				state = FSMState.CLOSED;
-				System.out.println("Transmitter -> CLOSED");
+				System.out.println("Transmitter: OPEN -> CLOSED");
 				break;
 				
 			default:

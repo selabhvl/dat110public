@@ -77,7 +77,7 @@ public class Receiver extends Stopable {
 			switch (event) {
 			case RECV_OPEN:
 				state = FSMState.OPEN;
-				System.out.println("Receiver -> OPEN");
+				System.out.println("Receiver: CLOSED -> OPEN");
 				break;
 				
 			default:
@@ -102,7 +102,7 @@ public class Receiver extends Stopable {
 				
 			case RECV_CLOSE:
 				state = FSMState.CLOSED;
-				System.out.println("Receiver -> CLOSED");
+				System.out.println("Receiver: OPEN -> CLOSED");
 				break;
 			default:
 				break;
