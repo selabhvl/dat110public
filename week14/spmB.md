@@ -6,7 +6,6 @@
 - Hva er mest vanlig å bruke av: "Per-router distributed control plane" og "Logically centralized control plane"? I hvilke tilfeller er den ene mer egnet enn den andre?
 - i hvilke tilfeller skal man bruke lokal routing funksjon i stedet for global?
 - Kan du fortelle kort kva "Routing function" i network layer er?
-- Når en ser på routing via/som grafer, vil "edge weight" også inkludere prosesseringstid i nodene (ruterene), eller er dette irrelevant siden det er en måleenhet for minst motstand?
 - What are the main functions implemented at the network layer?
 - Hvor mange elementer pleier det å være i forwarding table?
 - Når bør man bruke Per-router distributed control plane og når bør man bruke Logically centralized control plane?
@@ -19,7 +18,7 @@
 - Are there network layer protocols in every host/router?
 - How to convert 32 bit ip addresses to regular ip addresses
 
-### nettverk som grafer og link-kostnader
+### nettverk som grafer, link-kostnader, least-cost paths
 
 - How does a router estimate its link costs, does it ping the connected router and measure the time it takes to recieve an answer?
 - Kan en "avstand" endre seg for Node1 til Node2 når man har funnet avstanden tidligere?
@@ -28,8 +27,7 @@
 - Er det mulig at det finnes noder i en nettverks graf der kostnaden er ukjent?
 - Forstår ikke hvordan "least-cost-path" ikke altid er den korteste når det gjelder kommunikasjon mellom noder i nettverket. Kort forklaring på dette kanskje?
 - Hvordan estimerer ruterne leveringstiden? Pinger de naboene og tar tiden? 
-
-### Least-cost path Routing
+- Når en ser på routing via/som grafer, vil "edge weight" også inkludere prosesseringstid i nodene (ruterene), eller er dette irrelevant siden det er en måleenhet for minst motstand?
 - Vil utregning av "least-cost path" være en belastning på systemet om det er mange nok rutere? Eventuell hvor stor
 - Hvorfor er ikke en vei eller ruter med minst kostnad den korteste veien? Er det kun pga antall hopp eller er det noe mer som avgjør det?
 - in the third lecture video, there is talk about how to calculate least- cost path. Can this be explained again?
