@@ -1,5 +1,5 @@
 
-### nettverksnivå
+### Nettverksnivå generelt
 
 - Hvorfor har man to "planes" i forbindelse med packet forwarding?
 - Bruker routere forskjellige routing algoritmer, eller ligger det informasjon i datagrammet om hvilken algoritme routeren skal bruke for forwarding?
@@ -18,7 +18,7 @@
 - Are there network layer protocols in every host/router?
 - How to convert 32 bit ip addresses to regular ip addresses
 
-### nettverk som grafer, link-kostnader, least-cost paths
+### Nettverk som grafer, link-kostnader, least-cost paths
 
 - How does a router estimate its link costs, does it ping the connected router and measure the time it takes to recieve an answer?
 - Kan en "avstand" endre seg for Node1 til Node2 når man har funnet avstanden tidligere?
