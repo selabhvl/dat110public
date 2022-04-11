@@ -6,6 +6,10 @@ Start by creating an account on TinkerCAD if you do not already have one. Create
 
 If you have an Arduino board available, then you may choose to build the actual physical IoT access control device. Even so, it may be a good idea to prototype the design in TinkerCAD as a first step.
 
+This part of the project follows the same approach as was used in the input/output light-controller example covered in the lectures: https://github.com/selabhvl/dat110public/blob/master/week16/lightcontroller.cc
+
+From this example you can also see how to connect and control LEDs and buttons.
+
 ### Sensors
 
 You will be using the following **sensors** with *digital input*
@@ -14,12 +18,15 @@ You will be using the following **sensors** with *digital input*
 
 ![](assets/markdown-img-paste-20181028082134355.png)
 
+The PIR sensor has three legs. Motion can be detected by reading the left leg. The middle leg should be connected to 5V (+) and the right leg should be connected to GND (-).
+
 - Two pushbuttons for entering an entry code. The order in which the buttons are pushed represents the entry code
 
 ![](assets/markdown-img-paste-20181028082117798.png)
 
 ![](assets/markdown-img-paste-20181028082117798.png)
 
+You can study the light-controller example to understand how to connect and control a push button.
 
 ### Actuators
 
@@ -32,6 +39,8 @@ You will be using the following **actuators** with *digital output*
 ![](assets/yellowled.png)
 
 ![](assets/greenled.png)
+
+You can study the light-controller example to understand how to connect and control a LED.
 
 ### Functional and behavioral requirements
 
