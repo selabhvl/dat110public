@@ -4,9 +4,9 @@ In this part you will be connecting your access control device from Part A to th
 
 In part A you implemented the control part of the access control device using the TinkerCAD: https://www.tinkercad.com/ simulator. As TinkerCAD does not provide support for connecting the circuit design to the Internet, and as we do not have sufficient physical Arduino devices with network cards available for use, you will be provided with a virtual access control device implemented using Java.
 
-You are then required to implement the network part of the virtual access control device which will use the HTTP protocol to connect to a REST-based cloud service implementing using the [Spark/Java micro-service framework](http://sparkjava.com). At the end of part B, you should have a complete IoT-cloud system solution in which the IoT access control device is connected to a cloud service making it possible to track when the system has been locked/unlocked and also change the current access code.
+You are then required to implement the network part of the virtual access control device which will use the HTTP protocol to connect to a REST-based cloud service implemented using the [Spark/Java micro-service framework](http://sparkjava.com). At the end of part B, you should have a complete IoT-cloud system solution in which the IoT access control device is connected to a cloud service making it possible to track when the system has been locked/unlocked and also change the current access code.
 
-The principles that you will apply to develop your IoT-cloud solution is similar to what was demonstrated in the lectures on IoT by means of the red-green counters examples.
+The principles that you will apply to develop your IoT-cloud solution is similar to what was demonstrated in the lectures on IoT by means of the red-green counters example.
 
 ### Security and persistent storage
 
@@ -20,7 +20,7 @@ In a complete implementation of the system, we would also ensure that the servic
 
 As we have not yet covered security in the course, we will omit this. Once you have learned about security, you are encouraged to revisit your implementation and implement security mechanism as outlined above. This is not mandatory.
 
-In a complete implementation, the cloud service would also use a database for storing the information related to the REST service such that it becomes persistent across starts and stops of the service. The system would also implement fault-tolerance such that the access log was updated even if the access control device may have been without network connectivity for a while. For this project, we simply store the information in memory in the service. So be aware that information will be lost between restarts.
+In a complete implementation, the cloud service would also use a database for storing the information related to the REST service such that it becomes persistent across starts and stops of the service. The system would also implement fault-tolerance such that the access log was updated even if the access control device may have been without network connectivity for a while. For this project, we simply store the information in memory in the cloud-service. So be aware that information will be lost between restarts.
 
 ### Step 1: Clone the virtual access control device and import it into the IDE
 
@@ -54,7 +54,7 @@ Running the launch configuration created when setting up JavaFX should result in
 
 The difference compared to Part A is that the device now has an extra button labelled `N` (Network) and a blue LED. The `N` button can be pressed in order to put the device into *network mode* in which case the blue LED will be turned on.
 
-When the blue led is on and the device is in network mode, then the device will retrieve the current access code from the cloud service and it will report entries to the access log of the cloud service.
+When the blue led is on and the device is in network mode, then the device will retrieve the current access code from the cloud service and it will report entries to the access log of the cloud service. Hence, when the device is in network mode the cloud service (see Step 2 below) will have to have been implemented and running.
 
 ![](assets/ui.png)
 
@@ -179,7 +179,7 @@ You should create requests in the Postman-tool and test all the operations/servi
 
 The next step is now to implement the network communication in the access control device which is to use some of the services implemented in step 2.
 
-The implementation of the network communication is to be provided in the `RestClient.java` by completing the implementation of the following methods:
+The implementation of the network communication is to be provided in the `RestClient.java` (in the ACIoTDevice project) by completing the implementation of the following methods:
 
 - ```public AccessCode doGetAccessCode()``` which is to issue a HTTP GET request on the cloud service in order to obtain the current access code. This method will be called from the loop-function in the `AccessController.java` class immediately before checking whether a provided access code is valid, i.e., in state `CHECKING`.
 
@@ -200,9 +200,11 @@ and must be added to the build path of the Eclipse-project. Never versions of th
 
 ### Step 5: System testing
 
-Test that the implementation works properly by attempting to access the device and see that the log in the cloud service is properly updated. Try also to provide an incorrect access code. Try to also change the access code by sending a request from the Postman tool and see that the access control device correctly obtains/uses the new access code.
+Test that the implementation works properly by interacting with the IoT access control device (the JavaFX GUI) to gain access and see that the log in the cloud service is properly updated.
 
 Make sure that you have put the device into network mode first by pressing the `N` button.
+
+Try also to provide an incorrect access code. Try to also change the access code by sending a request from the Postman tool and see that the access control device correctly obtains/uses the new access code.
 
 ### Step 6: Cloud deployment - **Optional**
 

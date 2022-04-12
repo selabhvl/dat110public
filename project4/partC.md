@@ -22,7 +22,7 @@ The text should be organised into the following parts. For each section, an appr
 
 - **Conclusions** (~1/4 page) briefly summing of the status of the project, including things that was not completed or which the group did not manage to get to work properly.
 
-The report can be written using any text processing system, but the report must be delivered via Canvas as a PDF file.
+The report can be written using any text processing system, but the report must be delivered via Canvas as a **PDF file**.
 
 You are free to change the heading above, but you need to make sure that your report covers all parts listed above and that the balance between the individual parts are maintained.
 
