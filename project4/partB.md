@@ -119,7 +119,7 @@ Specifically, the following HTTP operations should be supported:
     }
 ]
 ```
-- `GET /accessdevice/log/{id}` should return a JSON representation of the access entry identified by `{id}`. As an example:
+- `GET /accessdevice/log/{id}` should return a JSON representation of the access entry identified by `{id}`. As an example submitting the request `GET /accessdevice/log/1` should return the log entry with identifier 1 as follows (assuming that log message for the entry has the content `"locked"`):
 
  ```JSON
 {
@@ -127,6 +127,7 @@ Specifically, the following HTTP operations should be supported:
     "message": "locked"
 }
 ```
+
 
 - `PUT /accessdevice/code` should update the access code stored in the cloud service to a combination of the `1` and `2` buttons. The new access code is to be contained in JSON format in the body of the request as a representation an an object of the class `AccessCode.java` (already implemented). As an example:
 
