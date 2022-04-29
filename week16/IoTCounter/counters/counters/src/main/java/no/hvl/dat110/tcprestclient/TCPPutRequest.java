@@ -64,7 +64,6 @@ public class TCPPutRequest {
 
 			}
 
-			System.out.println("BODY:");
 			System.out.println(jsonresponse.toString());
 
 			scan.close();

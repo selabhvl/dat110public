@@ -53,7 +53,6 @@ public class TCPGetRequest {
 
 			}
 
-			System.out.println("BODY:");
 			System.out.println(jsonresponse.toString());
 
 			scan.close();

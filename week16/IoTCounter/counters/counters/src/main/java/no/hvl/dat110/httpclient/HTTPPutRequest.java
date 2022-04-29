@@ -14,6 +14,8 @@ public class HTTPPutRequest {
 	public static final MediaType JSON
     = MediaType.parse("application/json; charset=utf-8");
 	
+	private static final String URL = "http://localhost:8080/counters";
+	
 	public static void main(String[] args) {
 
 		Counters counters = new Counters(2,4);
@@ -22,7 +24,7 @@ public class HTTPPutRequest {
 
 		RequestBody body = RequestBody.create(JSON, counters.toJson());
 		
-		Request request = new Request.Builder().url("http://localhost:8080/counters").put(body).build();
+		Request request = new Request.Builder().url(URL).put(body).build();
 
 		System.out.println(request.toString());
 

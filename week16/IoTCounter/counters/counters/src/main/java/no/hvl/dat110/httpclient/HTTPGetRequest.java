@@ -8,12 +8,14 @@ import okhttp3.Response;
 
 public class HTTPGetRequest {
 
+	private static final String URL = "http://localhost:8080/counters";
+	
 	public static void main(String[] args) {
 		
 		OkHttpClient client = new OkHttpClient();
 
 		Request request = new Request.Builder()
-		  .url("http://localhost:8080/counters")
+		  .url(URL)
 		  .get()
 		  .build();
 
