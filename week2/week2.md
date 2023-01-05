@@ -10,7 +10,7 @@ Make sure that you have access to the two textbooks that are to be used in the c
 
 #### Exercise 1 - Quiz
 
-Complete the end of week2 quiz (see Canvas)
+Complete the end of week 2 quiz (see Canvas)
 
 #### Exercise 2 - Watch a movie
 
@@ -20,9 +20,9 @@ Watch the video [Warriers of the Net](https://www.youtube.com/watch?v=PBWhzz_Gn1
 
 Make sure that you have an installation of
 
-- [ ] A [Java Development Kit](https://www.oracle.com/java/technologies/javase-downloads.html) (JDK)
-- [ ] An Integrated Development Environment (IDE) or editor for the Java programming language. [Eclipse](https://www.eclipse.org/downloads/packages/release/2020-12/r/eclipse-ide-java-developers), [IntelliJ](https://www.jetbrains.com/idea/) or any other IDE for Java development will work.
-- [ ] A [Git client](https://git-scm.com/downloads) - either standalone or as an IDE plugin
+- A [Java Development Kit](https://www.oracle.com/java/technologies/javase-downloads.html) (JDK)
+- An Integrated Development Environment (IDE) or editor for the Java programming language. [Eclipse](https://www.eclipse.org/downloads/packages/release/2020-12/r/eclipse-ide-java-developers), [IntelliJ](https://www.jetbrains.com/idea/) or any other IDE for Java development will work.
+- A [Git client](https://git-scm.com/downloads) - either standalone or as an IDE plugin, or [GitHub desktop](https://desktop.github.com/)
 
 Perform a simple test to check that the tools are working properly. This can be done by cloning the git repository of the course:
 
@@ -40,7 +40,7 @@ Wireshark is a network protocol analyser that can be used to capture and analyse
 
 Download and install the [Wireshark](https://www.wireshark.org) tool.
 
-Test that the installation is working. This can be done by trying to capture packet sent to/from your wireless network card. Open a browser and point it to http://www.example.com. Find the HTTP request and response messages that were send/received.
+Test that the installation is working. This can be done by trying to capture packet sent to/from your wireless network card. Open a browser and point it to http://www.example.com. Find the HTTP request and response messages that were sent/received.
 
 A detailed description can be found here: http://www-net.cs.umass.edu/wireshark-labs/Wireshark_Intro_v7.0.pdf
 
@@ -54,11 +54,13 @@ Test that the tool is working. This can be done by creating a HTTP GET request m
 
 #### Exercise 6 - Communication Protocols (highly exam relevant)
 
-Problem P1 in Chap. 1 of Kurose and Ross.
+Problem P1 (Protocols) in Chap. 1 of Kurose and Ross.
 
 #### Exercise 7 - Communication Metrics (highly exam relevant)
 
-Problems P6 and P10 in Chap. 1 of Kurose and Ross.
+Problems P6 and P10 (Communication Metrics) in Chap. 1 of Kurose and Ross.
+
+This exercise is a good warm-up exercise for the lecture on communication metrics.
 
 #### Exercise 8 - Maven (optional for now - can be done later)
 
@@ -66,4 +68,4 @@ Maven is a software project management tool that can be used to compile, build, 
 
 Download and install the [Maven](https://maven.apache.org) tool.
 
-Test that the installation works. This can be done by creating a Maven project in the Eclipse IDE and then use Maven to compile the project. It suffices that that project contains a Hello World program in Java.
+Test that the installation works. This can be done by creating a Maven project and then use Maven to compile the project. It suffices that that project contains a Hello World program in Java.
