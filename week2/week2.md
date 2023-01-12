@@ -10,7 +10,7 @@ Make sure that you have access to the two textbooks that are to be used in the c
 
 #### Exercise 1 - Quiz
 
-Complete the end of week 2 quiz (see Canvas)
+Remember to complete the end of week 2 quiz (see Canvas)
 
 #### Exercise 2 - Watch a movie
 
@@ -32,7 +32,7 @@ and run the HTTP client example at:
 
 https://github.com/selabhvl/dat110public/tree/master/week2/apphttpclient
 
-that was briefly demonstrated in the lectures.
+that was briefly demonstrated in the lecture/lecture video.
 
 #### Exercise 4 - Wireshark
 
