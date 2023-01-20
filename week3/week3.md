@@ -14,8 +14,6 @@ Assume that we have some data in a datagram that is to be sent from H1 via R1 an
 
 Problem P3 in Chap. 2 of the networking book with the modification that you should draw a [time sequence diagram]( https://en.wikipedia.org/wiki/Sequence_diagram) showing the interaction between the different protocol entities. Time sequence diagrams are widely used in computer science to illustrate the exchange of messages in protocols.
 
-**NOTE** There is a difference between the "global edition" and the "US edition" of the networking book. For those not having the global edition you can find the problems and the associated figures in the lab folder on Canvas.
-
 #### Exercise 3 - DNS and HTTP Wireshark
 
 Perform the Wireshark exercises on HTTP and DNS described at http://www-net.cs.umass.edu/wireshark-labs/Wireshark_HTTP_v7.0.pdf and http://www-net.cs.umass.edu/wireshark-labs/Wireshark_DNS_v7.0.pdf
@@ -67,7 +65,7 @@ Modify the IoT system from 4.4 such that instead of using a [`sleep()`](https://
 
 #### Exercise 5 - UDP and TCP socket and network programming
 
-Consider the client-server echo network application covered in the lectures this week. The source Java code for the TCP and the UDP implementation is available from https://github.com/selabhvl/dat110public/tree/master/week3/tcpexample and https://github.com/selabhvl/dat110public/tree/master/week3/udpexample
+Consider the client-server echo network application to be covered in the lectures this week. The source Java code for the TCP and the UDP implementation is available from https://github.com/selabhvl/dat110public/tree/master/week3/tcpexample and https://github.com/selabhvl/dat110public/tree/master/week3/udpexample
 
 The implementation uses the Java Socket API as documented here:
 
