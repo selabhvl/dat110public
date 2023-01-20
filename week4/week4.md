@@ -10,7 +10,7 @@ Problems P7 and P8 in Chap. 2 of the networking book.
 
 #### Exercise 2 - Project work
 
-Complete task 1 and start on task 2 on project 1. Link to project description can be found via Canvas.
+Complete task 1 and start on task 2 on project 1. The project description can be found via Canvas.
 
 #### Exercise 3 - Secure HTTP
 
