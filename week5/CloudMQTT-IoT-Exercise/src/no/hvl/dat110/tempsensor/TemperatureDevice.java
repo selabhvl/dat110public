@@ -22,7 +22,7 @@ public class TemperatureDevice extends Thread {
 			
 			// use the MQTTPubClient instance object to publish the temp to the MQTT Broker 
 
-		throw new RuntimeException("RPC TemperatureDevice Client Not yet implemented...");
+		throw new RuntimeException("TemperatureDevice Client Not yet implemented...");
 		
 	}
 	
