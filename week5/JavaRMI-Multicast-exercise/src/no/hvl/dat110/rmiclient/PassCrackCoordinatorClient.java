@@ -41,9 +41,10 @@ public class PassCrackCoordinatorClient {
 
 		/**
 		 *  we'll multicast the jobs to each worker. Each worker takes a keylength to define the search space
-		 *  ideally, the job should be distributed evenly among the workers. You can think about a solution to this
 		 */
 	
+		Message message = new Message();
+		
 		int i=0;
 		Map<String, Integer> workers = Utility.getWorkers();
 		Iterator<String> workernodes = workers.keySet().iterator();
@@ -51,7 +52,7 @@ public class PassCrackCoordinatorClient {
 			
 			// TODO
 			
-			// retrieve the next worker
+			// retrieve the next worker and pass the message as the argument in the constructor
 
 			// get the port of the registry on which the worker object is located
 
@@ -64,6 +65,17 @@ public class PassCrackCoordinatorClient {
 			// call the crackPassword remote method
 
 		}
+		
+		while(!message.isFound()) {
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}			
+		}
+		
+		System.exit(0);
 		
 	}
 
