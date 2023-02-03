@@ -29,6 +29,7 @@ public class ComputeServer {
 			
 			// bind the remote object (stub) in the registry			
 			registry.bind("ComputeInterface", stub);
+			
 			System.out.println("Compute RPCServer is ready");
 			
 		}catch(RemoteException | AlreadyBoundException e) {

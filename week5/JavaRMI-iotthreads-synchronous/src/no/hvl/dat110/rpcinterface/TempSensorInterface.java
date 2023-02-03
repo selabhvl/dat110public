@@ -14,5 +14,7 @@ public interface TempSensorInterface extends Remote {
 	
 	// TODO
 	// define the methods that should be remotely invoked here
-
+	public void setTemperatur(int temp);
+	
+	public int getTemperatur();
 }

@@ -39,6 +39,13 @@ public class ComputeClient {
 			int sum = ci.addNumbers(a, b);
 			System.out.println("Sum of "+a+" and "+b+" = "+ sum);
 			
+			try {
+				ci.stop();
+			}catch(Exception e) {
+				//
+			}
+			
+			
 		} catch(RemoteException | NotBoundException e) {
 			System.err.println("Error in RMI "+e.getMessage());
 			e.getStackTrace();

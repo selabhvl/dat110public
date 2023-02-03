@@ -17,17 +17,19 @@ public class DisplayDevice extends Thread {
 		System.out.println("Display device started");	
 		
 		for (int i = 0; i<COUNT;i++) {
-			
-			int temp = tm.getTemperature();
-			
-			System.out.println("DISPLAY: " + temp);
-			
-			try {
-				Thread.sleep(1000);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			
+			//synchronized(tm) {
+				try {
+					tm.wait();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				
+				int temp = tm.getTemperature();
+				
+				System.out.println("DISPLAY: " + temp);
+				
+				tm.notifyAll();
+			//}
 		}
 		
 		System.out.println("Display device stopping ... ");
