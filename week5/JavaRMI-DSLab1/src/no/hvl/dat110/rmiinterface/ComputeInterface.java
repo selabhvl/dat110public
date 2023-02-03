@@ -17,5 +17,4 @@ public interface ComputeInterface extends Remote {
 	public int addNumbers(int a, int b) throws RemoteException;
 
 	public void stop() throws RemoteException, NotBoundException;
-	//hei på deg
 }
