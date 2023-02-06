@@ -8,7 +8,7 @@ public class TemperatureMeasurement {
 		return temp;
 	}
 
-	public void setTemperature(int temp) {
+	public synchronized void setTemperature(int temp) {
 		this.temp = temp;
 	}
 			
