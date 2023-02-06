@@ -20,12 +20,6 @@ public class NodeServer {
 		this.port = port;
 	}
 	
-	public static void main(String args[]) {
-		
-		NodeServer server = new NodeServer("process1", 9091);
-		server.start();
-	}
-	
 	public void start() {
 		
 		try {

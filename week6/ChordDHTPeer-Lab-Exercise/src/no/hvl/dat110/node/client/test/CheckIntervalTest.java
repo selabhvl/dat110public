@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 import no.hvl.dat110.util.Hash;
 import no.hvl.dat110.util.Util;
 
-class DHTTestComputeLogic {
+class CheckIntervalTest {
 	
 	@BeforeEach
 	void setUp() throws Exception {
@@ -70,16 +70,16 @@ class DHTTestComputeLogic {
 		BigInteger lower9 = Hash.addressSize().subtract(new BigInteger("5"));
 		BigInteger upper9 = new BigInteger("2").mod(Hash.addressSize());
 		
-		assertFalse(Util.computeLogic(id1, lower1, upper1));
-		assertTrue(Util.computeLogic(id2, lower2, upper2));
-		assertTrue(Util.computeLogic(id3, lower3, upper3));
-		assertTrue(Util.computeLogic(id4, lower4, upper4));
-		assertTrue(Util.computeLogic(id5, lower5, upper5));
+		assertFalse(Util.checkInterval(id1, lower1, upper1));
+		assertTrue(Util.checkInterval(id2, lower2, upper2));
+		assertTrue(Util.checkInterval(id3, lower3, upper3));
+		assertTrue(Util.checkInterval(id4, lower4, upper4));
+		assertTrue(Util.checkInterval(id5, lower5, upper5));
 		
-		assertFalse(Util.computeLogic(id6, lower6, upper6));
-		assertTrue(Util.computeLogic(id7, lower7, upper7));
-		assertTrue(Util.computeLogic(id8, lower8, upper8));
-		assertFalse(Util.computeLogic(id9, lower9, upper9));
+		assertFalse(Util.checkInterval(id6, lower6, upper6));
+		assertTrue(Util.checkInterval(id7, lower7, upper7));
+		assertTrue(Util.checkInterval(id8, lower8, upper8));
+		assertFalse(Util.checkInterval(id9, lower9, upper9));
 		
 	}
 

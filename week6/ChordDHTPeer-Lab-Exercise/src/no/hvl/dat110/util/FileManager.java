@@ -16,6 +16,17 @@ import no.hvl.dat110.rpc.interfaces.NodeInterface;
 
 public class FileManager {
 	
+	public static BigInteger[] createReplicaFiles(String filename, int nreplicas) {
+		
+		// Task:given a filename, create nreplicas (1 to nreplicas)- idea, append each index to the filename before hash
+		
+		// hash the replica using the Hash.hashOf() and store it in an array
+		
+		// return the replicas as array of BigInteger
+		
+		return null;
+	}
+	
     /**
      * 
      * @throws RemoteException 
@@ -32,7 +43,7 @@ public class FileManager {
     	
     	// iterate over the replicas
     	
-    	// for each replica, add the replica to the peer if the condition: pred < replica <= peer is satisfied	
+    	// for each replica, add the replica to the peer if the condition: pred < replica <= peer is satisfied	(i.e., use Util.checkInterval)
 		
     }
 	

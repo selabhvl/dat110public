@@ -27,8 +27,14 @@ public class Util {
 	 * @param node
 	 * @return true if (pred < id <= node) or false otherwise
 	 */
-	public static boolean computeLogic(BigInteger id, BigInteger pred, BigInteger node) {
-		 
+	public static boolean checkInterval(BigInteger id, BigInteger pred, BigInteger node) {
+		
+		// Hint:
+		// using mod = 10, then the interval (6, 2) = (6, 7, 8, 9, 0, 1, 2)
+		// The interval (6, 2) using the notation above means; pred = 6 and node = 2
+		// if id = 4, then (6 < 4 <= 2) = false  
+		// if id = 9, then (6 < 9 <= 2) = true
+		
 		// Task: given an identifier, id: check whether pred < id <= node
 		
 		
@@ -51,23 +57,13 @@ public class Util {
 		return nodestr;
 	}
 	
-	public static BigInteger[] createReplicaFiles(String filename, int nreplicas) {
-		
-		// Task:given a filename, create nreplicas (1 to nreplicas)- idea, append each index to the filename before hash
-		
-		// hash the replica using the Hash.hashOf() and store it in an array
-		
-		// return the replicas as array of BigInteger
-		
-		return null;
-	}
 	
 	public static NodeInterface getProcessStub(String name, int port) {
 		
 		NodeInterface nodestub = null;
 		Registry registry = null;
 		try {
-			// Get the registry for this worker node
+			// Get the registry for this node
 			registry = LocateRegistry.getRegistry(port);		
 			
 			nodestub = (NodeInterface) registry.lookup(name);	// remote stub
