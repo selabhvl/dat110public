@@ -17,7 +17,7 @@ public class DisplayDevice extends Thread {
 		// Do the display in the MQTTSubClient
 
 		
-		throw new RuntimeException("RPC DisplayDevice Client Not yet implemented...");
+		throw new RuntimeException("DisplayDevice Client Not yet implemented...");
 		
 	}
 

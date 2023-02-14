@@ -1,6 +1,6 @@
 ## DAT110: Distributed Systems and Network Technology
 
-### Lab Week 4: 24/01 - 28/01
+### Lab Week 4: 23/01 - 27/01
 
 Note that some of the exercises below are marked as **optional**. These represent more challenging exercises.
 
@@ -8,13 +8,9 @@ Note that some of the exercises below are marked as **optional**. These represen
 
 Problems P7 and P8 in Chap. 2 of the networking book.
 
-**NOTE** There is a difference between the "global edition" and the "US edition" of the networking book. For those not having the global edition you can find the problems and the figures being referred to here in the labs folder on Canvas.
-
 #### Exercise 2 - Project work
 
-Complete task 1 and start on task 2 on project 1:
-
-https://github.com/selabhvl/dat110-project1-startcode/blob/master/README.md
+Complete task 1 and start on task 2 on project 1. The project description can be found via Canvas.
 
 #### Exercise 3 - Secure HTTP
 
@@ -27,6 +23,7 @@ Use the client to access a webpage via https and use Wireshark to inspect the me
 Compare the messages exchanges with the messages exchanged when using the non-secure variant of the HTTP client:
 
 https://github.com/selabhvl/dat110public/tree/master/week2/apphttpclient
+
 #### Exercise 4 - Echo Client in a different programming language (optional)
 
 Choose a programming language different from Java. Implement the echo client from:
@@ -35,7 +32,7 @@ https://github.com/selabhvl/dat110public/tree/master/week3/udpexample
 
 in that language. Make the implementation interact with the server-side implemented in Java.
 
-One option would be to run the Python echo client from the networking book (see Chapter 2.8)
+One option is be to run the Python echo client from the networking book (see Chapter 2.8)
 
 #### Exercise 5 - Web Service Client (optional)
 
@@ -65,11 +62,11 @@ Try to run two instances of the client at the same time. What happens?
 
 ##### Exercise 6.2
 
-Augment the server implementation such that when it is accepting a new connection, a new thread is started to handle the request and then main thread goes back waiting for incoming connections. Repeat the experiment from 5.5.1. What behaviour is observed?
+Augment the server implementation such that when it is accepting a new connection, a new thread is started to handle the request and then main thread goes back waiting for incoming connections. Repeat the experiment from 6.6.1. What behaviour is observed?
 
 ##### Exercise 6.3
 
-Creating a new thread for each new incoming connection is problematic because it makes it easy to perform denial of service attacks where a lot of clients connects at the same time forcing the server to created an excessive amount of threads. Modify the implementation from 5.5.2 such that the server has a pool of threads (of some fixed size) than can be used to handle requests. If all threads are used to handle requests that new requests will have wait.
+Creating a new thread for each new incoming connection is problematic because it makes it easy to perform denial of service attacks where a lot of clients connects at the same time forcing the server to created an excessive amount of threads. Modify the implementation from 6.6.2 such that the server has a pool of threads (of some fixed size) than can be used to handle requests. If all threads are used to handle requests that new requests will have wait.
 
 ##### Exercise 6.4
 

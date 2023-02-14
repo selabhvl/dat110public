@@ -16,8 +16,11 @@ public class WorkerCallbackImpl extends UnicastRemoteObject implements WorkerCal
 
 	private static final long serialVersionUID = -4446537814151198424L;
 
-	public WorkerCallbackImpl() throws RemoteException{
+	private Message message;
+	
+	public WorkerCallbackImpl(Message message) throws RemoteException{
 		super();
+		this.message = message;
 	}
 
 	@Override
@@ -32,6 +35,7 @@ public class WorkerCallbackImpl extends UnicastRemoteObject implements WorkerCal
 		
 		System.out.println("Password found: "+password+" | search takes "+duration+" milisecond | by "+workername);
 
+		message.setFound(true);
 	}
 
 }

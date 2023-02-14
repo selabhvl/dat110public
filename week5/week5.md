@@ -1,12 +1,12 @@
 ## DAT110: Distributed Systems and Network Technology
 
-### Lab Week 5: 31/1 - 4/2
+### Lab Week 5: 30/1 - 3/2
 
 #### Exercise 5.1 - Completing Project 1
 
 Complete the tasks on project 1:
 
-https://github.com/selabhvl/dat110-project1-startcode/blob/master/README.md
+https://github.com/lmkr/dat110-project1-rpc-startcode
 
 #### Exercise 5.2 (Warm up) - Language-based RPC (JavaRMI): Synchronous RPC ####
 
