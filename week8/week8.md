@@ -1,6 +1,6 @@
 ## DAT110: Distributed Systems and Network Technology
 
-### Lab Week 8: 21/02 - 25/02
+### Lab Week 8: 20/02 - 24/02
 
 ### Exercise 1 - Project work
 
