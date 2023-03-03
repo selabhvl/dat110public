@@ -1,4 +1,4 @@
-### Lab Week 10: 8/03 - 12/03
+### Lab Week 10: 06/03 - 10/03
 
 #### Exercise 1 - Lamport Clock (Chapter 6. pg 310-316)
 
