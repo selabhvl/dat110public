@@ -16,7 +16,8 @@ public class Client2 extends Thread {
 			
 			System.out.println("process2-"+p2.getProcessID()+": Initial Balance "+p2.getBalance());
 			
-			p2.doSomething();			// let's say an event happened and clock is incremented
+			p2.doLocalEvent();			// let's say an event happened and clock is incremented
+			
 			p2.requestInterest(0.01);
 			
 			p2.requestWithdrawal(200);

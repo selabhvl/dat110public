@@ -22,7 +22,7 @@ public interface ProcessInterface extends Remote {
 	
 	public void sendMessage(String procName, int port) throws RemoteException;	// send to only one process
 	
-	public void onReceivedMessage(Message message) throws RemoteException;
+	public void onMessageReceived(Message message) throws RemoteException;
 	
 	public Vector<Integer> getVectorclock() throws RemoteException;
 	

@@ -20,7 +20,7 @@ public class Client3 extends Thread {
 			
 			p3.requestInterest(0.01);
 			
-			p3.doSomething();					// let's say an event happened and clock is incremented
+			p3.doLocalEvent();					// let's say an event happened and clock is incremented
 			
 			p3.requestDeposit(100);
 

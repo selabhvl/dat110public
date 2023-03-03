@@ -60,7 +60,7 @@ public class VectorClock implements Serializable {
 	 */
 	public boolean deliverMessage(VectorClock vi) {
 		
-		int fromProcessIndex = vi.getIndex();
+		int pi = vi.getIndex();
 		Vector<Integer> clock_vi = vi.getVectorclock();
 		Vector<Integer> clock_vj = this.getVectorclock();
 		

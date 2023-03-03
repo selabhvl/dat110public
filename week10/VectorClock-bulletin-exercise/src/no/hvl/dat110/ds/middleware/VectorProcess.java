@@ -11,10 +11,13 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.Vector;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import no.hvl.dat110.ds.middleware.VectorProcess.QueueTask;
 import no.hvl.dat110.ds.middleware.iface.OperationType;
 import no.hvl.dat110.ds.middleware.iface.ProcessInterface;
 import no.hvl.dat110.ds.util.ProcessConfig;
@@ -35,7 +38,8 @@ public class VectorProcess extends UnicastRemoteObject implements ProcessInterfa
 	private boolean newevent = false;
 	private boolean started = false;
 	private Message receivedMessage;
-	private ExecutorService backgroundExec = Executors.newCachedThreadPool();
+	private Timer timer;
+//	private ExecutorService backgroundExec = Executors.newCachedThreadPool();
 	
 	private List<Message> queue;			// Warning this queue is not thread safe. It is your job to make it thread safe
 
@@ -79,7 +83,7 @@ public class VectorProcess extends UnicastRemoteObject implements ProcessInterfa
 		vectorclock.updateClockRule1();			// increment local clock entry
 		try {
 			ProcessInterface p = Util.getProcessStub(procName, port);	
-			p.onReceivedMessage(msg);
+			p.onMessageReceived(msg);
 			
 		} catch (RemoteException e) {
 
@@ -119,7 +123,7 @@ public class VectorProcess extends UnicastRemoteObject implements ProcessInterfa
 	}
 	
 	@Override
-	public void onReceivedMessage(Message message) throws RemoteException {
+	public void onMessageReceived(Message message) throws RemoteException {
 		
 		// implement
 		
@@ -133,8 +137,7 @@ public class VectorProcess extends UnicastRemoteObject implements ProcessInterfa
 	}
 	
 	private void deliverMessage(Message message) throws RemoteException {
-		newevent = true;
-		
+
 		receivedMessage = message;
 		vectorclock.updateClockRule2(message.getVectorClock());							// apply clock update rules: get the max for each local entry and increment the local clock	
 		
@@ -144,27 +147,28 @@ public class VectorProcess extends UnicastRemoteObject implements ProcessInterfa
 	}
 	
 	/**
-	 * Start a thread to check the queue periodically
+	 * Start a background thread to check the queue every 1sec
 	 */
 	private void checkQueue() {
 		
-		backgroundExec.execute(new Runnable() {
-
-			@Override
-			public void run() {
-				while(started) {
-					try {
-						Thread.sleep(1000);
-						processMessage();
-						if(queue.isEmpty()) 
-							started = false;					
-					} catch (InterruptedException e) {
-						//
-					}
-				}
-				
-			}		
-		});
+		timer = new Timer();
+		
+		timer.scheduleAtFixedRate(new QueueTask(), 1000, 1000);
+	}
+	
+	class QueueTask extends TimerTask {
+		
+		@Override
+		public void run() {
+			if(!started)
+				timer.cancel();
+			else {
+				processMessage();
+				if(queue.isEmpty()) 
+					started = false;
+			}
+		}
+		
 	}
 	
 	private void processMessage() {
