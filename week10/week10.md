@@ -1,5 +1,8 @@
 ### Lab Week 10: 06/03 - 10/03
 
+#### Exercise 0 - Completing Project 2
+Complete the tasks on project 2:
+
 #### Exercise 1 - Lamport Clock (Chapter 6. pg 310-316)
 
 This exercise is based on Section 6.2 of the distributed system book. The goal is to show how event ordering in distributed systems can be achieved by using Lamport logical clock.
