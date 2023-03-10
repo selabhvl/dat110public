@@ -40,13 +40,24 @@ public class Sequencer extends UnicastRemoteObject implements ProcessInterface {
 	
 	// TODO: all processes will make request to the sequencer - so synchronize
 	@Override
-	public void onReceivedMessage(Message message) throws RemoteException {
+	public void onMessageReceived(Message message) throws RemoteException {
 		// TODO
 		// increment nextid (time stamp)
+		nextid++;
+		
 		// set the nextid as the clock for the message: use setClock
-		// add the message to the queue			
+		message.setClock(nextid);
+		// add the message to the queue
+		queue.add(message);
 		// check if the ordering limit has been reached. If yes, multicast queue messages to all the replicas by calling the sendQueueMessagesToReplicas 
+		if(queue.size() >= ORDERINGLIMIT) {
+			
+			// sendQueueMessagesToReplicas()
+			
+			// reset the queue
+		}
 		// and reset nextid
+		nextid = 0;
 
 	}
 	

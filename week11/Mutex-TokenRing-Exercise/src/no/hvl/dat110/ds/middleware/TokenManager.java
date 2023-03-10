@@ -31,7 +31,7 @@ public class TokenManager extends UnicastRemoteObject implements ProcessInterfac
 	
 	// TODO: all processes will make requests to the manager at the beginning - so synchronize
 	@Override
-	public void requestToken(ProcessInterface requester) throws RemoteException {
+	public synchronized void requestToken(ProcessInterface requester) throws RemoteException {
 		// TODO
 		// check that nextid == 0.
 			// if yes, increment nextid and create a Token object with nextid as parameter

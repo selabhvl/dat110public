@@ -20,7 +20,7 @@ public interface ProcessInterface extends Remote {
 	
 	public int getProcessID() throws RemoteException;
 	
-	public void onReceivedMessage(Message message) throws RemoteException;
+	public void onMessageReceived(Message message) throws RemoteException;
 	
 	public void applyOperation() throws RemoteException;
 
