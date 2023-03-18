@@ -47,7 +47,7 @@ The project is organized as follows:
 
 - private void sendQueueMessagesToReplicas()
 
-##### Task 3: Implement this missing method in the "SequencerManager" class
+##### Task 3: Implement the missing part in the "doCheck" method in the "SequencerManager" class
 
 - private void doCheck()
 
