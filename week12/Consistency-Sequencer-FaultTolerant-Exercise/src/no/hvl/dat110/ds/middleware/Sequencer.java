@@ -44,7 +44,7 @@ public class Sequencer extends UnicastRemoteObject implements ProcessInterface {
 	
 	// TODO: all processes will make request to the sequencer - so synchronize
 	@Override
-	public void onReceivedMessage(Message message) throws RemoteException {
+	public void onMessageReceived(Message message) throws RemoteException {
 		// TODO
 		// increment nextid (time stamp)
 		// set the nextid as the clock for the message: use setClock

@@ -20,7 +20,7 @@ public class SequencerMgr2 {
 	 */
 	public static void main(String[] args) throws RemoteException {
 		
-		new SequencerManagerContainer("sequencer-mgr2", Config.PORT6, 2, 100);		// live for 100sec
+		new SequencerManagerContainer("sequencer-mgr2", Config.PORT6, 2, 150);		// live for 150sec
 
 	}
 

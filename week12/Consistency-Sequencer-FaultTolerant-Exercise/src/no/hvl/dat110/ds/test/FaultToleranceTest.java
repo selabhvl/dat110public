@@ -19,10 +19,9 @@ class FaultToleranceTest {
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		
-		// before running this unit test:
-		// start the 3 SequencerMgrs in the no.hvl.dat110.ds.sequencer.managers package
-		
+
+		//	
+		// start the processes
 		new ProcessContainer("process1", 10001, Config.PORT1);
 		new ProcessContainer("process2", 10002, Config.PORT2);
 		new ProcessContainer("process3", 10003, Config.PORT3);
@@ -31,6 +30,13 @@ class FaultToleranceTest {
 
 	@Test
 	void test() throws InterruptedException {
+		for(int i=0; i<4; i++) {
+			testIteration();
+			Thread.sleep(40000);
+		}
+	}
+	
+	private void testIteration() throws InterruptedException {
 		ProcessInterface p1 = (ProcessInterface) Util.getProcessStub("process1", Config.PORT1);
 		ProcessInterface p2 = (ProcessInterface) Util.getProcessStub("process2", Config.PORT2);
 		ProcessInterface p3 = (ProcessInterface) Util.getProcessStub("process3", Config.PORT3);
@@ -63,7 +69,6 @@ class FaultToleranceTest {
 		Assert.assertNotEquals(1000, p3finalbal, 0);
 		Assert.assertEquals(p1finalbal, p2finalbal, 0);
 		Assert.assertEquals(p1finalbal, p3finalbal, 0);
-		
 	}
 
 }
