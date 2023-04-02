@@ -1,6 +1,6 @@
 ## DAT110: Distributed Systems and Network Technology
 
-### Lab Week 14: 4/4 - 8/4
+### Lab Week 14: 10/4 - 5/4
 
 ### Exercise 1: Network Layer - Data Plane
 
@@ -43,7 +43,9 @@ What is the content of the ARP table on the host with IP address 112.223.334.1 a
 
 What will the content of the switch-table be after an IP datagram from 112.223.334.1 to 112.223.334.3 has been sent? **Justify your answer**
 
-### Exercise 4: Stopable-thread abstraction revisited
+** THE TWO EXERCISES BELOW ARE NOT PART OF 2023 VERSION **
+
+### Exercise 4: Stopable-thread abstraction revisited 
 
 The RDT framework for reliable data transfer studied earlier, and the network routing framework (NFR) to be explored in the coming weeks rely on the stopable-thread abstraction for implementation of protocol entities and network interfaces.
 
@@ -130,6 +132,6 @@ Display device stopping ...
 IoT system shutting down ...
 ```
 
-### Exercise 5: Network Routing Framework
+### Exercise 5: Network Routing Framework (NOT IN 2023)
 
 Exercises 1-3 related to the NRF framework: https://github.com/lmkr/dat110-nrf/blob/master/README.md
