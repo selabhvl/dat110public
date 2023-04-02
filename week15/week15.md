@@ -43,7 +43,7 @@ What is the content of the ARP table on the host with IP address 112.223.334.1 a
 
 What will the content of the switch-table be after an IP datagram from 112.223.334.1 to 112.223.334.3 has been sent? **Justify your answer**
 
-**THE TWO EXERCISES BELOW ARE NOT PART OF 2023 VERSION**
+# NOTE: THE EXERCISES BELOW ARE NOT PART OF 2023 VERSION
 
 ### Exercise 4: Stopable-thread abstraction revisited 
 
