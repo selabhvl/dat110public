@@ -45,7 +45,7 @@ What will the content of the switch-table be after an IP datagram from 112.223.3
 
 # NOTE: THE EXERCISES BELOW ARE NOT PART OF 2023 VERSION
 
-### Exercise 4: Stopable-thread abstraction revisited 
+### Exercise 4: Stopable-thread abstraction revisited (NOT IN 2023)
 
 The RDT framework for reliable data transfer studied earlier, and the network routing framework (NFR) to be explored in the coming weeks rely on the stopable-thread abstraction for implementation of protocol entities and network interfaces.
 
