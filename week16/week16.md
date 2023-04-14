@@ -1,6 +1,6 @@
 ## DAT110: Distributed Systems and Network Technology
 
-### Lab Week 16: 19/4 - 22/4
+### Lab Week 16: 18/4 - 21/4
 
 ### Exercise 1: Link-layer
 
