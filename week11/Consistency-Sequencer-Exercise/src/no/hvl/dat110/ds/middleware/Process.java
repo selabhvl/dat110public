@@ -100,9 +100,13 @@ public class Process extends UnicastRemoteObject implements ProcessInterface {
 	
 	private void sendMessageToSequencer(Message message) throws RemoteException {
 		// TODO
-		// get the port for the sequencer
+		
+		// get the port for the sequencer: use Util class
+
 		// get the sequencer stub: use Util class
-		// using the sequencer stub, call the remote onReceivedMessage method to send the message to the sequencer
+		
+		// using the sequencer stub, call the remote onMessageReceived method to send the message to the sequencer
+
 	}
 	
 	public void applyOperation() throws RemoteException {
@@ -119,7 +123,7 @@ public class Process extends UnicastRemoteObject implements ProcessInterface {
 	}
 	
 	@Override
-	public void onReceivedMessage(Message message) throws RemoteException {
+	public void onMessageReceived(Message message) throws RemoteException {
 		// TODO
 		// upon receipt of a message, add message to the queue	
 		// check the ordering limit, if equal to queue size, start to process the following:

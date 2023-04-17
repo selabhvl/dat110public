@@ -3,7 +3,7 @@ package no.hvl.dat110.ds.clients;
 import java.rmi.RemoteException;
 
 import no.hvl.dat110.ds.middleware.Config;
-import no.hvl.dat110.ds.middleware.WaitForEvent;
+import no.hvl.dat110.ds.middleware.WaitTask;
 import no.hvl.dat110.ds.middleware.iface.OperationType;
 import no.hvl.dat110.ds.middleware.iface.ProcessInterface;
 import no.hvl.dat110.ds.util.Util;
@@ -30,12 +30,12 @@ public class Client2 extends Thread {
 
 			// p2 is waiting until it receives a WRITE event from procName (e.g. process1): 
 			if(wait)
-				new WaitForEvent(p2, procName, OperationType.WRITE);
+				new WaitTask(p2, procName, OperationType.WRITE);
 			
 			p2.buildMessage(OperationType.READ);						// READ event message optype happened after a write event from P1
 			p2.multicastMessage();										// SEND event - send a message to other processes
 			
-		 }catch (RemoteException e) { 
+		 }catch (RemoteException | InterruptedException e) { 
 			 e.printStackTrace(); 
 		 }
 	}

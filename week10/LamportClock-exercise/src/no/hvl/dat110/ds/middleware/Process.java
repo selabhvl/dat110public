@@ -127,7 +127,7 @@ public class Process extends UnicastRemoteObject implements ProcessInterface {
 		
 		// implement the remaining
 		
-		// sort the queue according to timestamp and processID
+//		 sort the queue according to timestamp and processID
 		
 		// check the clock of the sending process
 		
@@ -191,7 +191,7 @@ public class Process extends UnicastRemoteObject implements ProcessInterface {
 	}
 
 	@Override
-	public void doSomething() throws RemoteException {
+	public void doLocalEvent() throws RemoteException {
 		// to simulate new events
 		try {
 			Thread.sleep(500);

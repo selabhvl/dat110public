@@ -114,10 +114,13 @@ public class Process extends UnicastRemoteObject implements ProcessInterface {
 		
 		// create a new token object and pass the old token's Id as its parameter
 		
+		Token token_new = new Token(token.getTokenId());
+		
 		// set the old token to null
+		token = null;
 		
 		// forward the new token to the successor by calling the onTokenReceived remote method
-		
+		successor.onTokenReceived(token_new);
 	}
 
 	/**

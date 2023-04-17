@@ -3,7 +3,10 @@ package no.hvl.dat110.ds.middleware;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.Timer;
+import java.util.TimerTask;
 
+import no.hvl.dat110.ds.middleware.SequencerManager.WaitTask;
 import no.hvl.dat110.ds.middleware.iface.ProcessInterface;
 import no.hvl.dat110.ds.middleware.iface.SequencerManagerInterface;
 import no.hvl.dat110.ds.util.Util;
@@ -30,6 +33,8 @@ public class SequencerManager extends UnicastRemoteObject implements SequencerMa
 	private SequencerManagerInterface successor;		// the successor of this manager (succid = this.id - 1)
 	private boolean isMain;								// a variable to indicate that this is now the main manager that owns the current sequencer
 	private int ttl = 100;								// how long should this manager live. Used to simulate fault-tolerance of process group
+	private Timer timer;
+	private boolean running;
 	
 	public SequencerManager(int seqMgrId, int ttl) throws RemoteException {
 
@@ -37,8 +42,11 @@ public class SequencerManager extends UnicastRemoteObject implements SequencerMa
 		oldId = seqMgrId;
 		this.ttl = ttl;
 		
-		if(id == 1)
+		if(id == 1) {
 			isMain = true;
+			System.out.println("Creating the first Sequencer on port: "+Config.PORT4);
+			new SequencerContainer("sequencer", Config.PORT4);
+		}
 		
 		Thread shutdownhook = new Thread(() -> System.out.println("sequencer-mgr"+seqMgrId+" is now shutting down...")); 
 		Runtime.getRuntime().addShutdownHook(shutdownhook);
@@ -50,44 +58,56 @@ public class SequencerManager extends UnicastRemoteObject implements SequencerMa
 
 	@Override
 	public void checkAlive() {
+		running = true;
+		timer = new Timer();
+		timer.scheduleAtFixedRate(new WaitTask(), 1000, 1000);
+		
+	}
+	
+	public class WaitTask extends TimerTask {
 
-		Runnable task = () -> {
-			boolean run = true;
-			while(run) {
-				try {
-					doCheck();
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
+		@Override
+		public void run() {
+			
+			if(running) {
+				doCheck();
 				if(--ttl == 1) {
-					run = false;
-					System.exit(1);
+					running = false;
 				}
-			}
-		};
-		
-		Thread thread = new Thread(task);
-		thread.start();
-		
+			} else {
+				timer.cancel();
+				System.exit(1);
+			}			
+		}
 	}
 
 	private void doCheck() {
 		
-//		System.out.println("TTL = "+ttl);
-		
 		boolean alive;
 		
-		// TODO: 
-		// check if this manager is the main (isMain), 
-			//if yes try to get the Sequencer stub and let the sequencer acknowledge by calling the remote acknowledge method
-			// if the attempt to get the sequencer fails, then the alive = false. Start a new Sequencer using the SequencerContainer
-		// if this manager is not the main (isMain = false), 
-			// Try to contact the successor-mgr by calling the remote acknowledge method on successor
-				// if the contact to successor succeeded, then alive is true and update the id by adding 1 to the successor's id
-			// if the contact failed, alive is false and decrement id by 1
-			// if alive is false and the id is 1, then this manager is the Main (isMain is true)
-
+		if(isMain) {
+			alive = true;	
+			// TODO:
+			//(1) if yes try to get the Sequencer stub and let the sequencer acknowledge by calling the remote acknowledge method
+			//(2) if the attempt to get the sequencer fails, then alive = false. Start a new Sequencer using the SequencerContainer
+			// to achieve the above, use try-catch. (1) should be in the try clause and (2) in the catch clause
+			
+		} else {
+			try {
+				alive = successor.acknowledge();
+				// update id based on successor's current id
+				id = successor.getId() + 1; 
+			} catch(Exception e) {
+				System.out.println("Cannot contact successor mgr");
+				alive = false;
+				--id;
+			}
+			
+			if(!alive && id == 1) {
+				isMain = true;					// becomes the main Manager
+				System.out.println("sequencer-mgr"+oldId+"  is now the main manager");
+			}
+		}
 	}
 	
 	@Override

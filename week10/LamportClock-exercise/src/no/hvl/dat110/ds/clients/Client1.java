@@ -17,13 +17,11 @@ public class Client1 extends Thread {
 			
 			System.out.println("process1-"+p1.getProcessID()+": Initial Balance "+p1.getBalance());
 			
-			p1.doSomething();			// let's say an event happened and clock is incremented
+			p1.doLocalEvent();			// let's say an event happened and clock is incremented
 			
 			p1.requestDeposit(100);
 			
 			p1.requestWithdrawal(200);
-
-//			p1.applyOperation();
 			
 		 }catch (RemoteException  e) { 
 			 e.printStackTrace(); 

@@ -26,6 +26,6 @@ public interface ProcessInterface extends Remote {
 	
 	public void applyOperation() throws RemoteException;
 	
-	public void doSomething() throws RemoteException;
+	public void doLocalEvent() throws RemoteException;
 
 }

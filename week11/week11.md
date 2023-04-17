@@ -1,4 +1,4 @@
-### Lab Week 11: 15/03 - 19/03
+### Lab Week 11: 12/03 - 18/03
 
 #### Consistency and Mutual Exclusion
 
