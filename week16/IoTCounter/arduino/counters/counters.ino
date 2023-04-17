@@ -3,18 +3,21 @@
 #include <SPI.h>
 #include <WiFi.h>
 
-char ssid[] = "xxx"; //  your network SSID (name)
-char pass[] = "xxx";    // your network password (use for WPA, or use as key for WEP)
+char ssid[] = "AndroidAP55BE"; //  your network SSID (name)
+char pass[] = "dat110iot";    // your network password (use for WPA, or use as key for WEP)
 
 // example.com - for debugging purposes
-IPAddress server(93, 184, 216, 34);
+// IPAddress server(93, 184, 216, 34);
 //char server[] = "www.example.com";
-int port = 80;
+// int port = 80;
 
 // aws counters REST service
-IPAddress awsserver(3, 19, 66, 128);
+// IPAddress awsserver(3, 15, 207, 203);
 //char server[] = "www.example.com";
-int awsport = 8081;
+//int awsport = 8081;
+
+IPAddress server(51, 105, 124, 161);
+int port = 8080;
 
 int status = WL_IDLE_STATUS;
 
@@ -112,7 +115,7 @@ void setup() {
   if (state == CONNECTED) {
     // doGet();
     // delay(5000);
-    doGetAws();
+    doGet();
     delay(5000);
   }
 }
@@ -165,7 +168,7 @@ void loop() {
     digitalWrite(8, LOW);
 
     if (state == CONNECTED) {
-      doPutAws();
+      doPut();
       delay(5000);
     }
 
@@ -180,17 +183,17 @@ void loop() {
   //  client.stop();
 }
 
-void doGetAws() {
+void doGet() {
 
   client.stop();
 
-  Serial.println("\ndoGetAws - Connecting to server...");
-  if (client.connect(awsserver, awsport)) {
+  Serial.println("\ndoGet - Connecting to server...");
+  if (client.connect(server, port)) {
     Serial.println("connected to server");
     // Make a HTTP request:
     client.println("GET /counters HTTP/1.1");
     client.println("Accept: application/json");
-    client.println("Host: ec2-3-19-66-128.us-east-2.compute.amazonaws.com");
+    //client.println("Host: ec2-3-19-66-128.us-east-2.compute.amazonaws.com");
     //client.println("Host: localhost");
     client.println("Connection: close");
     client.println();
@@ -203,7 +206,7 @@ String jsonred = "{\"red\":";
 String jsongreen = ",\"green\":";
 String jsonend = "}";
 
-void doPutAws() {
+void doPut() {
 
   client.stop();
 
@@ -221,13 +224,13 @@ void doPutAws() {
   Serial.println("CLEN");
   Serial.println(clen);
 
-  Serial.println("\ndoPutAws - Connecting to server...");
-  if (client.connect(awsserver, awsport)) {
+  Serial.println("\ndoPut - Connecting to server...");
+  if (client.connect(server, port)) {
     Serial.println("connected to server");
 
     // Make a HTTP request:
     client.println("PUT /counters HTTP/1.1");
-    client.println("Host: ec2-3-19-66-128.us-east-2.compute.amazonaws.com");
+    client.println("Host: smartoceanlin01.westeurope.cloudapp.azure.com");
     client.println("Content-type: application/json");
     client.println(clen); // FIXME
     client.println("Connection: close");
@@ -241,7 +244,8 @@ void doPutAws() {
     Serial.println("Unable to connect to server");
   }
 }
-void doGet() {
+
+void doGetExample() {
 
   client.stop();
 
