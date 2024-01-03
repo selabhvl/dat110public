@@ -2,7 +2,7 @@
 
 ### Lab Week 2- Software tools installation
 
-The first task in the lab-exercises in the first week is to make sure that you have a **working installation** of the software tools that is to be used in the course. In case of problems, contact one of the teaching assistants of the course.
+The first task in the lab-exercises in the first week is to make sure that you have a **working installation** of the software tools that are to be used in the course. In case of problems, contact one of the teaching assistants of the course.
 
 #### Exercise 0 - Textbooks
 
@@ -42,7 +42,7 @@ Download and install the [Wireshark](https://www.wireshark.org) tool.
 
 Test that the installation is working. This can be done by trying to capture packet sent to/from your wireless network card. Open a browser and point it to http://www.example.com. Find the HTTP request and response messages that were sent/received.
 
-A detailed description can be found here: http://www-net.cs.umass.edu/wireshark-labs/Wireshark_Intro_v7.0.pdf
+A detailed description can be found here: https://www-net.cs.umass.edu/wireshark-labs/Wireshark_Intro_v8.0.pdf
 
 #### Exercise 5 - The Postman tool
 
