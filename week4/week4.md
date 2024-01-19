@@ -32,7 +32,7 @@ https://github.com/selabhvl/dat110public/tree/master/week3/udpexample
 
 in that language. Make the implementation interact with the server-side implemented in Java.
 
-One option is be to run the Python echo client from the networking book (see Chapter 2.8)
+One option is be to run the Python echo client from the networking book (see Chapter 2.7)
 
 #### Exercise 5 - Web Service Client (optional)
 
