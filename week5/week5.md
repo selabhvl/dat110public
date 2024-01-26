@@ -6,7 +6,7 @@
 
 Complete the tasks on project 1:
 
-https://github.com/lmkr/dat110-project1-rpc-startcode
+https://github.com/selabhvl/dat110-project1-rpc-startcode
 
 #### Exercise 5.2 (Warm up) - Language-based RPC (JavaRMI): Synchronous RPC ####
 
