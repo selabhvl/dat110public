@@ -1,4 +1,4 @@
-### Lab Week 7: 13/02 - 17/02
+### Lab Week 7: 12/02 - 16/02
 
 #### Catch up on weeks 5 & 6 labs
 
