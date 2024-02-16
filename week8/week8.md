@@ -1,12 +1,12 @@
 ## DAT110: Distributed Systems and Network Technology
 
-### Lab Week 8: 20/02 - 24/02
+### Lab Week 8: 19/02 - 23/02
 
 ### Exercise 1 - Project work
 
 Complete tasks A and B on project 2:
 
-https://github.com/selabhvl/dat110-project2-startcode/blob/master/README.md
+https://github.com/selabhvl/dat110-project2-mom-startcode/blob/main/README.md
 
 ### Exercise 2 - Reliable Data Transfer
 
