@@ -8,7 +8,7 @@ import no.hvl.dat110.rmiinterface.ComputeInterface;
 /**
  * For demonstration purpose in dat110 course
  * This class is the implementation of the exposed addNumbers method in our interface.
- * @author tdoy Tosin D. Oyetoyan
+ * @author tdoy
  */
 
 public class ComputeImpl extends UnicastRemoteObject implements ComputeInterface {
@@ -25,10 +25,11 @@ public class ComputeImpl extends UnicastRemoteObject implements ComputeInterface
 
 	public int addNumbers(int a, int b) {
 		
+		System.out.println("Server has received the message: "+a + "+" + b);
 		int sum = a + b;
 		
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(10000);
 		}catch(InterruptedException e) {
 			e.printStackTrace();
 		}

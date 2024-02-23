@@ -40,7 +40,7 @@ public class ServerMainImplement extends UnicastRemoteObject implements ServerMa
 		clientcallbackobj.acknowledge("From Server: Message recieved!");		// send a message back to the client
 				
 		try {
-			Thread.sleep(8000);  // wait for 5 sec and then add numbers - simulate long task
+			Thread.sleep(8000);  // wait for 8 sec and then add numbers - simulate long task
 		} catch(Exception e) {
 			//
 		}
