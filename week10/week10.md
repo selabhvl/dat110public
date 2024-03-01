@@ -5,7 +5,7 @@ Complete the tasks on project 2:
 
 #### Exercise 1 - Lamport Clocks (Chapter 5. Section 5.2.1)
 
-This exercise is based on Section 6.2 of the distributed system book. The goal is to show how event ordering in distributed systems can be achieved by using Lamport logical clock.
+This exercise is based on Section 5.2.1 of the distributed system book. The goal is to show how event ordering in distributed systems can be achieved by using Lamport logical clock.
 
 The implementation is based on a totally-ordered multicasting where every process has the same copy of the queue first before performing their operations. This is the most basic implementation but can be optimized. A totally-ordered multicasting is crucial for replicated services to keep replicas consistent by ensuring that each replica execute the same operations in the same order.
 
