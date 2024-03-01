@@ -1,9 +1,9 @@
-### Lab Week 10: 06/03 - 10/03
+### Lab Week 10: 4/3 - 8/3
 
 #### Exercise 0 - Completing Project 2
 Complete the tasks on project 2:
 
-#### Exercise 1 - Lamport Clock (Chapter 6. pg 310-316)
+#### Exercise 1 - Lamport Clocks (Chapter 5. Section 5.2.1)
 
 This exercise is based on Section 6.2 of the distributed system book. The goal is to show how event ordering in distributed systems can be achieved by using Lamport logical clock.
 
@@ -46,7 +46,7 @@ Run the project using the LamportClockTest junit test and confirm that the the t
 #####  Testing
 - Run the LamportClockTest unit test. Correct result will show that the events are totally-ordered in each replica and the final value of the datastore is the same in all replicas.
 
-#### Exercise 2 - Vector Clock (Chapter 6. pg 316-321)
+#### Exercise 2 - Vector Clocks (Chapter 5. Section 5.2.2)
 
 We have discussed that Vector clock can be used to capture potential causal relationships between messages during exchanges. This exercise is meant to further illustrate this concept by providing an implementation of Vector clock. We are using the example on page 320 of the Distributed System book as shown in the figure below.
 ![](imgs/bulletin.png)
@@ -94,7 +94,7 @@ Run the project using the VectorClockTest junit test classes only and confirm th
 - Run the three unit tests in the no.hvl.dat110.tests package. All tests must pass showing the final vectoclock value at each process.
 
 
-#### Exercise 3 - Mutual Exclusion - Distributed Algorithm (Chapter 6. pg 323-325)
+#### Exercise 3 - Mutual Exclusion - Distributed Algorithm (Chapter 5. Section 5.3.3)
 
 - Optional challenge without any code skeleton for the algorithm.
 
