@@ -22,11 +22,13 @@ public class Client2 extends Thread {
 			
 			p2.requestWithdrawal(200);
 			
-			p2.requestDeposit(100);
-
-//			p2.applyOperation();
+			p2.requestDeposit(150);
 			
-		 }catch (RemoteException e) { 
+			Thread.sleep(3000);
+			
+			p2.applyOperation();
+			
+		 }catch (RemoteException | InterruptedException e) { 
 			 e.printStackTrace(); 
 		 }
 	}

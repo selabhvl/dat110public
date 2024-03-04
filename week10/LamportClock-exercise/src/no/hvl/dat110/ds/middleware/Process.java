@@ -97,11 +97,15 @@ public class Process extends UnicastRemoteObject implements ProcessInterface {
 	
 	@Override
 	public void onAcknowledgementReceived(Message message) throws RemoteException {
-		
+			
 		int index = exist(message);
 		if(index != -1) {
-			queue.get(index).setAcknowledged(true);	
-		}				
+			if(message.isAcknowledged()) {
+				queue.get(index).incrementAck();
+			}
+			if(queue.get(index).getNumAck() == replicas.size()-1)
+				queue.get(index).setAcknowledged(true);	
+		}	
 	}
 	
 	public void applyOperation() throws RemoteException {
@@ -135,7 +139,7 @@ public class Process extends UnicastRemoteObject implements ProcessInterface {
 
 		// increment the local clock
 		
-		// multicast acknowledgement to other processes including self
+		// multicast acknowledgement to other processes including self (setAcknowledgement to true in message)
 
 	}
 	

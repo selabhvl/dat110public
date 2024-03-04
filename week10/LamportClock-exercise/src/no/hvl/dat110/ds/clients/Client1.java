@@ -12,7 +12,7 @@ public class Client1 extends Thread {
 		
 		try { 
 
-			// Client get the process1 stub	and use it to send requests	
+			// Get the process1 stub		
 			ProcessInterface p1 = Util.getProcessStub("process1", Config.PORT1);
 			
 			System.out.println("process1-"+p1.getProcessID()+": Initial Balance "+p1.getBalance());
@@ -23,7 +23,11 @@ public class Client1 extends Thread {
 			
 			p1.requestWithdrawal(200);
 			
-		 }catch (RemoteException  e) { 
+			Thread.sleep(3000);
+			
+			p1.applyOperation();
+			
+		 }catch (RemoteException | InterruptedException  e) { 
 			 e.printStackTrace(); 
 		 }
 	}

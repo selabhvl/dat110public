@@ -23,10 +23,12 @@ public class Client3 extends Thread {
 			p3.doLocalEvent();					// let's say an event happened and clock is incremented
 			
 			p3.requestDeposit(100);
-
-//			p3.applyOperation();
 			
-		 }catch (RemoteException e) { 
+			Thread.sleep(3000);
+			
+			p3.applyOperation();
+			
+		 }catch (RemoteException | InterruptedException e) { 
 			 e.printStackTrace(); 
 		 }
 	}

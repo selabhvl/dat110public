@@ -5,12 +5,6 @@ import java.rmi.RemoteException;
 
 import no.hvl.dat110.ds.middleware.iface.OperationType;
 
-/**
- * 
- * @author tdoy
- *
- */
-
 public class Message implements Serializable {
 	
 	/**
@@ -25,11 +19,13 @@ public class Message implements Serializable {
 	private double depositamount;
 	private double interest;
 	private double withdrawamount;
+	private int numAck;
 	
 	public Message(int clock, int processID) throws RemoteException {
 		super();
 		this.clock = clock;
 		this.processID = processID;
+		this.numAck = 0;
 	}
 
 	public int getClock() {
@@ -78,6 +74,14 @@ public class Message implements Serializable {
 
 	public void setWithdrawamount(double withdrawamount) {
 		this.withdrawamount = withdrawamount;
-	}	
+	}
+
+	public int getNumAck() {
+		return numAck;
+	}
+
+	public void incrementAck() {
+		numAck++;
+	}
 
 }
