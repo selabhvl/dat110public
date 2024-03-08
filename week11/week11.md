@@ -1,8 +1,8 @@
-### Lab Week 11: 12/03 - 18/03
+### Lab Week 11: 11/03 - 15/03
 
 #### Consistency and Mutual Exclusion
 
-#### Exercise 1 - Consistency: Active Replication using sequencer & bounding ordering deviations (pg.401 & 398)
+#### Exercise 1 - Consistency: Active Replication using sequencer & bounding ordering deviations (Ch.7)
 
 Active Replication: Using a single sequencer to provide a total order for all writes propagated to replicas plus using a bounded ordering deviation to initiate when updates should be performed.
 A totally-ordered multicasting is crucial for replicated services to keep replicas consistent by ensuring that each replica execute the same operations in the same order.
@@ -47,7 +47,7 @@ Run the project using the ActiveReplicationTest junit test and confirm that the 
 #####  Testing
 - Run the ActiveReplicationTest unit test. Correct result will show that the events are totally-ordered in each replica and the final value of the datastore is the same at all replicas.
 
-#### Exercise 2 - Mutual Exclusion: Token ring (pg.325-326)
+#### Exercise 2 - Mutual Exclusion: Token ring (Ch.5)
 
 In Token ring algorithm for mutual exclusion, processes are organized as a logical ring with a token circulating between its members.
 A process is permitted to access its critical region only when it has the token. If, it has no need of the token, it simply forwards it to its successor.
