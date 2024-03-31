@@ -1,6 +1,6 @@
 ## DAT110: Distributed Systems and Network Technology
 
-### Lab Week 13: 1/4 - 5/4
+### Lab Week 14: 1/4 - 5/4
 
 ### Exercise 1: Project work
 
