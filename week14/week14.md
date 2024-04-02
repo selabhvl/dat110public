@@ -71,7 +71,7 @@ What 32-bit bit-pattern does the IP address 224.192.40.7 correspond to?
 
 #### b)
 
-Consider the CIDR (Classless Interdomain Routing) address block 224.192.40.0/22. What interval of addresses does this block span?
+Consider the CIDR (Classless Inter-Domain Routing) address block 224.192.40.0/22. What interval of addresses does this block span?
 
 #### c)
 
