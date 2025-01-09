@@ -10,7 +10,7 @@ Make sure that you have access to the two textbooks that are to be used in the c
 
 #### Exercise 1 - Quiz
 
-Remember to complete the end of week 2 quiz (see Canvas)
+Remember to complete the end of week 3 quiz (see Canvas)
 
 #### Exercise 2 - Watch a movie
 
@@ -21,7 +21,7 @@ Watch the video [Warriers of the Net](https://www.youtube.com/watch?v=PBWhzz_Gn1
 Make sure that you have an installation of
 
 - A [Java Development Kit](https://www.oracle.com/java/technologies/javase-downloads.html) (JDK)
-- An Integrated Development Environment (IDE) or editor for the Java programming language. [Eclipse](https://www.eclipse.org/downloads/packages/release/2020-12/r/eclipse-ide-java-developers), [IntelliJ](https://www.jetbrains.com/idea/) or any other IDE for Java development will work.
+- An Integrated Development Environment (IDE) or editor for the Java programming language. [Eclipse](https://www.eclipse.org/downloads/packages/release/2024-12/r/eclipse-ide-java-developers), [IntelliJ](https://www.jetbrains.com/idea/) or any other IDE for Java development will work.
 - A [Git client](https://git-scm.com/downloads) - either standalone or as an IDE plugin, or [GitHub desktop](https://desktop.github.com/)
 
 Perform a simple test to check that the tools are working properly. This can be done by cloning the git repository of the course:
