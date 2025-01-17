@@ -1,79 +1,120 @@
 ## DAT110: Distributed Systems and Network Technology
 
-### Lab Week 4: 23/01 - 27/01
+### Lab Week 3: 20/01 - 24/01
 
-Note that some of the exercises below are marked as **optional**. These represent more challenging exercises.
+Note that some of the exercises below are marked as **optional**. These represents more challenging exercises. The first mandatory project will be about socket and network programming in Java. So even if Exercise 6 is optional, it is highly recommended to try to solve it in order to be well-prepared for undertaking the first project.
 
-#### Exercise 1 - Domain Name System
+#### Exercise 1 - Layering and encapsulation
 
-Problems P7 and P8 in Chap. 2 of the networking book.
+Consider a small network with two hosts H1 and H2 and two routers R1 and R2. H1 is connected to R1, R1 is connected to R2, and R2 is connected to H2 via communication links.
 
-#### Exercise 2 - Project work
+Assume that we have some data in a datagram that is to be sent from H1 via R1 and R2 to H2. What encapsulation and decapsulation will happen on the boundaries between the network layer and link layer along the way?
 
-Complete task 1 and start on task 2 on project 1. The project description can be found via Canvas.
+#### Exercise 2 - Internet protocols and time sequence diagrams
 
-#### Exercise 3 - Secure HTTP
+Problem P3 in Chap. 2 of the networking book with the modification that you should draw a [time sequence diagram]( https://en.wikipedia.org/wiki/Sequence_diagram) showing the interaction between the different protocol entities. Time sequence diagrams are widely used in computer science to illustrate the exchange of messages in protocols.
 
-Consider the implementation of the simple HTTP client that uses HTTPS for communication:
+#### Exercise 3 - DNS and HTTP Wireshark
 
-https://github.com/selabhvl/dat110public/tree/master/week3/httpsappclient
+Perform the Wireshark exercises on HTTP and DNS described at http://www-net.cs.umass.edu/wireshark-labs/Wireshark_HTTP_v8.0.pdf and http://www-net.cs.umass.edu/wireshark-labs/Wireshark_DNS_v8.0.pdf
 
-Use the client to access a webpage via https and use Wireshark to inspect the messages exchanges. Can you get information about what the content of the retreived web page is? Why/Why not?
+#### Exercise 4 - Threads and inter-thread communication
 
-Compare the messages exchanges with the messages exchanged when using the non-secure variant of the HTTP client:
+Distributed and networked applications involve implementing exchange of message between processes that runs on different computers. In many cases, however, implementation of the application of a distributed system also involves writing multi-threaded applications where threads synchronise and communicate using shared memory. This is for instance the case when implementing multi-threaded servers and when implementing sending and reception of messages in communication protocols.
 
-https://github.com/selabhvl/dat110public/tree/master/week2/apphttpclient
+The main purpose of this exercise is to briefly recap inter-thread communication and synchronisation in Java before starting on network programming. The exercise uses the API for concurrent programming in Java https://docs.oracle.com/javase/tutorial/essential/concurrency/
 
-#### Exercise 4 - Echo Client in a different programming language (optional)
+We consider a small (emulated) IoT system consisting of a temperature device (sensor) and a display device. The sensor device and the display device runs as individual threads where the sensor-thread with periodic intervals reads the current temperature and the display-threads periodically display the current temperature.
 
-Choose a programming language different from Java. Implement the echo client from:
+An illustration of the system is shown below
 
-https://github.com/selabhvl/dat110public/tree/master/week3/udpexample
+![](iotthreads/iotsystem.jpg)
 
-in that language. Make the implementation interact with the server-side implemented in Java.
 
-One option is be to run the Python echo client from the networking book (see Chapter 2.7)
+##### 4.1
 
-#### Exercise 5 - Web Service Client (optional)
+Pull the code base for the system from the github repository: https://github.com/selabhvl/dat110public
 
-Consider the implementation of the simple HTTP client that uses HTTPS for communication:
+##### 4.2
 
-https://github.com/selabhvl/dat110public/tree/master/week3/httpsappclient
+The implementation of the system is in the Eclipse-project at: https://github.com/selabhvl/dat110public/tree/master/week4/iotthreads
 
-Revise and augment the implementation such that the client is able to interact with the dweet.io REST web service API:
+Study the implementation of the five classes in the project
 
-https://dweet.io/play/
+- [`TemperatureDevice`](https://github.com/selabhvl/dat110public/blob/master/week4/iotthreads/src/no/hvl/dat110/threading/TemperatureDevice.java) implementing the device that reports the temperature.
+- [`TemperaturSensor`](https://github.com/selabhvl/dat110public/blob/master/week4/iotthreads/src/no/hvl/dat110/threading/TemperatureSensor.java) that simulates the sensing of the temperature.
+- [`TemperatureMeasurement`](https://github.com/selabhvl/dat110public/blob/master/week4/iotthreads/src/no/hvl/dat110/threading/TemperatureMeasurement.java) that represents a measured temperature.
+- [`DisplayDevice`](https://github.com/selabhvl/dat110public/blob/master/week4/iotthreads/src/no/hvl/dat110/threading/DisplayDevice.java) implementing the device used to display the measured temperature.
+- [`IoTSystem`](https://github.com/selabhvl/dat110public/blob/master/week4/iotthreads/src/no/hvl/dat110/threading/IoTSystem.java) which configures the system and starts the threads for the temperature and display devices.
 
-As an example, the client should be able to perform GET and POST operations against the service to retrieve and post information on a topic. You may want to prototype the HTTP requests using Postman before implementing them in the Java code.
+You can run the application by running the main-method in the `IoTSystem` class.
 
-#### Exercise 6 - Multi-threaded Echo TCP server (optional and challenging)
+How does the sensor-thread and the display-thread exchange the temperature, i.e., how is the inter-thread communication implemented?
 
-Consider the echo client-server implementation based on TCP sockets:
+##### 4.3
 
-https://github.com/selabhvl/dat110public/tree/master/week3/tcpexample
+Augment the IoT system such that multiple display-threads are created each displaying the current temperature.
 
-The implementation of the server-side is single threaded which has the effect that the server is only able to service one client at a time. For the echo service this is not a real problem as the handling of a request to convert a text string takes hardly any time. If the task to performed by the server-side takes longer time, then the clients may experience delays, i.e., a poor quality of service. Servers are therefore often multi-threaded so that they can server several clients at a time.
+##### 4.4
 
-##### Exercise 6.1
+Modify the IoT system from such that multiple temperature devices (threads) can update the temperature measurement. Make sure that only one of them is doing it at a time (hint: what does the modifier [`synchronised`](https://docs.oracle.com/javase/tutorial/essential/concurrency/syncmeth.html) do in java?)
 
-Modify the server such that the server waits a certain amount of time before sending back a response (the converted text) to the client. This is to simulate some heavier processing on the server side. Set the time to for instance 10 seconds.
+##### 4.5 (optional)
 
-Try to run two instances of the client at the same time. What happens?
+Modify the IoT system from 4.4 such that instead of using a [`sleep()`](https://docs.oracle.com/javase/tutorial/essential/concurrency/sleep.html) in the display-thread, then [`wait and notify`](https://docs.oracle.com/javase/tutorial/essential/concurrency/guardmeth.html) are used such that the sensor-thread wakeup the display-thread when a new temperature has been reported.
 
-##### Exercise 6.2
+#### Exercise 5 - UDP and TCP socket and network programming
 
-Augment the server implementation such that when it is accepting a new connection, a new thread is started to handle the request and then main thread goes back waiting for incoming connections. Repeat the experiment from 6.6.1. What behaviour is observed?
+Consider the client-server echo network application to be covered in the lectures this week. The source Java code for the TCP and the UDP implementation is available from https://github.com/selabhvl/dat110public/tree/master/week3/tcpexample and https://github.com/selabhvl/dat110public/tree/master/week3/udpexample
 
-##### Exercise 6.3
+The implementation uses the Java Socket API as documented here:
 
-Creating a new thread for each new incoming connection is problematic because it makes it easy to perform denial of service attacks where a lot of clients connects at the same time forcing the server to created an excessive amount of threads. Modify the implementation from 6.6.2 such that the server has a pool of threads (of some fixed size) than can be used to handle requests. If all threads are used to handle requests that new requests will have wait.
+https://docs.oracle.com/javase/10/docs/api/java/net/package-summary.html
 
-##### Exercise 6.4
+A drawing giving an overview of the example is provided below.
 
-In addition to having a TCP port in which the server delivers its service (in this case uppercase conversion) it is also often the case that the server has a TCP port that can be used for management. Example is to stop and restart the server and also adjust the number of threads that can be used to service requests.
+![](assets/markdown-img-paste-20200122144706694.png)
 
-Modify the server such that it uses TCP port 8080 to service requests and TCP port 8081 for management. As part of this you need to device a management protocol that can be used for administrating the server.
+![](assets/markdown-img-paste-20200122144242467.png)
 
-##### Exercise 6.5
+##### 5.1
 
-Modify the server such that it relies on the HTTPS protocol for management.
+Open the two projects in Eclipse and run both the UDP and the TCP client-server example, make the two examples run.
+
+Study the implementation to to understand how network programming with sockets works.
+
+##### 5.2 (optional, you may also choose to just run the applications via the IDE)
+
+Use Eclipse (your IDE) to build an executable jar-file for the UDP client and server and the TCP client and server. Run the two executable jar-files in a shell/command prompt using
+
+`
+java -jar X.jar <command-line arguments>
+`
+
+##### 5.3 (easiest to do if you are both on the same network)
+
+Team up with one of the other students and try to run the client-side on one machine and the server side on another machine. You need to find the IP address of the machine where you intend to run the server. Also, depending on which TCP/UDP port you choose to use, you may need to configure the firewall on the machine in order to allow the TCP/UDP to pass in and out of your machine.
+
+##### 5.4
+
+Experiment with the network application when exposing to different fault-scenarios.
+
+- What happens if you start two servers on the same port?
+- What happens if the TCP client attempts to connect to the server but the server is not running?
+- Modify the server such that it sleeps for some number of seconds before returning a response. What happens if a TCP client attempts to connect when there is already another TCP client request being served?
+
+##### 5.5 (optional)
+
+Would it be easy to modify the current TCP implementation with a keep-alive feature such that a TCP connection does not have to be created for each request from the same client?
+
+#### Exercise 6 - Socket and network programming (optional, but recommended)
+
+Consider the IoT system example from exercise 4:
+
+https://github.com/selabhvl/dat110public/tree/master/week4/iotthreads/src/no/hvl/dat110/threading
+
+where communication between the temperature device and the display device was performed using a shared memory object, and where the temperature device and display device were running as two threads on the same JVM.
+
+Revise the implementation such the temperature device and the display device runs as separate processes and uses sockets for communication between the two entities. The temperature device should act as as client reporting temperature, and the display should act as a server receiving request to display the current temperature.
+
+Implement both a TCP and a UDP variant. Use the example code from exercise 5 above as inspiration for how to implement the IoT system as a networked application using sockets.
