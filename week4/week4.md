@@ -1,6 +1,6 @@
 ## DAT110: Distributed Systems and Network Technology
 
-### Lab Week 3: 20/01 - 24/01
+### Lab Week 4: 20/01 - 24/01
 
 Note that some of the exercises below are marked as **optional**. These represents more challenging exercises. The first mandatory project will be about socket and network programming in Java. So even if Exercise 6 is optional, it is highly recommended to try to solve it in order to be well-prepared for undertaking the first project.
 
