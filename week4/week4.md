@@ -65,7 +65,7 @@ Modify the IoT system from 4.4 such that instead of using a [`sleep()`](https://
 
 #### Exercise 5 - UDP and TCP socket and network programming
 
-Consider the client-server echo network application to be covered in the lectures this week. The source Java code for the TCP and the UDP implementation is available from https://github.com/selabhvl/dat110public/tree/master/week3/tcpexample and https://github.com/selabhvl/dat110public/tree/master/week3/udpexample
+Consider the client-server echo network application to be covered in the lectures this week. The source Java code for the TCP and the UDP implementation is available from https://github.com/selabhvl/dat110public/tree/master/week4/tcpexample and https://github.com/selabhvl/dat110public/tree/master/week4/udpexample
 
 The implementation uses the Java Socket API as documented here:
 
@@ -81,7 +81,7 @@ A drawing giving an overview of the example is provided below.
 
 Open the two projects in Eclipse and run both the UDP and the TCP client-server example, make the two examples run.
 
-Study the implementation to to understand how network programming with sockets works.
+Study the implementation to understand how network programming with sockets works.
 
 ##### 5.2 (optional, you may also choose to just run the applications via the IDE)
 
