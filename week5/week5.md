@@ -1,136 +1,79 @@
 ## DAT110: Distributed Systems and Network Technology
 
-### Lab Week 5: 29/1 - 2/2
+### Lab Week 5: 27/01 - 31/01
 
-#### Exercise 5.1 - Completing Project 1
+Note that some of the exercises below are marked as **optional**. These represent more challenging exercises.
 
-Complete the tasks on project 1:
+#### Exercise 1 - Domain Name System
 
-https://github.com/selabhvl/dat110-project1-rpc-startcode
+Problems P7 and P8 in Chap. 2 of the networking book.
 
-#### Exercise 5.2 (Warm up) - Language-based RPC (JavaRMI): Synchronous RPC ####
+#### Exercise 2 - Project work
 
-A complete (and simple) example of using Java Remote Method Invocation (RMI) as discussed in the lecture can be found in this link. See the ReadMe file on how to run this example code.
+Complete task 1 and start on task 2 on project 1. The project description can be found via Canvas.
 
-https://github.com/selabhvl/dat110public/blob/master/week5/JavaRMI-DSLab1.
+#### Exercise 3 - Secure HTTP
 
-Import the code into your IDE and go through the implementation, run the example to understand how it works.
+Consider the implementation of the simple HTTP client that uses HTTPS for communication:
 
-##### Task
+https://github.com/selabhvl/dat110public/tree/master/week4/httpsappclient
 
-If you run the example code, you will observe that the server (ComputeServer) is still listening on the specified port 9000 after the client task is finished. You will need to manually terminate the server to close this port.
+Use the client to access a webpage via https and use Wireshark to inspect the messages exchanges. Can you get information about what the content of the retreived web page is? Why/Why not?
 
-As a simple task, implement an additional method on the server that can be remotely invoked by client to terminate the server once the client is done with the addNumber operation.
+Compare the messages exchanges with the messages exchanged when using the non-secure variant of the HTTP client:
 
-#### Exercise 5.3 - Synchronous RPC II
+https://github.com/selabhvl/dat110public/tree/master/week3/apphttpclient
 
-In this lab exercise, you will implement the IoT system that you have implemented in project 1 using the Java RMI.
-https://github.com/selabhvl/dat110public/tree/master/week5/JavaRMI-iotthreads-synchronous
+#### Exercise 4 - Echo Client in a different programming language (optional)
 
-The main task is to implement the RPC server that accepts temperature readings from the TemperatureDevice and that allows the DisplayDevice to read/get the temperature values from its shared variable.
+Choose a programming language different from Java. Implement the echo client from:
 
-- The TemperatureDevice will save its temperature readings in the temp variable of the RPC server.
+https://github.com/selabhvl/dat110public/tree/master/week4/udpexample
 
-- The Display device will read the temperature reading from the temp variable in the RPC server.
+in that language. Make the implementation interact with the server-side implemented in Java.
 
-- When you have implemented the missing code, run the IoTSystem class
+One option is be to run the Python echo client from the networking book (see Chapter 2.7)
 
-You can use the example code here as inspiration:
-https://github.com/selabhvl/dat110public/tree/master/week5/JavaRMI-DSLab1
+#### Exercise 5 - Web Service Client (optional)
 
+Consider the implementation of the simple HTTP client that uses HTTPS for communication:
 
-#### Exercise 5.4 - Asynchronous RPC client (Threads with a callback)
+https://github.com/selabhvl/dat110public/tree/master/week4/httpsappclient
 
-In this exercise, you will construct an 'asynchronous' version of the client-server RPC IoT system in Exercise 5.3 by using a callback mechanism. The idea is that the RPC server should notify/forward the temperature value to the Display device as soon as it receives the reading from the Temperature device.
+Revise and augment the implementation such that the client is able to interact with the dweet.io REST web service API:
 
-You will need to implement a callback function for the Display device which must be registered on the Temperature RPC server.
+https://dweet.io/play/
 
-An idea of one way to construct such an asynchronous RPC client-server system can be found in the example code: https://github.com/selabhvl/dat110public/tree/master/week5/JavaRMI-Asynchronous-Client
+As an example, the client should be able to perform GET and POST operations against the service to retrieve and post information on a topic. You may want to prototype the HTTP requests using Postman before implementing them in the Java code.
 
+#### Exercise 6 - Multi-threaded Echo TCP server (optional and challenging)
 
-#### Exercise 5.5 - Asynchronous RPC Server (Threads)
+Consider the echo client-server implementation based on TCP sockets:
 
-Consider the example code: https://github.com/selabhvl/dat110public/tree/master/week5/JavaRMI-Asynchronous-Client
+https://github.com/selabhvl/dat110public/tree/master/week4/tcpexample
 
-This example code demonstrates asynchronous model from the client side. That is, the client provides unblocking mechanism by spawning a new thread and providing a callback to wait for the result from the server while the client continues its work.
+The implementation of the server-side is single threaded which has the effect that the server is only able to service one client at a time. For the echo service this is not a real problem as the handling of a request to convert a text string takes hardly any time. If the task to performed by the server-side takes longer time, then the clients may experience delays, i.e., a poor quality of service. Servers are therefore often multi-threaded so that they can server several clients at a time.
 
-Modify the example code to construct an asynchronous RPC server such that the RPC server can accept multiple RPC clients connections without blocking.
+##### Exercise 6.1
 
-#### Exercise 5.6 - Multicast RPC (Threads with a callback)
+Modify the server such that the server waits a certain amount of time before sending back a response (the converted text) to the client. This is to simulate some heavier processing on the server side. Set the time to for instance 10 seconds.
 
-In this exercise, you will attempt to crack passwords with reasonable levels of complexity. The main goal is that we can use distributed processes to perform tasks in parallel (single computer with multicores or distributed systems).
+Try to run two instances of the client at the same time. What happens?
 
-For this purpose, we will use the Multicast RPC approach. We will divide the cracking job into the number of available distributed nodes that we have (in this case 2 nodes because my CPU has 2 cores). Note that if your laptop has only one core, this will not be a parallel computation as the CPU with 1 core can only be busy with one job at a time.
-You will then need to use multiple computers to achieve this task.
+##### Exercise 6.2
 
-##### Design
-Password can be chosen from 52 alphabets (lowercase+uppercase) and 10 numbers. Our password character space is thus 62. To crack N letter password by exhaustive search (brute force), we need to search 62^N subsets. This is an exponential complexity job.
-We assume that we do not know the length of the password we want to crack. However, for the purpose of this exercise, we will only search password with length of 5 or 6 i.e. 62^5 + 62^6 subsets.
-The idea is that we want to show that distributed processes can solve computationally intensive task faster than a single process.
-To start, run the BruteForce.java located in "no.hvl.dat110.crack" package to record how long it takes for a single process (core) to crack our specified password.
-The PasswordUtility contains two methods; generateHashWithoutSalt and verifyHash. In each search, the hash of the characters we want to verify is generated and the generated hash is compared with the password hash to verify if they match.
-To employ parallelism, we will distribute the search to 2 worker nodes (2 processes) located in "no.hvl.dat110.workernodes". The jobs are distributed from the class PassCrackCoordinatorClient.java located in no.hvl.dat110.rmiclient.
+Augment the server implementation such that when it is accepting a new connection, a new thread is started to handle the request and then main thread goes back waiting for incoming connections. Repeat the experiment from 6.6.1. What behaviour is observed?
 
-- The PassCrackImpl.java contains the actual implementations of remote methods defined in the PassCrackInterface.java. The PassCrackServer is a worker/server that binds a stub of PassCrackImpl in a registry and listens on the specified port.
-- The WorkerNode1 and WorkerNode2 (no.hvl.dat110.workernodes) are instances of the PassCrackServer.
-- The WorkerCallbackInterface contains remote methods that are invoked by Workers to notify of job receipt and also notify when the password is found.
-- The implementation of the WorkerCallbackInterface (WorkerCallbackImpl) is registered in each worker node. This is done in the PassCrackCoordinatorClient class.
+##### Exercise 6.3
 
-##### Task
-You are provided with a nearly completed implementation of the system which is available here: https://github.com/selabhvl/dat110public/tree/master/week5/JavaRMI-Multicast-exercise
-- Implement the TODO tasks in the the following classes
-  - PassCrackImpl (crackPassword method)
-  - PassCrackServer (start method)
-  - Utility (getWorkerstub method)
-  - PassCrackCoordinatorClient (execute method)
-- To run the code, first start WorkerNode1 and WorkerNode2, then run the coordinator class "PassCrackCoordinatorClient". If your implementation is correct, jobs should be distributed and the call to crackPassword in the workers should start the cracking task.
-Note, it may take a while before you see any result.
+Creating a new thread for each new incoming connection is problematic because it makes it easy to perform denial of service attacks where a lot of clients connects at the same time forcing the server to created an excessive amount of threads. Modify the implementation from 6.6.2 such that the server has a pool of threads (of some fixed size) than can be used to handle requests. If all threads are used to handle requests that new requests will have wait.
 
-#### Exercise 5.7 - Message-Oriented Middleware (MoM) using MQTT protocol
+##### Exercise 6.4
 
-These exercises are based on Message-Oriented Middleware. In this exercise, you will use a MoM model to solve the IoT system challenge. You will be using a free MQTT middleware (broker) and a publish-subscribe architecture.
-The MQTT uses the publish-subscribe model where publishers(servers/clients) publish on a topic and subscribers(clients) subscribe to the topic to receive messages based on this topic.
+In addition to having a TCP port in which the server delivers its service (in this case uppercase conversion) it is also often the case that the server has a TCP port that can be used for management. Example is to stop and restart the server and also adjust the number of threads that can be used to service requests.
 
-In this exercise, you will implement the IoT system using a message-oriented middleware based in the 'cloud' and optionally, a broker installed locally on your machine.
+Modify the server such that it uses TCP port 8080 to service requests and TCP port 8081 for management. As part of this you need to device a management protocol that can be used for administrating the server.
 
-To get started, you should perform tasks 5.6.1 and 5.6.2.
+##### Exercise 6.5
 
-##### Task 5.7.1 - Setup the HiveMQ MQTT broker
-We will use the free HiveMQ and public MQTT broker for subscribing to and publishing messages to topics. You can read more here: https://www.hivemq.com/public-mqtt-broker/
-The broker url is: tcp://broker.hivemq.com:1883
-
-##### Task 5.7.2 - Test Connection to the HiveMQ MQTT broker
-
-To test whether you can connect to the MQTT broker, you need to provide the following information in the Config class (located in no.hvl.dat110.mqtt.brokerclient.test) which are then used by the publisher and subscriber classes.
-
-broker: tcp://broker.hivemq.com:1883
-No username or password is needed for this test broker.
-Test that you can connect to the HiveMQ MQTT and publish/subscribe to the ‘Temp’ topic by running the main method in the MQTTSubTest and MQTTPubTest classes.
-
-##### Exercise 5.7.3 - IoT System with Message Broker
-You will be implementing the virtual IoT devices as clients using the Eclipse Paho MQTT https://www.eclipse.org/paho/ client for publishing and subscribing. That is: the TemperatureDevice publishes the temperature reading to the HiveMQ MQTT broker on the topic "Temp" while the DisplayDevice subscribes to the topic "Temp" on the HiveMQ MQTT from where it receives the temperature reading.
-
-To get you started, you are provided with an initial implementation of the system which is available from here:
-
-https://github.com/selabhvl/dat110public/tree/master/week5/CloudMQTT-IoT-Exercise
-
-as an Eclipse project.
-The Paho client jar is located under the lib folder. Make sure you import the jar as an external jar into your eclipse project (Configure build path).
-
-The project contains implementations of a virtual temperature sensor and a display that you have used in previous exercises. Your task is to implement the missing parts in the TemperatureDevice and DisplayDevice classes.
-
-Run the IoTSystem class located in the package "no.hvl.dat110.simulation" to test that your implementation is working.
-
-A short tutorial on Paho-MQTT client that explains how MQTT works and the meanings of the configuration parameters can be found here: https://github.com/selabhvl/dat110public/blob/master/week5/mqtt-paho-client-tutorial.pdf
-
-##### Exercise 5.7.4 (Optional) - Use Mosquitto broker instead of the free HiveMQ MQTT broker
-
-Instead of using the free HiveMQ MQTT broker, you should now download and configure Mosquitto message broker on your machine.
-Download from: http://mosquitto.org/download/
-Follow the instructions for installation.
-
-To switch the broker to Mosquitto in your client source code (using default configurations):
-- Start the Mosquitto broker on your machine
-- Go to the Config class and change the 'broker = "tcp://<hostname:port>";' to something like: broker = "tcp://localhost:1883";
-- Clear the username and password fields.
-- Run the IoTSystem to see that everything is properly configured.
+Modify the server such that it relies on the HTTPS protocol for management.
