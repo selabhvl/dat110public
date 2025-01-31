@@ -1,56 +1,136 @@
-### Lab Week 6: 5/2 - 9/2
+## DAT110: Distributed Systems and Network Technology
 
-This exercise focuses on the Chord implementation of Distributed Hash Table (DHT). The aim is to use this exercise to further understand the concepts of name space, addressing, identifier, entities and scalable lookups in peer-to-peer distributed systems
-The current lab exercises provide implementations for testing the concept of naming, addressing, address space and size, and replication.
-The implementation contains a chord ring that is not dynamically linked together. Essential chord protocols (like join ring, stabilize ring, check predecessor, fix finger table, etc) have not been implemented. You can take this up as additional challenge.
+### Lab Week 6: 03/2 - 07/2
 
-#### Design
-The idea is that we can replicate a resource (e.g. a file) and distribute the replicas to running processes (peers) that are arranged in a ring topology. This design provides fault-tolerance and high availability for the resource.
-However, to achieve these qualities require an efficient naming system. The DHT system provides the mechanism to pair a resource to the address where it can be stored and located.
-Given a resource (e.g. a file), we can lookup the DHT system for the server(s) storing this file. The DHT system uses the same address space for naming a resource and its access point (peers).
+#### Exercise 6.1 - Completing Project 1
+
+Complete the tasks on project 1:
+
+https://github.com/selabhvl/dat110-project1-rpc-startcode
+
+#### Exercise 6.2 (Warm up) - Language-based RPC (JavaRMI): Synchronous RPC ####
+
+A complete (and simple) example of using Java Remote Method Invocation (RMI) as discussed in the lecture can be found in this link. See the ReadMe file on how to run this example code.
+
+https://github.com/selabhvl/dat110public/blob/master/week6/JavaRMI-DSLab1.
+
+Import the code into your IDE and go through the implementation, run the example to understand how it works.
+
+##### Task
+
+If you run the example code, you will observe that the server (ComputeServer) is still listening on the specified port 9000 after the client task is finished. You will need to manually terminate the server to close this port.
+
+As a simple task, implement an additional method on the server that can be remotely invoked by client to terminate the server once the client is done with the addNumber operation.
+
+#### Exercise 6.3 - Synchronous RPC II
+
+In this lab exercise, you will implement the IoT system that you have implemented in project 1 using the Java RMI.
+https://github.com/selabhvl/dat110public/tree/master/week6/JavaRMI-iotthreads-synchronous
+
+The main task is to implement the RPC server that accepts temperature readings from the TemperatureDevice and that allows the DisplayDevice to read/get the temperature values from its shared variable.
+
+- The TemperatureDevice will save its temperature readings in the temp variable of the RPC server.
+
+- The Display device will read the temperature reading from the temp variable in the RPC server.
+
+- When you have implemented the missing code, run the IoTSystem class
+
+You can use the example code here as inspiration:
+https://github.com/selabhvl/dat110public/tree/master/week6/JavaRMI-DSLab1
 
 
-To get started you need to download and import the ChordDHT project into your eclipse IDE. You can find the project here: https://github.com/selabhvl/dat110public/tree/master/week6/ChordDHTPeer-Lab-Exercise
-The project is divided into four packages:
+#### Exercise 6.4 - Asynchronous RPC client (Threads with a callback)
 
-- no.hvl.dat110.rpc.interfaces: contains an interface (NodeInterface) with methods that peers can invoke remotely
+In this exercise, you will construct an 'asynchronous' version of the client-server RPC IoT system in Exercise 6.3 by using a callback mechanism. The idea is that the RPC server should notify/forward the temperature value to the Display device as soon as it receives the reading from the Temperature device.
 
-- no.hvl.dat110.rpcserver: contains the class 'Node' which implements the remote methods. It also contains the NodeServer where the registry can be started and Node stub can be made available.
+You will need to implement a callback function for the Display device which must be registered on the Temperature RPC server.
 
-- no.hvl.dat110.node.client: contains classes that can be used to test the correctness of the distributed hash table. DHNodeTest is a unit test class. The successor and predecessor of a peer are set in the Client class, first by sorting the processes by their identifiers and next by looking at the peers before and behind this peer.
-
-- no.hvl.dat110.util: contains the Hash class for defining address space by using MD5 hash function and computing the identifier for an entity; the Util class provides method for getting a process stub and
-checking if a key lies within a node/peer and its predecessor. (pred < key <= node).
-
-#### Task 1 - Address space and size (no.hvl.dat110.util.Hash)
-
-In this task, you will implement the methods hashOf() and addressSize() in the Hash class. You must use the MD5 hash algorithm because the test cases in the DHTNodeTest class are generated using MD5 hash.
-MD5 compresses strings to 128bits, thus the address size will be 2^128 = 340282366920938463463374607431768211456.
-Note that the peers (process1, process2, process3, process4, process5) have been given identifiers from the same address space. You will find this in the Node class: nodeID = Hash.hashOf(nodename);
-Use the HashTest unit test class to test your implementation.
-
-#### Task 2 - Creating Replicas of file using the address space (2^128) (no.hvl.dat110.util.FileManager)
-
-This task requires that you replicate files using index from 0 to 3 (numReplicas = 4). That is, the index must be added to the filename to generate replicas. (e.g. for a file with name, "test", replicas will be:
-test0, test1, test2, test3. Each replica will now be named using the hash function you have implemented in Task 1. Your task here is to implement this functionality in the createReplicaFiles() method in the FileManager class.
-Use the FileManagerTest unit test class to test your implementation.
+An idea of one way to construct such an asynchronous RPC client-server system can be found in the example code: https://github.com/selabhvl/dat110public/tree/master/week5/JavaRMI-Asynchronous-Client
 
 
-#### Task 3 - Distributing file replicas to peers
-In the chord ring system, a peer has a predecessor and a successor. Identifiers (addresses) that are higher than the predecessor and lower or equal to the identifier of the peer are managed by the peer.
-Our replica is thus distributed using the simple rule: pred < replica <= peer. If the replica's id is less than or equal to a peer's identifier and greater than the identifier of the peer's predecessor, we assign the replica to this peer.
+#### Exercise 6.5 - Asynchronous RPC Server (Threads)
 
-Your tasks are to first implement the logic to check this rule: pred < replica <= peer in the checkInterval() method in the Util class. Given an identifier, id: check whether pred < id <= node. Use the CheckIntervalTest unit test class to test your checkInterval() implementation. 
-Next, you should implement the distributeReplicastoPeers() in the FileManager class. Use the FileManagerTest unit test class to test your implementation.
+Consider the example code: https://github.com/selabhvl/dat110public/tree/master/week5/JavaRMI-Asynchronous-Client
 
-#### Task 4 - Finding the peers/servers responsible for a file
-To look up a file in a chord system, we need to perform the same process in Task 3, where we replicate the file and find the peers holding each replica according to the rule. The distributed system then returns the peers to the client.
+This example code demonstrates asynchronous model from the client side. That is, the client provides unblocking mechanism by spawning a new thread and providing a callback to wait for the result from the server while the client continues its work.
 
-The major task here is to implement the requestActiveNodesForFile() method in the FileManager. Given a filename, find all the peers that hold a copy of this file.
-Use the DHTNodeTest unit test class to test your implementation.
+Modify the example code to construct an asynchronous RPC server such that the RPC server can accept multiple RPC clients connections without blocking.
 
-#### Task 5 - findSuccessor of a key (optional challenge)
-The findSuccessor(id) method is a core method in the DHT system for recursively or iteratively resolving a key from the current node/peer.
-You may need to read pg. 247-249 of the DS book and the original paper on chord system.
-To correctly implement this function, you need to maintain a finger table for each node and also implement findHighestPredecessor method that uses the finger table to find the closest predecessor peer to a key.
-As an additional challenge, implement the findSuccessor method.
+#### Exercise 6.6 - Multicast RPC (Threads with a callback)
+
+In this exercise, you will attempt to crack passwords with reasonable levels of complexity. The main goal is that we can use distributed processes to perform tasks in parallel (single computer with multicores or distributed systems).
+
+For this purpose, we will use the Multicast RPC approach. We will divide the cracking job into the number of available distributed nodes that we have (in this case 2 nodes because my CPU has 2 cores). Note that if your laptop has only one core, this will not be a parallel computation as the CPU with 1 core can only be busy with one job at a time.
+You will then need to use multiple computers to achieve this task.
+
+##### Design
+Password can be chosen from 52 alphabets (lowercase+uppercase) and 10 numbers. Our password character space is thus 62. To crack N letter password by exhaustive search (brute force), we need to search 62^N subsets. This is an exponential complexity job.
+We assume that we do not know the length of the password we want to crack. However, for the purpose of this exercise, we will only search password with length of 5 or 6 i.e. 62^5 + 62^6 subsets.
+The idea is that we want to show that distributed processes can solve computationally intensive task faster than a single process.
+To start, run the BruteForce.java located in "no.hvl.dat110.crack" package to record how long it takes for a single process (core) to crack our specified password.
+The PasswordUtility contains two methods; generateHashWithoutSalt and verifyHash. In each search, the hash of the characters we want to verify is generated and the generated hash is compared with the password hash to verify if they match.
+To employ parallelism, we will distribute the search to 2 worker nodes (2 processes) located in "no.hvl.dat110.workernodes". The jobs are distributed from the class PassCrackCoordinatorClient.java located in no.hvl.dat110.rmiclient.
+
+- The PassCrackImpl.java contains the actual implementations of remote methods defined in the PassCrackInterface.java. The PassCrackServer is a worker/server that binds a stub of PassCrackImpl in a registry and listens on the specified port.
+- The WorkerNode1 and WorkerNode2 (no.hvl.dat110.workernodes) are instances of the PassCrackServer.
+- The WorkerCallbackInterface contains remote methods that are invoked by Workers to notify of job receipt and also notify when the password is found.
+- The implementation of the WorkerCallbackInterface (WorkerCallbackImpl) is registered in each worker node. This is done in the PassCrackCoordinatorClient class.
+
+##### Task
+You are provided with a nearly completed implementation of the system which is available here: https://github.com/selabhvl/dat110public/tree/master/week5/JavaRMI-Multicast-exercise
+- Implement the TODO tasks in the the following classes
+  - PassCrackImpl (crackPassword method)
+  - PassCrackServer (start method)
+  - Utility (getWorkerstub method)
+  - PassCrackCoordinatorClient (execute method)
+- To run the code, first start WorkerNode1 and WorkerNode2, then run the coordinator class "PassCrackCoordinatorClient". If your implementation is correct, jobs should be distributed and the call to crackPassword in the workers should start the cracking task.
+Note, it may take a while before you see any result.
+
+#### Exercise 6.7 - Message-Oriented Middleware (MoM) using MQTT protocol
+
+These exercises are based on Message-Oriented Middleware. In this exercise, you will use a MoM model to solve the IoT system challenge. You will be using a free MQTT middleware (broker) and a publish-subscribe architecture.
+The MQTT uses the publish-subscribe model where publishers(servers/clients) publish on a topic and subscribers(clients) subscribe to the topic to receive messages based on this topic.
+
+In this exercise, you will implement the IoT system using a message-oriented middleware based in the 'cloud' and optionally, a broker installed locally on your machine.
+
+To get started, you should perform tasks 6.7.1 and 6.7.2.
+
+##### Task 6.7.1 - Setup the HiveMQ MQTT broker
+We will use the free HiveMQ and public MQTT broker for subscribing to and publishing messages to topics. You can read more here: https://www.hivemq.com/public-mqtt-broker/
+The broker url is: tcp://broker.hivemq.com:1883
+
+##### Task 6.7.2 - Test Connection to the HiveMQ MQTT broker
+
+To test whether you can connect to the MQTT broker, you need to provide the following information in the Config class (located in no.hvl.dat110.mqtt.brokerclient.test) which are then used by the publisher and subscriber classes.
+
+broker: tcp://broker.hivemq.com:1883
+No username or password is needed for this test broker.
+Test that you can connect to the HiveMQ MQTT and publish/subscribe to the ‘Temp’ topic by running the main method in the MQTTSubTest and MQTTPubTest classes.
+
+##### Exercise 6.7.3 - IoT System with Message Broker
+You will be implementing the virtual IoT devices as clients using the Eclipse Paho MQTT https://www.eclipse.org/paho/ client for publishing and subscribing. That is: the TemperatureDevice publishes the temperature reading to the HiveMQ MQTT broker on the topic "Temp" while the DisplayDevice subscribes to the topic "Temp" on the HiveMQ MQTT from where it receives the temperature reading.
+
+To get you started, you are provided with an initial implementation of the system which is available from here:
+
+https://github.com/selabhvl/dat110public/tree/master/week6/CloudMQTT-IoT-Exercise
+
+as an Eclipse project.
+The Paho client jar is located under the lib folder. Make sure you import the jar as an external jar into your eclipse project (Configure build path).
+
+The project contains implementations of a virtual temperature sensor and a display that you have used in previous exercises. Your task is to implement the missing parts in the TemperatureDevice and DisplayDevice classes.
+
+Run the IoTSystem class located in the package "no.hvl.dat110.simulation" to test that your implementation is working.
+
+A short tutorial on Paho-MQTT client that explains how MQTT works and the meanings of the configuration parameters can be found here: https://github.com/selabhvl/dat110public/blob/master/week6/mqtt-paho-client-tutorial.pdf
+
+##### Exercise 6.7.4 (Optional) - Use Mosquitto broker instead of the free HiveMQ MQTT broker
+
+Instead of using the free HiveMQ MQTT broker, you should now download and configure Mosquitto message broker on your machine.
+Download from: http://mosquitto.org/download/
+Follow the instructions for installation.
+
+To switch the broker to Mosquitto in your client source code (using default configurations):
+- Start the Mosquitto broker on your machine
+- Go to the Config class and change the 'broker = "tcp://<hostname:port>";' to something like: broker = "tcp://localhost:1883";
+- Clear the username and password fields.
+- Run the IoTSystem to see that everything is properly configured.

@@ -1,0 +1,3 @@
+grant codeBase "file:./JavaRMI-DSLab1/src" {
+	permission java.security.AllPermission;
+}
