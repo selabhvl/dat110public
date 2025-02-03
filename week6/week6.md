@@ -50,7 +50,7 @@ An idea of one way to construct such an asynchronous RPC client-server system ca
 
 #### Exercise 6.5 - Asynchronous RPC Server (Threads)
 
-Consider the example code: https://github.com/selabhvl/dat110public/tree/master/week5/JavaRMI-Asynchronous-Client
+Consider the example code: https://github.com/selabhvl/dat110public/tree/master/week6/JavaRMI-Asynchronous-Client
 
 This example code demonstrates asynchronous model from the client side. That is, the client provides unblocking mechanism by spawning a new thread and providing a callback to wait for the result from the server while the client continues its work.
 
