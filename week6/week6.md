@@ -45,7 +45,7 @@ In this exercise, you will construct an 'asynchronous' version of the client-ser
 
 You will need to implement a callback function for the Display device which must be registered on the Temperature RPC server.
 
-An idea of one way to construct such an asynchronous RPC client-server system can be found in the example code: https://github.com/selabhvl/dat110public/tree/master/week5/JavaRMI-Asynchronous-Client
+An idea of one way to construct such an asynchronous RPC client-server system can be found in the example code: https://github.com/selabhvl/dat110public/tree/master/week6/JavaRMI-Asynchronous-Client
 
 
 #### Exercise 6.5 - Asynchronous RPC Server (Threads)
@@ -77,7 +77,7 @@ To employ parallelism, we will distribute the search to 2 worker nodes (2 proces
 - The implementation of the WorkerCallbackInterface (WorkerCallbackImpl) is registered in each worker node. This is done in the PassCrackCoordinatorClient class.
 
 ##### Task
-You are provided with a nearly completed implementation of the system which is available here: https://github.com/selabhvl/dat110public/tree/master/week5/JavaRMI-Multicast-exercise
+You are provided with a nearly completed implementation of the system which is available here: https://github.com/selabhvl/dat110public/tree/master/week6/JavaRMI-Multicast-exercise
 - Implement the TODO tasks in the the following classes
   - PassCrackImpl (crackPassword method)
   - PassCrackServer (start method)
