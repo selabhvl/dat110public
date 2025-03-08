@@ -1,6 +1,6 @@
 ## DAT110: Distributed Systems and Network Technology
 
-### Lab Week 10: 03/03 - 07/03
+### Lab for Weeks 10 and 11: 03/03 - 14/03
 
 ### Exercise 1 - Project work
 
