@@ -1,7 +1,5 @@
 ### Lab Week 12: 17/3 - 21/3
 
-#### Exercise 0 - Completing Project 2
-Complete the tasks on project 2:
 
 #### Exercise 1 - Lamport Clocks (Chapter 5. Section 5.2.1)
 
