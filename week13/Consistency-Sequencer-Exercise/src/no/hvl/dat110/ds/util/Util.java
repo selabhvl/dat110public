@@ -17,15 +17,15 @@ import no.hvl.dat110.ds.middleware.iface.ProcessInterface;
 public class Util {
 	
 	
-	public static ProcessInterface getProcessStub(String stubID, int port) {
+	public static Object getProcessStub(String stubID, int port) {
 		
-		ProcessInterface process = null;
+		Object process = null;
 		
 		Registry registry;
 		try {
 			registry = LocateRegistry.getRegistry(port);
 			
-			process = (ProcessInterface) registry.lookup(stubID);
+			process = registry.lookup(stubID);
 		} catch (RemoteException | NotBoundException e) {
 			e.printStackTrace();
 		}

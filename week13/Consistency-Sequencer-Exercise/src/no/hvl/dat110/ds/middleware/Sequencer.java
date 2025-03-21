@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import no.hvl.dat110.ds.middleware.iface.ProcessInterface;
+import no.hvl.dat110.ds.middleware.iface.SequencerInterface;
 import no.hvl.dat110.ds.util.Util;
 
 /**
@@ -18,7 +18,7 @@ import no.hvl.dat110.ds.util.Util;
  * plus using a bounded ordering deviation to initiate when updates should be performed.
  *
  */
-public class Sequencer extends UnicastRemoteObject implements ProcessInterface {
+public class Sequencer extends UnicastRemoteObject implements SequencerInterface {
 
 	/**
 	 * 
@@ -50,7 +50,7 @@ public class Sequencer extends UnicastRemoteObject implements ProcessInterface {
 		// add the message to the queue
 		queue.add(message);
 		// check if the ordering limit has been reached. If yes, multicast queue messages to all the replicas by calling the sendQueueMessagesToReplicas 
-		if(queue.size() >= ORDERINGLIMIT) {
+		if(queue.size() == ORDERINGLIMIT) {
 			
 			// sendQueueMessagesToReplicas()
 			
@@ -69,48 +69,6 @@ public class Sequencer extends UnicastRemoteObject implements ProcessInterface {
 			// using the stub, call the onReceivedMessage remote method and forward all the messages in the queue to this remote process
 		
 		// clear the queue when done
-		
-	}
-
-	@Override
-	public void requestInterest(double interest) throws RemoteException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void requestDeposit(double amount) throws RemoteException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void requestWithdrawal(double amount) throws RemoteException {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public double getBalance() throws RemoteException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public List<Message> getQueue() throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int getProcessID() throws RemoteException {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void applyOperation() throws RemoteException {
-		// TODO Auto-generated method stub
 		
 	}
 

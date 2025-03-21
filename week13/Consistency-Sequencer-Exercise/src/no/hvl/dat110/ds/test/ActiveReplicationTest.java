@@ -42,9 +42,9 @@ class ActiveReplicationTest {
 		c2.join();
 		c3.join();
 		
-		ProcessInterface p1 = Util.getProcessStub("process1", Config.PORT1);
-		ProcessInterface p2 = Util.getProcessStub("process2", Config.PORT2);
-		ProcessInterface p3 = Util.getProcessStub("process3", Config.PORT3);
+		ProcessInterface p1 = (ProcessInterface) Util.getProcessStub("process1", Config.PORT1);
+		ProcessInterface p2 = (ProcessInterface) Util.getProcessStub("process2", Config.PORT2);
+		ProcessInterface p3 = (ProcessInterface) Util.getProcessStub("process3", Config.PORT3);
 		
 		double p1finalbal = 0;
 		double p2finalbal = 1;

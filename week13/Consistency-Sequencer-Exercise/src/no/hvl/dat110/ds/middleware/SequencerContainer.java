@@ -4,7 +4,7 @@ package no.hvl.dat110.ds.middleware;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-import no.hvl.dat110.ds.middleware.iface.ProcessInterface;
+import no.hvl.dat110.ds.middleware.iface.SequencerInterface;
 
 
 public class SequencerContainer {
@@ -15,7 +15,7 @@ public class SequencerContainer {
 			Registry registry = LocateRegistry.createRegistry(port);
 			
 			// Make a new instance of the implementation class
-			ProcessInterface proc = new Sequencer();
+			SequencerInterface proc = new Sequencer();
 			
 			// bind the remote object (stub) in the registry			
 			registry.bind(procName, proc);
