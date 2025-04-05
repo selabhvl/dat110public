@@ -1,44 +1,86 @@
 ## DAT110: Distributed Systems and Network Technology
 
-### Lab Week 15: 8/4 - 12/4
+### Lab Week 15: 7/4 - 11/4
 
-### Exercise 1: Network Layer - Data Plane
+### Exercise 1: Project work
 
-From Chapter 4 in the networking book
+Complete the remaining tasks on project 3.
 
-##### Review questions
+### Exercise 2: Network interfaces and IP address configuration
 
-R9 (forwarding), R17 (encapsulation), R20 (fragmentation), R21 (network interfaces), R22 (IP addresses) , R24 (forwarding)
+Make sure that your PC is connected to your local area network either via cable or via WiFi.
 
-##### Problems
+Start a terminal (mac) or a command prompt (windows) on your PC. Use the `ifconfig` (mac) or `ipconfig` (windows) command-line tools to find the following information:
 
-- P1 (forwarding tables), P2 (forwarding)
-- P8 (longest prefix matching), P9 (longest prefix matching), P11 (subnets)
-- P17 (fragmentation)
-- P18 (network address translation)
+1. What IP network interfaces does your PC have?
+- What is the IP address of each network interface?
+- What is the link-layer address of each network interface?
+- What is the network mask and network address of each interface?
+- What DNS server(s) have been configured?
+- What default gateways have been configured?
 
-### Exercise 2: Network Layer - Control Plane
+In case the `config` command does not provide information about DNS server(s) you can use the `nslookup` command-line tool.
 
-From Chapter 5 in the networking book
+### Exercise 3: Connectivity and routes
 
-- Review question R5 (counting to infinity problem)
-- Problem P3 (run Dikjstra's algorithm on an example network)
-- Problem P5 (run Belmann-Ford Distance Vector Algorithm on an example)
+Start a terminal (mac) or a command prompt (windows) on your PC.
 
-### Exercise 3: Link-layer - Exam Exercise 2019
+Use the `ping` tool to check Internet connectivity to the `www.example.com` host.
 
-##### a)
+Use the `traceroute` (mac) / `tracert` (windows) tool to obtain information about the route that a datagram travels from your PC to the `www.example.com`host.
 
-Explain what information is stored in an ARP table
+1. What are the IP addresses of the interfaces that the datagrams passes through.
 
-##### b)
+2. Can you locate the IP address of your default gateway as identified in Exercise 14.2 on the route?
 
-Consider a local area network consisting of three hosts with IP and MAC addresses as specified in the figure below and a switch with interfaces numbered 1-3 as specified in the figure. Assume that the ARP tables on all hosts are empty and that the switch-table on the switch is empty.
+### Exercise 4: Dynamic Host Configuration Protocol
 
-![](assets/markdown-img-paste-20200409164038903.png)
+Start the WireShark application and set it up such that it captures packets on the network interface with which you are connected to the Internet (wireless or cabled interface).
 
-What is the content of the ARP table on the host with IP address 112.223.334.1 after an IP datagram from 112.223.334.1 to 112.223.334.3 has been sent? **Justify your answer**
+We will study the operation of the DHCP protocol. To see only DHCP packets in Wireshark, you can use `bootp` as a filter.
 
-##### c)
+Now do the following:
 
-What will the content of the switch-table be after an IP datagram from 112.223.334.1 to 112.223.334.3 has been sent? **Justify your answer**
+1. Switch of your cabled or wireless network interface on your PC (can also be done using flight mode).
+2. Use `ifconfig/ipconfig` (as in Exercise 14.2) to see whether your network interface is configured with an IP address (it should not be)
+3. Try to switch on the network interface again. What DHCP packets are captured by WireShark?
+4. Use `ifconfig/ipconfig` again to check that your network interface has now been configured.
+
+### Exercise 5: Networking status
+
+Experiment with the `netstat` command-line tool on your PC.
+
+What kind of information does the tool provide?
+
+### Exercise 6: Fragmentation and Maximum Transfer Unit
+
+Consider an IPv4 datagram with a total size of 3000 bytes (including a 20 byte header) that needs to be transmitted across a communication link where the maximum transfer unit (MTU) is 1620 bytes.
+
+Assume that the original datagram identification is 888.
+
+1. How many IP datagrams will the original IP datagram be divided (fragmented) into?
+2. What is the amount of data, identification, offset, and flag in the resulting IP datagrams?
+
+See also slides from the lecture on Network Layer I.
+
+### Exercise 7: IP addresses and routing - Exam exercise from 2019
+
+#### a)
+
+What 32-bit bit-pattern does the IP address 224.192.40.7 correspond to?
+
+#### b)
+
+Consider the CIDR (Classless Inter-Domain Routing) address block 224.192.40.0/22. What interval of addresses does this block span?
+
+#### c)
+
+Consider a router with the following forwarding table.
+
+![](assets/markdown-img-paste-20200325114925185.png)
+
+At which interface (1-4) will the router forward datagrams with the following destination IP addresses? (justify the answers)
+
+1.	200.193.42.10
+2.	200.193.57.14
+3.	10.53.40.7
